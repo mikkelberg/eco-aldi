@@ -24,6 +24,7 @@ class AlignMixin(GeneralizedRCNN):
         ins_da_weight: float = 0.0,
         ins_da_input_dim: int = 1024,
         ins_da_hidden_dims: list = [1024,],
+        num_classes = int,
         **kwargs
     ):
         super(AlignMixin, self).__init__(**kwargs)
@@ -32,7 +33,7 @@ class AlignMixin(GeneralizedRCNN):
         self.ins_da_weight = ins_da_weight
 
         self.img_align = ConvDiscriminator(img_da_input_dim, hidden_dims=img_da_hidden_dims) if img_da_enabled else None
-        self.img_align = FCDiscriminator_AT(8, img_da_input_dim, img_da_hidden_dims) if img_da_AT_enabled else None
+        self.img_align = FCDiscriminator_AT(num_classes, img_da_input_dim, img_da_hidden_dims) if img_da_AT_enabled else None 
         self.ins_align = FCDiscriminator(ins_da_input_dim, hidden_dims=ins_da_hidden_dims) if ins_da_enabled else None 
 
         # register hooks so we can grab output of sub-modules
@@ -59,6 +60,7 @@ class AlignMixin(GeneralizedRCNN):
                     "ins_da_weight": cfg.DOMAIN_ADAPT.ALIGN.INS_DA_WEIGHT,
                     "ins_da_input_dim": cfg.DOMAIN_ADAPT.ALIGN.INS_DA_INPUT_DIM,
                     "ins_da_hidden_dims": cfg.DOMAIN_ADAPT.ALIGN.INS_DA_HIDDEN_DIMS,
+                    "num_classes": cfg.MODEL.ROI_HEADS.NUM_CLASSES,
                     })
 
         return ret
