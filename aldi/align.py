@@ -15,6 +15,7 @@ class AlignMixin(GeneralizedRCNN):
         self,
         *,
         img_da_enabled: bool = False,
+        img_da_AT_enabled: bool = False,
         img_da_layer: str = None,
         img_da_weight: float = 0.0,
         img_da_input_dim: int = 256,
@@ -31,6 +32,7 @@ class AlignMixin(GeneralizedRCNN):
         self.ins_da_weight = ins_da_weight
 
         self.img_align = ConvDiscriminator(img_da_input_dim, hidden_dims=img_da_hidden_dims) if img_da_enabled else None
+        self.img_align = FCDiscriminator_AT(8, img_da_input_dim, img_da_hidden_dims) if img_da_AT_enabled else None
         self.ins_align = FCDiscriminator(ins_da_input_dim, hidden_dims=ins_da_hidden_dims) if ins_da_enabled else None 
 
         # register hooks so we can grab output of sub-modules
@@ -48,6 +50,7 @@ class AlignMixin(GeneralizedRCNN):
         ret = super(AlignMixin, cls).from_config(cfg)
 
         ret.update({"img_da_enabled": cfg.DOMAIN_ADAPT.ALIGN.IMG_DA_ENABLED,
+                    "img_da_AT_enabled": cfg.DOMAIN_ADAPT.ALIGN.IMG_DA_AT_ENABLED,
                     "img_da_layer": cfg.DOMAIN_ADAPT.ALIGN.IMG_DA_LAYER,
                     "img_da_weight": cfg.DOMAIN_ADAPT.ALIGN.IMG_DA_WEIGHT,
                     "img_da_input_dim": cfg.DOMAIN_ADAPT.ALIGN.IMG_DA_INPUT_DIM,
@@ -126,3 +129,24 @@ class FCDiscriminator(torch.nn.Module):
 
     def forward(self, x):
         return self.model(x)
+    
+class FCDiscriminator_AT(torch.nn.Module):
+    def __init__(self, num_classes, ndf1=256, ndf2=128):
+        super(FCDiscriminator_AT, self).__init__()
+
+        self.conv1 = torch.nn.Conv2d(num_classes, ndf1, kernel_size=3, padding=1)
+        self.conv2 = torch.nn.Conv2d(ndf1, ndf2, kernel_size=3, padding=1)
+        self.conv3 = torch.nn.Conv2d(ndf2, ndf2, kernel_size=3, padding=1)
+        self.classifier = torch.nn.Conv2d(ndf2, 1, kernel_size=3, padding=1)
+
+        self.leaky_relu = torch.nn.LeakyReLU(negative_slope=0.2, inplace=True)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.leaky_relu(x)
+        x = self.conv2(x)
+        x = self.leaky_relu(x)
+        x = self.conv3(x)
+        x = self.leaky_relu(x)
+        x = self.classifier(x)
+        return x
