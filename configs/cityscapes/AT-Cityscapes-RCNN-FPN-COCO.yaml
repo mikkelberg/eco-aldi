@@ -6,7 +6,7 @@ EMA:
 DOMAIN_ADAPT:
   TEACHER:
     ENABLED: True
-    THRESHOLD: 0.8 # Stinna's threshold. It's better
+    THRESHOLD: 0.8
   DISTILL:
     HARD_ROIH_CLS_ENABLED: True
     HARD_ROIH_REG_ENABLED: True

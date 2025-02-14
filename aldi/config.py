@@ -37,6 +37,7 @@ def add_aldi_config(cfg):
     # Source-target alignment
     _C.DOMAIN_ADAPT.ALIGN = CN()
     _C.DOMAIN_ADAPT.ALIGN.IMG_DA_ENABLED = False
+    _C.DOMAIN_ADAPT.ALIGN.IMG_DA_AT_ENABLED = False
     _C.DOMAIN_ADAPT.ALIGN.IMG_DA_LAYER = "p2"
     _C.DOMAIN_ADAPT.ALIGN.IMG_DA_WEIGHT = 0.01
     _C.DOMAIN_ADAPT.ALIGN.IMG_DA_INPUT_DIM = 256 # = output channels of backbone
