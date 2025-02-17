@@ -1,0 +1,36 @@
+_BASE_: "./Base-RCNN-FPN-Cityscapes_strongaug_ema.yaml"
+MODEL:
+  WEIGHTS: "models/cityscapes_baseline_strongaug_ema_foggy_val_model_best_591.pth"
+EMA:
+  ENABLED: True
+DOMAIN_ADAPT:
+  TEACHER:
+    ENABLED: True
+    THRESHOLD: 0.8
+  DISTILL:
+    HARD_ROIH_CLS_ENABLED: True
+    HARD_ROIH_REG_ENABLED: True
+    HARD_OBJ_ENABLED: True
+    HARD_RPN_REG_ENABLED: True
+    ROIH_CLS_ENABLED: False
+    OBJ_ENABLED: False
+    ROIH_REG_ENABLED: False
+    RPN_REG_ENABLED: False
+  ALIGN:
+    IMG_DA_ENABLED: False
+    IMG_DA_AT_ENABLED: True
+    INS_DA_ENABLED: False
+AUG:
+  LABELED_INCLUDE_RANDOM_ERASING: True
+  UNLABELED_INCLUDE_RANDOM_ERASING: True
+  LABELED_MIC_AUG: False
+  UNLABELED_MIC_AUG: False
+DATASETS:
+  UNLABELED: ("cityscapes_foggy_train",)
+  BATCH_CONTENTS: ("labeled_strong", "unlabeled_strong")
+  BATCH_RATIOS: (1,2)
+SOLVER:
+  STEPS: (14999,)
+  MAX_ITER: 15000
+  BACKWARD_AT_END: False
+OUTPUT_DIR: "output/cityscapes/cityscapes_AT/"
