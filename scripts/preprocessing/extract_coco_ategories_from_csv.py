@@ -4,7 +4,7 @@ import pandas as pd
 import sys
 import argparse
 import os
-import COCO_util as ccu
+import utils.pitfall_cameras_util as ccu
 import re
 
 name_mappings = { # corrections for typos and redundancies that weren't caught by stanadardizing the name

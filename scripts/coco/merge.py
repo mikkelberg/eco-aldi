@@ -1,7 +1,7 @@
 import json
 import os
 import argparse
-import COCO_util as ccu 
+import utils.pitfall_cameras_util as ccu
 
 def merge_coco_json(coco_list):
     """ 
