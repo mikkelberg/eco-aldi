@@ -29,6 +29,11 @@ def get_file_prefix_from_specs(field, crop, camera, date, flash=False):
     flashstr = "_fl" if flash else ""
     return f"{location}_{date}{flashstr}_"
 
+def get_location_prefix_from_image_filename(filename: str):
+    """ takes FIELD_CROP_CAMERA_DATE_IMGNAME.JPG
+        returns FIELD_CROP_CAMERA """
+    return "_".join(filename.split("_")[0:3]) 
+
 def normalise_category_name(name:str):
     """ Normalise the string with the category name st. it's lower case and uses space separation"""
     name = name.lower()  # Convert to lowercase
