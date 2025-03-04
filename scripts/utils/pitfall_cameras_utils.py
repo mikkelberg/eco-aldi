@@ -74,3 +74,28 @@ def extract_category_name_from_region_attributes(attr):
 
 def ignored_img(filename, explanation, og_filename, og_csv_name):
     return {"filename": filename, "explanation": explanation, "original_filename": og_filename, "orignal_csv_file": og_csv_name}
+
+name_mappings = { # corrections for typos and redundancies that weren't caught by stanadardizing the name
+    "arachnid": "arachnida",
+    "amara sp": "amara",
+    "braconid": "braconidae",
+    "carabid": "carabidae", 
+    "carabid unknown": "carabidae",  
+    "carabids": "carabidae",  
+    "chalcidae": "chalcididae",
+    "dipteran larvae": "diptera larvae",
+    "gnaposidae": "gnaphosidae",
+    "isopod": "isopoda",
+    "linyphiiidae": "linyphiidae",
+    "molllusc": "mollusca",
+    "mollusc": "mollusca",
+    "molluska": "mollusca",
+    "myriapod": "myriapoda",
+    "phyllotreta sp": "phyllotreta",
+    "poecilius cupreus": "poecilus cupreus",
+    "psyllidoes chrysocephalus": "psylliodes chrysocephalus",
+    "spider": "araneae",
+    "tachyporus hyphorum": "tachyporus hypnorum",
+    "tachyprous hypnorum": "tachyporus hypnorum",
+    "unsure": "unknown"
+    }

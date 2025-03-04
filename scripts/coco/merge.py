@@ -1,7 +1,7 @@
 import json
 import os
 import argparse
-import utils.pitfall_cameras_util as ccu
+import utils.pitfall_cameras_utils as pc
 
 def merge_coco_json(coco_list):
     """ 
@@ -73,7 +73,7 @@ def merge_by_location(src_dir="data-annotations/pitfall-cameras/originals-conver
     # Create lists of paths to all files to merge for each location
     files = [f for f in os.listdir(src_dir) if os.path.isfile(os.path.join(src_dir, f)) and f.endswith(".json")]
     location_to_file_list = {}
-    for loc in ccu.LOCATIONS:
+    for loc in pc.LOCATIONS:
         location_to_file_list[loc] = []
     for f in files:
         # if file pertains to this location, add its path to the respective list
@@ -81,7 +81,7 @@ def merge_by_location(src_dir="data-annotations/pitfall-cameras/originals-conver
         if file_prefix not in location_to_file_list.keys(): raise ValueError(f"Location does not exist for file, {f}")
         location_to_file_list[file_prefix].append(os.path.join(src_dir, f))
         
-    for loc in ccu.LOCATIONS:
+    for loc in pc.LOCATIONS:
         print(f"Merging for location, {loc}...")
         merged = merge_coco_json(location_to_file_list[loc])
         save_merged_annotations(merged=merged, destination_path=dest_dir+loc+".json")

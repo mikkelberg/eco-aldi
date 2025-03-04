@@ -4,43 +4,18 @@ import pandas as pd
 import sys
 import argparse
 import os
-import utils.pitfall_cameras_util as ccu
+import utils.pitfall_cameras_utils as pc
 import re
-
-name_mappings = { # corrections for typos and redundancies that weren't caught by stanadardizing the name
-    "arachnid": "arachnida",
-    "amara sp": "amara",
-    "braconid": "braconidae",
-    "carabid": "carabidae", 
-    "carabid unknown": "carabidae",  
-    "carabids": "carabidae",  
-    "chalcidae": "chalcididae",
-    "dipteran larvae": "diptera larvae",
-    "gnaposidae": "gnaphosidae",
-    "isopod": "isopoda",
-    "linyphiiidae": "linyphiidae",
-    "molllusc": "mollusca",
-    "mollusc": "mollusca",
-    "molluska": "mollusca",
-    "myriapod": "myriapoda",
-    "phyllotreta sp": "phyllotreta",
-    "poecilius cupreus": "poecilus cupreus",
-    "psyllidoes chrysocephalus": "psylliodes chrysocephalus",
-    "spider": "araneae",
-    "tachyporus hyphorum": "tachyporus hypnorum",
-    "tachyprous hypnorum": "tachyporus hypnorum",
-    "unsure": "unknown"
-    }
 
 def clean_categories(cats):
     """Normalises all category names and merges according to typos/redundancies (manually defined in the dict above)"""
     cleaned_set = set()
 
     for category in cats:
-        normalized = ccu.normalise_category_name(category) # lower case, space separation, "unknown" comes last
+        normalized = pc.normalise_category_name(category) # lower case, space separation, "unknown" comes last
         
-        if normalized in name_mappings: # overwrite with the correction if it's there!
-            category_name = name_mappings[normalized]
+        if normalized in pc.name_mappings: # overwrite with the correction if it's there!
+            category_name = pc.name_mappings[normalized]
         else:
             category_name = normalized  
 
@@ -55,7 +30,7 @@ def extract_categories_from_vgg_csv(src):
         if row.region_count <= 0:
             continue
         # if there is a detection, append the category name
-        cat = ccu.extract_category_name_from_region_attributes(row.region_attributes)
+        cat = pc.extract_category_name_from_region_attributes(row.region_attributes)
 
         # ignore the detection, if there is not associated label with the annotation
         no_insect_label_but_was_annotated = not bool(cat)
@@ -113,7 +88,7 @@ def main():
     categories_set_clean = clean_categories(categories_set)
     coco_categories = create_coco_categories_from_set(categories_set_clean)
     print(f"Extracted {len(coco_categories)} categories from the annotations.")
-    save_categories_to_file(cats=coco_categories, mappings=name_mappings, dest_dir=args.dest_dir, filename=args.filename)
+    save_categories_to_file(cats=coco_categories, mappings=pc.name_mappings, dest_dir=args.dest_dir, filename=args.filename)
 
 
 if __name__ == "__main__":
