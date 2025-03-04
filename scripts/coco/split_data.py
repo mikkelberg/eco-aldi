@@ -78,7 +78,7 @@ def split_data(coco):
     ##### Filter out the images/annotations for each partition and write to the respective coco-object
     train, val, test = {}, {}, {}
     for partition, ids, coco_part in zip(["training", "validation", "test"], [train_ids, val_ids, test_ids], [train, val, test]):
-        coco_part = {   "info": f"{partition.upper()}-partition for: {coco["info"]}",
+        coco_part = {   "info": f"{partition.upper()}-partition for: {coco["info"]}", # FIXME not possible to write to dicts this way
                         "license": coco["license"],
                         "images": filter_images(all_images=images, image_ids_to_filter=ids),
                         "annotations": filter_annotations(all_annotations=annotations, image_ids_to_filter=ids),
