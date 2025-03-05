@@ -1,9 +1,12 @@
 import json
 import pandas as pd
-import COCO_util as ccu
 import os
 import re
-from collections import Counter
+
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import utils.pitfall_cameras_utils as pc
+from utils import utils
 
 def get_filename_for_csv_annotations(date:str, camera, flash=False):
     date_list = date.split("-")
@@ -23,7 +26,7 @@ def get_datetime_from_csv_filename(csv_name):
     return date
     
 def gen_dict_for_cam_and_date_to_img_folder_name():
-    with open(ccu.INFO_FILE_PATH, "r") as f:
+    with open(pc.INFO_FILE_PATH, "r") as f:
         folders = json.load(f)["folders"]
     date_and_camera_to_folder_name = {}
     for folder in folders.keys():
@@ -40,7 +43,7 @@ def load_json(file):
     return o
 
 def gen_info(img_folder_name):
-    info_json = load_json(ccu.INFO_FILE_PATH)
+    info_json = load_json(pc.INFO_FILE_PATH)
     specs = info_json["folders"][img_folder_name]["specs"]
     field = specs["field"]
     crop = info_json["crops"][specs["crop"]]["name"]
@@ -77,9 +80,9 @@ def annotation(row, category_id):
     return annotation
 
 def record_ignored_images(ignored_images, dest_dir):
-    already_ignored = load_json(ccu.IGNORED_IMAGES_PATH)
+    already_ignored = load_json(pc.IGNORED_IMAGES_PATH)
     if not bool(already_ignored): already_ignored = {}
-    with open(ccu.IGNORED_IMAGES_PATH, 'w') as f:
+    with open(pc.IGNORED_IMAGES_PATH, 'w') as f:
         for key in ignored_images.keys():
             if key in already_ignored:
                 already_ignored[key].append(ignored_images[key])
@@ -112,7 +115,7 @@ def convert(file_prefix, img_folder_name, csv_file_path, coco_file_destination):
         if row.region_count <= 0:
             continue
         # if there is a detection, append the annotation
-        category_name = ccu.extract_category_name_from_region_attributes(row.region_attributes)
+        category_name = pc.extract_category_name_from_region_attributes(row.region_attributes)
 
         no_insect_label_but_was_annotated = not bool(category_name)
         if no_insect_label_but_was_annotated: 
@@ -120,11 +123,11 @@ def convert(file_prefix, img_folder_name, csv_file_path, coco_file_destination):
             og_filename = row.fileid.split("_")[-1]
             if img_folder_name not in ignored_images.keys():
                 ignored_images[img_folder_name] = [] 
-            ignored_images[img_folder_name].append(ccu.ignored_img(filename=row.fileid, explanation="Incomplete annotation: No insect class in annotation (region_attributes).", og_csv_name=csv_name, og_filename=og_filename))
+            ignored_images[img_folder_name].append(pc.ignored_img(filename=row.fileid, explanation="Incomplete annotation: No insect class in annotation (region_attributes).", og_csv_name=csv_name, og_filename=og_filename))
             images_to_clean_out.add(row.fileid)
             continue
 
-        category_name = ccu.normalise_category_name(category_name)
+        category_name = pc.normalise_category_name(category_name)
         if category_name in name_mappings.keys():
             category_name = name_mappings[category_name] # make correction, if needed
         category_id = category_name_to_id[category_name]
@@ -159,9 +162,9 @@ def convert_all_vgg_csv_in_dir_to_COCO(src_dir):
 
         date = get_datetime_from_csv_filename(filename)
         img_folder_name = cam_and_date_to_img_folder_name[f"{get_camera_from_csv_filename(filename)}-{date}"]
-        specs = ccu.get_specs_from_info(img_folder_name)
+        specs = pc.get_specs_from_info(img_folder_name)
         flash = filename.split(" ")[-1].startswith("on")
-        file_prefix = ccu.get_file_prefix_from_specs(field=specs["field"], crop=specs["crop"], camera=specs["camera"], date=date, flash=flash)
+        file_prefix = pc.get_file_prefix_from_specs(field=specs["field"], crop=specs["crop"], camera=specs["camera"], date=date, flash=flash)
         
         convert(file_prefix=file_prefix, img_folder_name=img_folder_name, csv_file_path=src_file_path, coco_file_destination=f"{dest_dir}{file_prefix}.json")
         # Print progress every 5 files
@@ -169,7 +172,7 @@ def convert_all_vgg_csv_in_dir_to_COCO(src_dir):
             print(f"Processed {index} out of {total_files} files")
     
     print(f"Converted all the csv-annotations in {src_dir}")
-    with open(ccu.IGNORED_IMAGES_PATH, 'w') as f:
+    with open(pc.IGNORED_IMAGES_PATH, 'w') as f:
         json.dump(ignored_images, f, indent=4)
     print(f"Ignored {sum([len(ignored_images[key]) for key in ignored_images.keys()])} images due to errors - see the file for more details.")
     

@@ -56,7 +56,7 @@ def plot_category_prevalence_per_file(statistics_dict, output_path="data-annotat
     plt.savefig(output_path, dpi=300)
     print(f"Saved category prevalence chart as {output_path}")
 
-def plot_negative_sample_percentages(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/negative_percentage_per_file.png"):
+def plot_negative_sample_percentages(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/balanced_neg04_negative_percentage_per_file.png"):
     """
     Creates and saves visualizations comparing negative sample percentages
     across multiple datasets.
@@ -66,7 +66,7 @@ def plot_negative_sample_percentages(statistics_dict, output_path="data-annotati
     """
     datasets = list(statistics_dict.keys())
     neg_percentages = [round((stats["negative samples"]/stats["total images"])*100 , 2) for stats in statistics_dict.values()]
-    datasets, neg_percentages = sort_by_value(datasets, neg_percentages)
+    #datasets, neg_percentages = sort_by_value(datasets, neg_percentages)
 
     fig, ax = plt.subplots(1, 1, figsize=(max(10, len(datasets)*0.5), 12))
 
@@ -83,7 +83,7 @@ def plot_negative_sample_percentages(statistics_dict, output_path="data-annotati
     plt.savefig(output_path, dpi=300)
     print(f"Saved comparative statistics as {output_path}")
 
-def plot_images_per_file(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/images_per_location.png"):
+def plot_images_per_file(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/balanced_neg04_images_per_location.png"):
     """
     Creates and saves visualizations comparing the sizes of multiple datasets
     
@@ -112,7 +112,7 @@ def plot_images_per_file(statistics_dict, output_path="data-annotations/pitfall-
     print(f"Saved comparative statistics as {output_path}")
 
 
-def plot_and_save_class_distribution(class_distribution, filename="data-annotations/pitfall-cameras/info/statistics/class_distribution.png"):
+def plot_and_save_class_distribution(class_distribution, filename="data-annotations/pitfall-cameras/info/statistics/balanced_neg04_class_distribution.png"):
     """
     Plots and saves a bar chart of the class distribution.
     
@@ -140,7 +140,7 @@ ann_dir = "data-annotations/pitfall-cameras/merged-by-location"
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Plots different visualisations from a generated statistics-file.")
-    parser.add_argument("stats_path", nargs="?", help="Path to statistics-.json file.", default="data-annotations/pitfall-cameras/info/statistics/statistics.json")
+    parser.add_argument("stats_path", nargs="?", help="Path to statistics-.json file.", default="data-annotations/pitfall-cameras/info/statistics/balanced_neg04_statistics.json")
     
     # Parse the arguments
     args = parser.parse_args()
@@ -150,8 +150,8 @@ def main():
         stats = json.load(f)
     
     # Plot!
-    #plot_and_save_class_distribution(stats["overall"]["class distribution"])
-    #plot_negative_sample_percentages(stats["per file"])
+    plot_and_save_class_distribution(stats["overall"]["class distribution"])
+    plot_negative_sample_percentages(stats["per file"])
     #plot_category_prevalence_per_file(stats["per file"])
     plot_images_per_file(statistics_dict=stats["per file"])
 

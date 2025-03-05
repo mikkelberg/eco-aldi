@@ -75,12 +75,12 @@ def collect_statistics_from_directory(json_dir):
     print(json.dumps(global_stats, indent=4))
     return {"overall": global_stats, "per file": per_file_stats}
 
-ann_dir = "data-annotations/pitfall-cameras/merged-by-location"  
+ann_dir = "data-annotations/pitfall-cameras/balanced_neg_ratio_04"  
 
 
 def main():
     stats = collect_statistics_from_directory(ann_dir)
-    with open("data-annotations/pitfall-cameras/info/statistics/statistics.json", 'w') as f:
+    with open("data-annotations/pitfall-cameras/info/statistics/balanced_neg04_statistics.json", 'w') as f:
         json.dump(stats, f, indent=4)
 
 if __name__ == "__main__":
