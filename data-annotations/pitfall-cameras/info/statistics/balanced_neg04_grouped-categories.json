@@ -1,0 +1,352 @@
+{
+    "overall": {
+        "total images": 16478,
+        "total annotations": 10962,
+        "positive samples": 9889,
+        "negative samples": 6589,
+        "class distribution": {
+            "arachnida": 655,
+            "chalcididae": 2,
+            "diptera": 2722,
+            "formicidae": 573,
+            "isopoda": 67,
+            "mollusca": 1897,
+            "myriapoda": 355,
+            "unknown": 570,
+            "acari": 10,
+            "bibionidae": 11,
+            "braconidae": 8,
+            "cantharidae": 4,
+            "carabidae": 2722,
+            "chrysomelidae": 90,
+            "coccinella larvae": 143,
+            "diptera larvae": 24,
+            "elateridae": 2,
+            "staphylinidae": 981,
+            "syrphidae": 2,
+            "coccinellidae": 51,
+            "lepidoptera": 6,
+            "dermaptera": 46,
+            "argasidae": 1,
+            "carabid larvae": 3,
+            "diapriidae": 2,
+            "nitidulidae": 4,
+            "tipulidae": 11
+        }
+    },
+    "per file": {
+        "LG-WWH-NARS30": {
+            "total images": 375,
+            "total annotations": 243,
+            "positive samples": 225,
+            "negative samples": 150,
+            "class distribution": {
+                "arachnida": 655,
+                "chalcididae": 2,
+                "diptera": 2722,
+                "formicidae": 573,
+                "isopoda": 67,
+                "mollusca": 1897,
+                "myriapoda": 355,
+                "unknown": 570,
+                "acari": 10,
+                "bibionidae": 11,
+                "braconidae": 8,
+                "cantharidae": 4,
+                "carabidae": 2722,
+                "chrysomelidae": 90,
+                "coccinella larvae": 143,
+                "diptera larvae": 24,
+                "elateridae": 2,
+                "staphylinidae": 981,
+                "syrphidae": 2,
+                "coccinellidae": 51,
+                "lepidoptera": 6,
+                "dermaptera": 46,
+                "argasidae": 1,
+                "carabid larvae": 3,
+                "diapriidae": 2,
+                "nitidulidae": 4,
+                "tipulidae": 11
+            }
+        },
+        "GH-OSR-LF2E": {
+            "total images": 770,
+            "total annotations": 496,
+            "positive samples": 462,
+            "negative samples": 308,
+            "class distribution": {
+                "acari": 10,
+                "arachnida": 22,
+                "bibionidae": 10,
+                "braconidae": 7,
+                "cantharidae": 1,
+                "carabidae": 36,
+                "chalcididae": 1,
+                "chrysomelidae": 2,
+                "coccinella larvae": 40,
+                "diptera": 219,
+                "diptera larvae": 11,
+                "elateridae": 1,
+                "mollusca": 16,
+                "myriapoda": 1,
+                "staphylinidae": 97,
+                "syrphidae": 2,
+                "unknown": 20
+            }
+        },
+        "WW-OSR-LF2F": {
+            "total images": 1331,
+            "total annotations": 978,
+            "positive samples": 799,
+            "negative samples": 532,
+            "class distribution": {
+                "arachnida": 27,
+                "carabidae": 62,
+                "coccinellidae": 47,
+                "diptera": 10,
+                "formicidae": 466,
+                "isopoda": 22,
+                "mollusca": 273,
+                "myriapoda": 7,
+                "staphylinidae": 23,
+                "unknown": 41
+            }
+        },
+        "WW-OSR-HF2F": {
+            "total images": 880,
+            "total annotations": 601,
+            "positive samples": 528,
+            "negative samples": 352,
+            "class distribution": {
+                "arachnida": 227,
+                "carabidae": 75,
+                "coccinellidae": 2,
+                "diptera": 29,
+                "formicidae": 86,
+                "isopoda": 3,
+                "mollusca": 143,
+                "staphylinidae": 9,
+                "unknown": 27
+            }
+        },
+        "GH-OSR-NARS30": {
+            "total images": 455,
+            "total annotations": 286,
+            "positive samples": 273,
+            "negative samples": 182,
+            "class distribution": {
+                "arachnida": 4,
+                "cantharidae": 1,
+                "carabidae": 67,
+                "chrysomelidae": 19,
+                "coccinella larvae": 78,
+                "diptera": 20,
+                "elateridae": 1,
+                "lepidoptera": 6,
+                "staphylinidae": 72,
+                "unknown": 18
+            }
+        },
+        "WW-OSR-LF1G": {
+            "total images": 743,
+            "total annotations": 461,
+            "positive samples": 446,
+            "negative samples": 297,
+            "class distribution": {
+                "arachnida": 78,
+                "carabidae": 25,
+                "chrysomelidae": 2,
+                "diptera": 182,
+                "formicidae": 2,
+                "mollusca": 134,
+                "myriapoda": 1,
+                "staphylinidae": 20,
+                "unknown": 17
+            }
+        },
+        "LG-OSR-LS3E": {
+            "total images": 898,
+            "total annotations": 592,
+            "positive samples": 539,
+            "negative samples": 359,
+            "class distribution": {
+                "arachnida": 18,
+                "carabidae": 303,
+                "diptera": 69,
+                "mollusca": 38,
+                "myriapoda": 32,
+                "staphylinidae": 67,
+                "unknown": 65
+            }
+        },
+        "LG-OSR-LF1D": {
+            "total images": 1140,
+            "total annotations": 727,
+            "positive samples": 684,
+            "negative samples": 456,
+            "class distribution": {
+                "arachnida": 13,
+                "carabidae": 222,
+                "chrysomelidae": 14,
+                "dermaptera": 2,
+                "diptera": 64,
+                "isopoda": 12,
+                "mollusca": 272,
+                "myriapoda": 18,
+                "staphylinidae": 68,
+                "unknown": 42
+            }
+        },
+        "WW-OSR-LF1D": {
+            "total images": 930,
+            "total annotations": 582,
+            "positive samples": 558,
+            "negative samples": 372,
+            "class distribution": {
+                "arachnida": 49,
+                "carabidae": 33,
+                "diptera": 57,
+                "formicidae": 6,
+                "isopoda": 1,
+                "mollusca": 391,
+                "staphylinidae": 7,
+                "unknown": 38
+            }
+        },
+        "WW-OSR-LS3E": {
+            "total images": 658,
+            "total annotations": 444,
+            "positive samples": 395,
+            "negative samples": 263,
+            "class distribution": {
+                "arachnida": 60,
+                "carabidae": 160,
+                "diptera": 4,
+                "formicidae": 2,
+                "mollusca": 187,
+                "staphylinidae": 12,
+                "unknown": 19
+            }
+        },
+        "LG-OSR-LF2F": {
+            "total images": 1871,
+            "total annotations": 1219,
+            "positive samples": 1123,
+            "negative samples": 748,
+            "class distribution": {
+                "arachnida": 19,
+                "argasidae": 1,
+                "carabidae": 218,
+                "chrysomelidae": 10,
+                "dermaptera": 39,
+                "diptera": 684,
+                "formicidae": 2,
+                "isopoda": 13,
+                "mollusca": 54,
+                "myriapoda": 24,
+                "staphylinidae": 64,
+                "unknown": 91
+            }
+        },
+        "LG-OSR-HF2F": {
+            "total images": 1401,
+            "total annotations": 967,
+            "positive samples": 841,
+            "negative samples": 560,
+            "class distribution": {
+                "arachnida": 29,
+                "carabid larvae": 3,
+                "carabidae": 193,
+                "dermaptera": 2,
+                "diptera": 579,
+                "formicidae": 3,
+                "mollusca": 39,
+                "myriapoda": 19,
+                "staphylinidae": 62,
+                "unknown": 38
+            }
+        },
+        "LG-OSR-LF1G": {
+            "total images": 2273,
+            "total annotations": 1534,
+            "positive samples": 1364,
+            "negative samples": 909,
+            "class distribution": {
+                "arachnida": 57,
+                "carabidae": 947,
+                "chrysomelidae": 14,
+                "coccinellidae": 2,
+                "dermaptera": 3,
+                "diptera": 73,
+                "isopoda": 1,
+                "mollusca": 37,
+                "myriapoda": 54,
+                "staphylinidae": 254,
+                "unknown": 92
+            }
+        },
+        "GH-OSR-NARS26": {
+            "total images": 1010,
+            "total annotations": 642,
+            "positive samples": 606,
+            "negative samples": 404,
+            "class distribution": {
+                "arachnida": 20,
+                "cantharidae": 2,
+                "carabidae": 67,
+                "chrysomelidae": 9,
+                "coccinella larvae": 10,
+                "diapriidae": 2,
+                "diptera": 422,
+                "diptera larvae": 2,
+                "mollusca": 11,
+                "myriapoda": 7,
+                "nitidulidae": 2,
+                "staphylinidae": 61,
+                "tipulidae": 10,
+                "unknown": 17
+            }
+        },
+        "GH-OSR-LF1F": {
+            "total images": 835,
+            "total annotations": 559,
+            "positive samples": 501,
+            "negative samples": 334,
+            "class distribution": {
+                "arachnida": 16,
+                "bibionidae": 1,
+                "braconidae": 1,
+                "carabidae": 173,
+                "chrysomelidae": 3,
+                "coccinella larvae": 15,
+                "diptera": 78,
+                "diptera larvae": 11,
+                "isopoda": 2,
+                "mollusca": 87,
+                "myriapoda": 13,
+                "nitidulidae": 2,
+                "staphylinidae": 134,
+                "tipulidae": 1,
+                "unknown": 22
+            }
+        },
+        "GH-OSR-HF2G": {
+            "total images": 908,
+            "total annotations": 631,
+            "positive samples": 545,
+            "negative samples": 363,
+            "class distribution": {
+                "arachnida": 15,
+                "carabidae": 141,
+                "chrysomelidae": 17,
+                "diptera": 47,
+                "isopoda": 12,
+                "mollusca": 186,
+                "myriapoda": 169,
+                "staphylinidae": 31,
+                "unknown": 13
+            }
+        }
+    }
+}

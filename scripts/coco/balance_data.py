@@ -69,19 +69,13 @@ def enforce_negative_sample_ratio_in_dir(target_ratio: int, src_dir, dest_dir):
   
 def main():
     # Set up command-line argument parsing
-    parser = argparse.ArgumentParser(description="data-annotations/pitfall-cameras/merged-by-location")
-    parser.add_argument("src_dir", nargs="?", help="", default="data-annotations/pitfall-cameras/merged-by-location")
-    parser.add_argument("stats_path", nargs="?", help="Path to statistics-.json file.", default="data-annotations/pitfall-cameras/info/statistics/statistics.json")
-    
+    parser = argparse.ArgumentParser(description="")
+    parser.add_argument("src_dir", nargs="?", help="", default="data-annotations/pitfall-cameras/merged-by-location_grouped-categories")
     
     # Parse the arguments
     args = parser.parse_args()
-
-    # Open stats...
-    with open(args.stats_path, 'r') as f:
-        stats = json.load(f)
     
-    enforce_negative_sample_ratio_in_dir(target_ratio=40, src_dir=args.src_dir, dest_dir="data-annotations/pitfall-cameras/balanced_neg_ratio_04")
+    enforce_negative_sample_ratio_in_dir(target_ratio=40, src_dir=args.src_dir, dest_dir="data-annotations/pitfall-cameras/balanced_neg_ratio_04_grouped-categories")
 
 if __name__ == "__main__":
     main()
