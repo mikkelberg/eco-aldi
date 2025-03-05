@@ -70,20 +70,21 @@ def split_data(coco):
     locations_per_image_for_val_and_test = [locations_per_image[negative_sample_image_ids.index(id)] for id in temp_ids]
     negative_sample_val_image_ids, negative_sample_test_image_ids = train_test_split(temp_ids, test_size=0.5, stratify=locations_per_image_for_val_and_test, random_state=42)
     
-    
     train_ids = positive_sample_train_image_ids.append(negative_sample_train_image_ids)
     val_ids = positive_sample_val_image_ids.append(negative_sample_val_image_ids)
     test_ids = positive_sample_test_image_ids.append(negative_sample_test_image_ids)
 
-    ##### Filter out the images/annotations for each partition and write to the respective coco-object
-    train, val, test = {}, {}, {}
-    for partition, ids, coco_part in zip(["training", "validation", "test"], [train_ids, val_ids, test_ids], [train, val, test]):
-        coco_part = {   "info": f"{partition.upper()}-partition for: {coco["info"]}", # FIXME not possible to write to dicts this way
-                        "license": coco["license"],
-                        "images": filter_images(all_images=images, image_ids_to_filter=ids),
-                        "annotations": filter_annotations(all_annotations=annotations, image_ids_to_filter=ids),
-                        "categories": coco["categories"]
-                    }
+    ##### Create the coco object for each partition (same as the original coco, but with the ids filtered out)
+    def gen_coco_partition(partition_name, ids):
+        return {   "info": f"{partition_name.upper()}-partition for: {coco["info"]}", # FIXME not possible to write to dicts this way
+                    "license": coco["license"],
+                    "images": filter_images(all_images=images, image_ids_to_filter=ids),
+                    "annotations": filter_annotations(all_annotations=annotations, image_ids_to_filter=ids),
+                    "categories": coco["categories"]
+                }
+    train = gen_coco_partition("training", train_ids)
+    val = gen_coco_partition("validation", val_ids)
+    test = gen_coco_partition("test", test_ids)
 
     return train, val, test
 
