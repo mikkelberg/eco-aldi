@@ -4,8 +4,10 @@ import pandas as pd
 import sys
 import argparse
 import os
+
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.pitfall_cameras_utils as pc
-import re
 
 def clean_categories(cats):
     """Normalises all category names and merges according to typos/redundancies (manually defined in the dict above)"""
@@ -14,10 +16,15 @@ def clean_categories(cats):
     for category in cats:
         normalized = pc.normalise_category_name(category) # lower case, space separation, "unknown" comes last
         
+        category_name = normalized
         if normalized in pc.name_mappings: # overwrite with the correction if it's there!
             category_name = pc.name_mappings[normalized]
-        else:
-            category_name = normalized  
+        
+        if category_name in pc.names_to_group: # group if needed 
+            category_name = pc.names_to_group[category_name]
+
+        if category_name in pc.categories_to_set_to_unknown: 
+            category_name = "unknown"  
 
         cleaned_set.add(category_name) # insert the (corrected) category 
 

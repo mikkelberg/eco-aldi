@@ -96,6 +96,7 @@ name_mappings = { # corrections for typos and redundancies that weren't caught b
     "gnaposidae": "gnaphosidae",
     "isopod": "isopoda",
     "linyphiiidae": "linyphiidae",
+    "molllusca": "mollusca",
     "molllusc": "mollusca",
     "mollusc": "mollusca",
     "molluska": "mollusca",
@@ -103,8 +104,35 @@ name_mappings = { # corrections for typos and redundancies that weren't caught b
     "phyllotreta sp": "phyllotreta",
     "poecilius cupreus": "poecilus cupreus",
     "psyllidoes chrysocephalus": "psylliodes chrysocephalus",
-    "spider": "araneae",
+    "spider": "arachnida",
     "tachyporus hyphorum": "tachyporus hypnorum",
     "tachyprous hypnorum": "tachyporus hypnorum",
-    "unsure": "unknown"
+    "unsure": "unknown",
     }
+
+names_to_group = {
+    "tachyporus hypnorum": "staphylinidae",
+    "pterostichus melanarius": "carabidae",
+    "pterostichus madidus": "carabidae",
+    "psylliodes chrysocephalus": "chrysomelidae",
+    "poecilus cupreus": "carabidae",
+    "phyllotreta": "chrysomelidae",
+    "opiliones": "arachnida",
+    "notiophilus biguttatus": "carabidae",
+    "nebria brevicollis": "carabidae",
+    "lycosidae": "arachnida",
+    "linyphiidae": "arachnida",
+    "harpalus rufipes": "carabidae",
+    "harpalus affinis": "carabidae",
+    "gnaphosidae": "arachnida",
+    "coccinella": "coccinellidae",
+    "cantharis rustica": "cantharidae",
+    "cantharis rufa": "cantharidae",
+    "cantharis lateralis": "cantharidae",
+    "brassicogethes aeneus": "nitidulidae",
+    "brassicogethes": "nitidulidae",
+    "anchomenus dorsalis": "carabidae",
+    "amara": "carabidae"
+}
+
+categories_to_set_to_unknown = ["coleoptera", "parasitoid"]

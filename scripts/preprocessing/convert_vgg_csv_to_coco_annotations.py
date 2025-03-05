@@ -130,9 +130,14 @@ def convert(file_prefix, img_folder_name, csv_file_path, coco_file_destination):
         category_name = pc.normalise_category_name(category_name)
         if category_name in name_mappings.keys():
             category_name = name_mappings[category_name] # make correction, if needed
+        if category_name in pc.names_to_group:
+            category_name = pc.names_to_group[category_name]
+        if category_name in pc.categories_to_set_to_unknown:
+            category_name = "unknown"
         category_id = category_name_to_id[category_name]
         ann = annotation(row,category_id)
         annotations.append(ann)
+        if category_id == 4: print(row.filename)
 
     # Clean out images that need to be removed due to errors (undefined annotation)
     images = [img for img in images if img["id"] not in images_to_clean_out]

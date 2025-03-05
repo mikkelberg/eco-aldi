@@ -1,6 +1,9 @@
 import json
 import os
 import argparse
+
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.pitfall_cameras_utils as pc
 
 def merge_coco_json(coco_list):
