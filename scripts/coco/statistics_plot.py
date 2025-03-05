@@ -56,7 +56,7 @@ def plot_category_prevalence_per_file(statistics_dict, output_path="data-annotat
     plt.savefig(output_path, dpi=300)
     print(f"Saved category prevalence chart as {output_path}")
 
-def plot_negative_sample_percentages(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/grouped-categories/balanced_neg04_negative_percentage_per_file.png"):
+def plot_negative_sample_percentages(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/grouped-categories/balanced_unknownfix_grouping_negative_percentage_per_file.png"):
     """
     Creates and saves visualizations comparing negative sample percentages
     across multiple datasets.
@@ -83,7 +83,7 @@ def plot_negative_sample_percentages(statistics_dict, output_path="data-annotati
     plt.savefig(output_path, dpi=300)
     print(f"Saved comparative statistics as {output_path}")
 
-def plot_images_per_file(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/grouped-categories/balanced_neg04_images_per_location.png"):
+def plot_images_per_file(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/grouped-categories/balanced_unknownfix_grouping_images_per_location.png"):
     """
     Creates and saves visualizations comparing the sizes of multiple datasets
     
@@ -112,7 +112,7 @@ def plot_images_per_file(statistics_dict, output_path="data-annotations/pitfall-
     print(f"Saved comparative statistics as {output_path}")
 
 
-def plot_and_save_class_distribution(class_distribution, filename="data-annotations/pitfall-cameras/info/statistics/grouped-categories/class_distribution.png"):
+def plot_and_save_class_distribution(class_distribution, filename="data-annotations/pitfall-cameras/info/statistics/grouped-categories/balanced_unknownfix_grouping_class_distribution.png"):
     """
     Plots and saves a bar chart of the class distribution.
     
@@ -134,13 +134,13 @@ def plot_and_save_class_distribution(class_distribution, filename="data-annotati
     plt.close()
     print(f"Saved class distribution chart as {filename}")
 
-ann_dir = "data-annotations/pitfall-cameras/merged-by-location_grouped-categories"  
+ann_dir = "data-annotations/pitfall-cameras/balanced_unknownfix_grouping"  
 
 
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Plots different visualisations from a generated statistics-file.")
-    parser.add_argument("stats_path", nargs="?", help="Path to statistics-.json file.", default="data-annotations/pitfall-cameras/info/statistics/balanced_neg04_grouped-categories.json")
+    parser.add_argument("stats_path", nargs="?", help="Path to statistics-.json file.", default="data-annotations/pitfall-cameras/info/statistics/balanced_unknownfix_grouping.json")
     
     # Parse the arguments
     args = parser.parse_args()
