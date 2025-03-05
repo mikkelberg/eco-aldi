@@ -1,8 +1,14 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import json
+import os
 import numpy as np
 import argparse
+
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import utils.pitfall_cameras_utils as pc
+from utils import utils
 
 def sort_by_value(keys, vals):
     sorted_indices = np.argsort(vals)[::-1]  # Get indices for sorting
@@ -86,12 +92,14 @@ def plot_images_per_file(statistics_dict, output_path="data-annotations/pitfall-
     """
     datasets = list(statistics_dict.keys())
     image_counts = [stats["total images"] for stats in statistics_dict.values()]
+    info = utils.load_json_from_file(pc.INFO_FILE_PATH)
+    image_bgs = [info["folders"][loc]["bg"] for loc in statistics_dict.keys()]
     #datasets, image_counts = sort_by_value(datasets, image_counts)
 
     fig, ax = plt.subplots(1, 1, figsize=(max(10, len(datasets)*0.5), 12))
 
     # Negative sample percentage (Bar chart)
-    ax.bar(datasets, image_counts, color='skyblue')
+    sns.barplot(x=datasets, y=image_counts, hue=image_bgs, palette="Set2")
     ax.set_title('Number of images per location')
     ax.set_xticks(range(len(datasets)))
     ax.set_xticklabels(datasets, rotation=45, ha="right")

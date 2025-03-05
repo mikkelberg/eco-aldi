@@ -33,6 +33,10 @@ def get_location_prefix_from_image_filename(filename: str):
     """ takes FIELD_CROP_CAMERA_DATE_IMGNAME.JPG
         returns FIELD_CROP_CAMERA """
     return "_".join(filename.split("_")[0:3]) 
+def get_img_folder_name_from_image_filename(filename: str):
+    """ takes FIELD_CROP_CAMERA_DATE_IMGNAME.JPG
+        returns FIELD-CROP-CAMERA """
+    return "-".join(filename.split("_")[0:3]) 
 
 def normalise_category_name(name:str):
     """ Normalise the string with the category name st. it's lower case and uses space separation"""

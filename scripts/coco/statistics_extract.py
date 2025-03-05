@@ -2,6 +2,11 @@ import json
 import os
 from collections import Counter
 
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import utils.pitfall_cameras_utils as pc
+from utils import utils
+
 def update_global_stats(global_stats, stats_to_add):
     updated = global_stats.copy()
     updated["total images"] += stats_to_add["total images"]
@@ -57,10 +62,10 @@ def collect_statistics_from_directory(json_dir):
     total_files = len(files)
     for index, filename in enumerate(files, start=1):
         json_path = os.path.join(json_dir, filename)
-        with open(json_path, "r") as f:
-            coco_data = json.load(f)
+        coco_data = utils.load_json_from_file(json_path)
         this_files_stats = get_coco_statistics(coco_data)
-        per_file_stats[filename] = this_files_stats
+        clean_filename = pc.get_img_folder_name_from_image_filename(filename.split(".")[0]) # remove .json)
+        per_file_stats[ clean_filename] = this_files_stats
 
         if index == 1: global_stats = this_files_stats.copy()
         else: global_stats = update_global_stats(global_stats=global_stats, stats_to_add=this_files_stats)
