@@ -77,6 +77,33 @@ def plot_negative_sample_percentages(statistics_dict, output_path="data-annotati
     plt.savefig(output_path, dpi=300)
     print(f"Saved comparative statistics as {output_path}")
 
+def plot_images_per_file(statistics_dict, output_path="data-annotations/pitfall-cameras/info/statistics/images_per_location.png"):
+    """
+    Creates and saves visualizations comparing the sizes of multiple datasets
+    
+    :param statistics_dict: Dictionary with dataset statistics.
+    :param output_path: Path to save the final image.
+    """
+    datasets = list(statistics_dict.keys())
+    image_counts = [stats["total images"] for stats in statistics_dict.values()]
+    #datasets, image_counts = sort_by_value(datasets, image_counts)
+
+    fig, ax = plt.subplots(1, 1, figsize=(max(10, len(datasets)*0.5), 12))
+
+    # Negative sample percentage (Bar chart)
+    ax.bar(datasets, image_counts, color='skyblue')
+    ax.set_title('Number of images per location')
+    ax.set_xticks(range(len(datasets)))
+    ax.set_xticklabels(datasets, rotation=45, ha="right")
+    ax.set_ylabel('Number of images')
+    # ax.set_ylim(0, 100)
+
+    # Adjust layout
+    plt.tight_layout()
+    plt.savefig(output_path, dpi=300)
+    print(f"Saved comparative statistics as {output_path}")
+
+
 def plot_and_save_class_distribution(class_distribution, filename="data-annotations/pitfall-cameras/info/statistics/class_distribution.png"):
     """
     Plots and saves a bar chart of the class distribution.
@@ -115,9 +142,10 @@ def main():
         stats = json.load(f)
     
     # Plot!
-    plot_and_save_class_distribution(stats["overall"]["class distribution"])
-    plot_negative_sample_percentages(stats["per file"])
-    plot_category_prevalence_per_file(stats["per file"])
+    #plot_and_save_class_distribution(stats["overall"]["class distribution"])
+    #plot_negative_sample_percentages(stats["per file"])
+    #plot_category_prevalence_per_file(stats["per file"])
+    plot_images_per_file(statistics_dict=stats["per file"])
 
 if __name__ == "__main__":
     main()
