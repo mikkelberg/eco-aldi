@@ -3,8 +3,12 @@ import json
 import random
 import os
 from sklearn.model_selection import train_test_split
+
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.utils as utils
 import utils.pitfall_cameras_utils as pc
+import utils.coco as ccu
 
 def image_ids_with_annotations(images, annotations):
     # Filter out images with annotations
@@ -29,7 +33,7 @@ def gen_image_to_detected_classes_dict(images, annotations):
         if image_id not in image_to_detected_classes.keys():
             image_to_detected_classes[image_id] = []
         image_to_detected_classes[image_id].append(ann["category_id"])
-        if idx % 50 == 0 or idx == total_anns:
+        if idx % 500 == 0 or idx == total_anns:
             print(f"-- Counted annotations for each image ID for {idx} out of {total_anns} annotations.")
     return image_to_detected_classes
 
@@ -49,19 +53,21 @@ def split_data(coco):
     annotations = coco["annotations"]
     images = coco["images"]
 
+    positive_sample_ids, negative_sample_ids = ccu.get_positive_and_negative_sample_ids_lists(images=coco["images"], annotations=coco["annotations"])
     ##### Split the positive data samples according to the class distribution found above
     # Collect all image IDs and the corresponding class labels for each image. image_id --> list of class labels in that image
     image_to_detected_classes = gen_image_to_detected_classes_dict(images=images, annotations=annotations)
-    positive_sample_image_ids = list(image_to_detected_classes.keys())
     # for each image id, note the most frequent class (max(...) operation on the set of detected classes 
     # with their counts as key/sorting criterion)
-    def most_detected_class(img_id): return max(set(image_to_detected_classes[img_id]), key=image_to_detected_classes[img_id].count)
-    most_detected_class_per_image = [most_detected_class(img_id=img_id) for img_id in positive_sample_image_ids]
+    def most_detected_class(img_id): 
+        return max(set(image_to_detected_classes[img_id]), key=image_to_detected_classes[img_id].count)
+    most_detected_class_per_image = [most_detected_class(img_id=img_id) for img_id in positive_sample_ids]
     # first split into train-(val+test), then evenly split (val+test) to val-test - the result is a 80/10/10 split
-    positive_sample_train_image_ids, temp_ids = train_test_split(positive_sample_image_ids, test_size=0.2, stratify=most_detected_class_per_image, random_state=42)
-    most_detected_class_per_image_for_val_and_test = [most_detected_class_per_image[positive_sample_image_ids.index(id)] for id in temp_ids] #
-    positive_sample_val_image_ids, positive_sample_test_image_ids = train_test_split(temp_ids, test_size=0.5, stratify=most_detected_class_per_image_for_val_and_test, random_state=42)
+    train_pos_image_ids, temp_ids = train_test_split(positive_sample_ids, test_size=0.2, stratify=most_detected_class_per_image, random_state=42)
+    most_detected_class_per_image_for_val_and_test = [most_detected_class_per_image[positive_sample_ids.index(id)] for id in temp_ids] #
+    val_pos_image_ids, test_pos_image_ids = train_test_split(temp_ids, test_size=0.5, stratify=most_detected_class_per_image_for_val_and_test, random_state=42)
     
+    '''
     ##### Split the negative data samples based on the location (i.e. background) distribution
     # the location is defined in the prefix of the image's id
     negative_sample_image_ids = [img["id"] for img in images if img["id"] not in positive_sample_image_ids]
@@ -69,10 +75,21 @@ def split_data(coco):
     negative_sample_train_image_ids, temp_ids = train_test_split(negative_sample_image_ids, test_size=0.2, stratify=locations_per_image, random_state=42)
     locations_per_image_for_val_and_test = [locations_per_image[negative_sample_image_ids.index(id)] for id in temp_ids]
     negative_sample_val_image_ids, negative_sample_test_image_ids = train_test_split(temp_ids, test_size=0.5, stratify=locations_per_image_for_val_and_test, random_state=42)
-    
-    train_ids = positive_sample_train_image_ids.append(negative_sample_train_image_ids)
-    val_ids = positive_sample_val_image_ids.append(negative_sample_val_image_ids)
-    test_ids = positive_sample_test_image_ids.append(negative_sample_test_image_ids)
+    '''
+
+    ##### Split the negative data samples ensuring the same positive-negative sample ratio
+    num_train_neg = int(len(train_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
+    num_val_neg = int(len(val_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
+    num_test_neg = int(len(test_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
+
+    train_neg_image_ids = random.sample(negative_sample_ids, num_train_neg)
+    val_neg_image_ids = random.sample(list(set(negative_sample_ids) - set(train_neg_image_ids)), num_val_neg)
+    test_neg_image_ids = list(set(negative_sample_ids) - set(train_neg_image_ids) - set(val_neg_image_ids))[:num_test_neg]
+
+    ##### Concatenate negative and positive samples
+    train_ids = train_pos_image_ids + train_neg_image_ids
+    val_ids = val_pos_image_ids + val_neg_image_ids
+    test_ids = test_pos_image_ids + test_neg_image_ids
 
     ##### Create the coco object for each partition (same as the original coco, but with the ids filtered out)
     def gen_coco_partition(partition_name, ids):
@@ -98,22 +115,22 @@ def save_partitions(train, val, test, path):
     for name,obj in zip(["train", "val", "test"], [train, val, test]):
         utils.save_json_to_file(
             json_obj=obj,
-            path=os.path.join(path,"_",name,".json")
+            path=path+"_"+name+".json"
         )
 
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Perform stratefied split of provided COCO dataset.")
-    parser.add_argument("src_dir", nargs="?", help="Source directory containing the JSON file of the COCO dataset.", default="data-annotations/pitfall-cameras/pitfall-cameras_all.json")
-    parser.add_argument("dest_dir", nargs="?", help="Directory at which to save the generated COCO .json files.", default="data-annotations/pitfall-cameras/")
-    parser.add_argument("file_prefix", nargs="?", help="Prefix for all the generated json files (<prefix>_test.json etc.)", default="pitfall-cameras")
-    
+    parser.add_argument("dataset_name")
+
     # Parse the arguments
     args = parser.parse_args()
-    
+    dest_dir = "annotations/"+args.dataset_name
+    src_file = dest_dir+"/info/"+args.dataset_name+"_all.json"
+    dest_path_with_prefix = os.path.join(dest_dir, args.dataset_name)
+
     # Partition and save
-    train, val, test = split_data_from_json(path=args.src_dir)
-    dest_path_with_prefix = os.path.join(args.dest_dir, args.file_prefix)
+    train, val, test = split_data_from_json(path=src_file)
     save_partitions(train=train, val=val, test=test, path=dest_path_with_prefix)
 
     
