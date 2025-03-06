@@ -71,7 +71,7 @@ def enforce_negative_sample_ratio_in_dir(target_ratio: int, src_dir, dest_dir):
         balanced_anns = remove_annotations_with_unknown_images(images=balanced_images, annotations=coco_data["annotations"])
         # Save the filtered data
         balanced_coco = {
-            "info": f"Balanced version (40 % negative samples) of: {coco_data["info"]}",
+            "info": f"Balanced version (40 % negative samples, and rare categories set to \"unknown\") of: {coco_data["info"]}",
             "license": coco_data["license"],
             "images": balanced_images,
             "annotations": balanced_anns,
@@ -91,12 +91,14 @@ def enforce_negative_sample_ratio_in_dir(target_ratio: int, src_dir, dest_dir):
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="")
-    parser.add_argument("src_dir", nargs="?", help="", default="data-annotations/pitfall-cameras/merged-by-location_grouped-categories")
+    parser.add_argument("dataset_name", help="")
     
     # Parse the arguments
     args = parser.parse_args()
     
-    enforce_negative_sample_ratio_in_dir(target_ratio=40, src_dir=args.src_dir, dest_dir="data-annotations/pitfall-cameras/balanced_unknownfix_grouping")
+    src_dir = "annotations/"+args.dataset_name
+    dest_dir = src_dir # overwrite
+    enforce_negative_sample_ratio_in_dir(target_ratio=40, src_dir=src_dir, dest_dir=dest_dir)
 
 if __name__ == "__main__":
     main()
