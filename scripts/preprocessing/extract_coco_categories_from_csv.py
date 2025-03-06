@@ -71,31 +71,36 @@ def create_coco_categories_from_set(cats:set):
         for idx, cat in enumerate(sorted(cats))  # Sorted to ensure consistency
     ]
 
-def save_categories_to_file(cats, mappings, dest_dir, filename):
-    path = os.path.join(dest_dir, filename+".json")
+def save_categories_to_file(cats, dest_dir, filename, mappings={}, groupings={}, unknown_overwrites={}):
+    path = os.path.join(dest_dir, filename)
     categories = {}
     categories["categories"] = cats
     categories["name_mappings"] = mappings # also save the mappings to use when generating the annotations from the csv-files that have those typos
+    categories["grouped_names"] = groupings
+    categories["automatically_set_to_unknown"] = unknown_overwrites
     with open(path, "w") as f:
         json.dump(categories, f, indent=4)
 
+def extract_clean_categories_from_vgg_csv_dir(src_dir):
+    categories_set = extract_categories_from_vgg_csv_dir(src_dir)
+    categories_set_clean = clean_categories(categories_set)
+    coco_categories = create_coco_categories_from_set(categories_set_clean)
+    print(f"Extracted {len(coco_categories)} categories from the annotations.")
+    return coco_categories
 
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Extract categories from all VGG-CSV annotations into a single JSON-object (\"categories\") compatible with the COCO-format.")
-    parser.add_argument("src_dir", nargs="?", help="Source directory containing the csv files.", default="data-annotations/pitfall-cameras/originals/")
-    parser.add_argument("dest_dir", nargs="?", help="Directory at which to save the generated categories.json.", default="./data-annotations/pitfall-cameras/info/")
-    parser.add_argument("filename", nargs="?", default="categories", help="Optional name of the generated file (default is \"categories.json\").")
+    parser.add_argument("src_dir", nargs="?", help="Source directory containing the csv files.", default="annotations/pitfall-cameras/originals/")
+    parser.add_argument("dest_dir", nargs="?", help="Directory at which to save the generated categories.json.", default="./annotations/pitfall-cameras/info/")
+    parser.add_argument("filename", nargs="?", default="categories.json", help="Optional name of the generated file (default is \"categories.json\").")
     
     # Parse the arguments
     args = parser.parse_args()
 
     # do the thing :)
-    categories_set = extract_categories_from_vgg_csv_dir(args.src_dir)
-    categories_set_clean = clean_categories(categories_set)
-    coco_categories = create_coco_categories_from_set(categories_set_clean)
-    print(f"Extracted {len(coco_categories)} categories from the annotations.")
-    save_categories_to_file(cats=coco_categories, mappings=pc.name_mappings, dest_dir=args.dest_dir, filename=args.filename)
+    coco_categories = extract_clean_categories_from_vgg_csv_dir(args.src_dir)
+    save_categories_to_file(cats=coco_categories, mappings=pc.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=args.dest_dir, filename=args.filename)
 
 
 if __name__ == "__main__":
