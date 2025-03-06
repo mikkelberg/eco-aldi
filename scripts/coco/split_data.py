@@ -63,7 +63,7 @@ def split_data(coco):
         return max(set(image_to_detected_classes[img_id]), key=image_to_detected_classes[img_id].count)
     most_detected_class_per_image = [most_detected_class(img_id=img_id) for img_id in positive_sample_ids]
     # first split into train-(val+test), then evenly split (val+test) to val-test - the result is a 80/10/10 split
-    train_pos_image_ids, temp_ids = train_test_split(positive_sample_ids, test_size=0.2, stratify=most_detected_class_per_image, random_state=42)
+    train_pos_image_ids, temp_ids = train_test_split(positive_sample_ids, test_size=0.3, stratify=most_detected_class_per_image, random_state=42)
     most_detected_class_per_image_for_val_and_test = [most_detected_class_per_image[positive_sample_ids.index(id)] for id in temp_ids] #
     val_pos_image_ids, test_pos_image_ids = train_test_split(temp_ids, test_size=0.5, stratify=most_detected_class_per_image_for_val_and_test, random_state=42)
     
@@ -72,16 +72,21 @@ def split_data(coco):
     # the location is defined in the prefix of the image's id
     negative_sample_image_ids = [img["id"] for img in images if img["id"] not in positive_sample_image_ids]
     locations_per_image = [pc.get_location_prefix_from_image_filename(image_id) for image_id in negative_sample_image_ids]
-    negative_sample_train_image_ids, temp_ids = train_test_split(negative_sample_image_ids, test_size=0.2, stratify=locations_per_image, random_state=42)
+    negative_sample_train_image_ids, temp_ids = train_test_split(negative_sample_image_ids, test_size=0.3, stratify=locations_per_image, random_state=42)
     locations_per_image_for_val_and_test = [locations_per_image[negative_sample_image_ids.index(id)] for id in temp_ids]
     negative_sample_val_image_ids, negative_sample_test_image_ids = train_test_split(temp_ids, test_size=0.5, stratify=locations_per_image_for_val_and_test, random_state=42)
     '''
 
     ##### Split the negative data samples ensuring the same positive-negative sample ratio
     num_train_neg = int(len(train_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
-    num_val_neg = int(len(val_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
-    num_test_neg = int(len(test_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
-
+    num_neg_in_val_and_test = (len(negative_sample_ids) - num_train_neg)/2
+    if num_neg_in_val_and_test % 2 == 0:
+        num_val_neg = num_neg_in_val_and_test #int(len(val_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
+        num_test_neg = num_neg_in_val_and_test #int(len(test_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
+    else:
+        num_val_neg = int(num_neg_in_val_and_test)
+        num_test_neg = int(num_neg_in_val_and_test) + 1 
+    
     train_neg_image_ids = random.sample(negative_sample_ids, num_train_neg)
     val_neg_image_ids = random.sample(list(set(negative_sample_ids) - set(train_neg_image_ids)), num_val_neg)
     test_neg_image_ids = list(set(negative_sample_ids) - set(train_neg_image_ids) - set(val_neg_image_ids))[:num_test_neg]

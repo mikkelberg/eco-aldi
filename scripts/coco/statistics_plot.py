@@ -134,6 +134,11 @@ def plot_and_save_class_distribution(class_distribution, filename):
     plt.close()
     print(f"Saved class distribution chart as {filename}")
 
+def plot_and_save_class_distribution_per_file(statistics_dict, filename_prefix):
+    for subset in statistics_dict.keys():
+        plot_and_save_class_distribution(statistics_dict[subset]["class distribution"], filename=filename_prefix+subset+".png")
+
+
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Plots different visualisations from a generated statistics-file.")
@@ -141,7 +146,7 @@ def main():
     
     # Parse the arguments
     args = parser.parse_args()
-    stats_path = "annotations/"+args.dataset_name+"/info/statistics/pre-split_statistics.json"
+    stats_path = "annotations/"+args.dataset_name+"/info/statistics/statistics.json"
     dest_dir = "annotations/"+args.dataset_name+"/info/statistics/"
     # Open stats...
     with open(stats_path, 'r') as f:
@@ -149,6 +154,7 @@ def main():
     
     # Plot!
     plot_and_save_class_distribution(class_distribution=stats["overall"]["class distribution"], filename=dest_dir+"class_distribution.png")
+    plot_and_save_class_distribution_per_file(statistics_dict=stats["per file"], filename_prefix=dest_dir+"class_distribution")
     plot_negative_sample_percentages(statistics_dict=stats["per file"], output_path=dest_dir+"neg_sample_percentage.png")
     #plot_category_prevalence_per_file(stats["per file"])
     #plot_images_per_file(statistics_dict=stats["per file"])
