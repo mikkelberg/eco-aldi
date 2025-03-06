@@ -1,5 +1,6 @@
 import json
 import os
+import argparse
 from collections import Counter
 
 import sys
@@ -79,8 +80,16 @@ ann_dir = "data-annotations/pitfall-cameras/balanced_unknownfix_grouping"
 
 
 def main():
+    # Set up command-line argument parsing
+    parser = argparse.ArgumentParser(description="")
+    parser.add_argument("dataset_name", help="")
+    
+    # Parse the arguments
+    args = parser.parse_args()
+    ann_dir = "annotations/"+args.dataset_name+"/"
+    dest_path = "annotations/"+args.dataset_name+"/info/statistics/statistics.json"
     stats = collect_statistics_from_directory(ann_dir)
-    with open("data-annotations/pitfall-cameras/info/statistics/balanced_unknownfix_grouping.json", 'w') as f:
+    with open(dest_path, 'w') as f:
         json.dump(stats, f, indent=4)
 
 if __name__ == "__main__":

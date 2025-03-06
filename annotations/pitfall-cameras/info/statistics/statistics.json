@@ -1,0 +1,46 @@
+{
+    "overall": {
+        "total images": 16481,
+        "total annotations": 10962,
+        "positive samples": 9889,
+        "negative samples": 6592,
+        "class distribution": {
+            "arachnida": 655,
+            "carabidae": 2722,
+            "chrysomelidae": 90,
+            "coccinella larvae": 143,
+            "coccinellidae": 51,
+            "dermaptera": 46,
+            "diptera": 2722,
+            "formicidae": 573,
+            "isopoda": 67,
+            "mollusca": 1897,
+            "myriapoda": 355,
+            "staphylinidae": 981,
+            "unknown": 660
+        }
+    },
+    "per file": {
+        "pitfall-cameras-all": {
+            "total images": 16481,
+            "total annotations": 10962,
+            "positive samples": 9889,
+            "negative samples": 6592,
+            "class distribution": {
+                "arachnida": 655,
+                "carabidae": 2722,
+                "chrysomelidae": 90,
+                "coccinella larvae": 143,
+                "coccinellidae": 51,
+                "dermaptera": 46,
+                "diptera": 2722,
+                "formicidae": 573,
+                "isopoda": 67,
+                "mollusca": 1897,
+                "myriapoda": 355,
+                "staphylinidae": 981,
+                "unknown": 660
+            }
+        }
+    }
+}
