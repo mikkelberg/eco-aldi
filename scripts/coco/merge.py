@@ -100,14 +100,19 @@ def merge_all_in_dir(src_dir, dest_path):
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Merge the json files for COCO-datasets in a directory.")
-    parser.add_argument("src_dir", nargs="?", help="Source directory containing the individual COCO-files you want to merge.", default="data-annotations/pitfall-cameras/originals-converted/")
-    parser.add_argument("dest_dir", nargs="?", help="Directory at which to save the merged .json-file.", default="data-annotations/pitfall-cameras/merged-by-location/")
+    parser.add_argument("dataset_name", help="Name of the overall dataset.")
     parser.add_argument('-loc', action='store_true', help="Add flag if you wish to merge by location.")
     
     # Parse the arguments
     args = parser.parse_args()
-    if args.loc: merge_by_location(src_dir=args.src_dir, dest_dir=args.dest_dir)
-    else: merge_all_in_dir(src_dir=args.src_dir, dest_path="data-annotations/pitfall-cameras/pitfall-cameras_all.json")
+    src_dir = "annotations/" + args.dataset_name + "/originals-converted/"
+
+    if args.loc: 
+        dest_dir = "annotations/" + args.dataset_name + "/merged-by-location/"
+        merge_by_location(src_dir=src_dir, dest_dir=dest_dir)
+    else: 
+        dest_path = "annotations/" + args.dataset_name + "/" + args.dataset_name + "_all.json"
+        merge_all_in_dir(src_dir=src_dir, dest_path=dest_path)
 
 if __name__ == "__main__":
     main()
