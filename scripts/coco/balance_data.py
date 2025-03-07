@@ -32,6 +32,10 @@ def set_rare_categories_to_unknown(coco_data):
     for ann in coco_data["annotations"]:
         if ann["category_id"] in categories_to_set_to_unknown:
             ann["category_id"] = unknown_id
+    
+    # remove the old categories from the "categories" list.
+    cleaned_cats = [cat for cat in coco_data["categories"] if cat["id"] not in categories_to_set_to_unknown]
+    coco_data["categories"] = cleaned_cats
 
 def get_positive_and_negative_samples(images, annotations):
     positive_sample_ids = {ann["image_id"] for ann in annotations}

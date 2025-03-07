@@ -42,9 +42,8 @@ def update_image_sizes_for_all_annotations_in_dir(src_dir, image_folder):
         print(f"Processed {index} out of {total_files} annotation files.")
 
 
-image_folder = "../ERDA/bugmaster/datasets/pitfall-cameras/images/" 
-coco_json_dir = "data-annotations/pitfall-cameras/originals-converted/"
-coco_json = coco_json_dir + "LG_OSR_HF2F_20-06-29_fl_.json"
+image_folder = "../../../mnt/data0/martez/pitfall-cameras/images/" 
+coco_json_dir = "../../../mnt/data0/martez/pitfall-cameras/annotations/" #"annotations/pitfall-cameras/"
 
 def main():
     update_image_sizes_for_all_annotations_in_dir(src_dir=coco_json_dir, image_folder=image_folder)

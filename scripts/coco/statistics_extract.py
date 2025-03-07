@@ -28,23 +28,25 @@ def get_coco_statistics(coco):
     """
     image_count = len(coco["images"])  
     annotation_count = len(coco["annotations"]) 
-    category_count = Counter() # occurrences of each category, Counter({id: count, id: count, id: count, ...})
+    category_count = len(coco["categories"])
+    category_to_occurrence = Counter() # occurrences of each category, Counter({id: count, id: count, id: count, ...})
     image_to_ann_count = Counter()  # image id -> annotation count
 
     for ann in coco["annotations"]:
         image_to_ann_count[ann["image_id"]] += 1
-        category_count[ann["category_id"]] += 1
+        category_to_occurrence[ann["category_id"]] += 1
         
     positive_samples = sum(1 for count in image_to_ann_count.values() if count > 0)
     negative_samples = image_count - positive_samples
 
     category_id_to_name = {cat["id"]: cat["name"] for cat in coco["categories"]} # category id -> category name
-    class_distribution_unsorted = {category_id_to_name[cid]: count for cid, count in category_count.items()}
+    class_distribution_unsorted = {category_id_to_name[cid]: count for cid, count in category_to_occurrence.items()}
     class_distribution = dict(sorted(class_distribution_unsorted.items()))
 
     return {
         "total images": image_count,
         "total annotations": annotation_count,
+        "no of categories": category_count,
         "positive samples": positive_samples,
         "negative samples": negative_samples,
         "class distribution": class_distribution

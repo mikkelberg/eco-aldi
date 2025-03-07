@@ -1,7 +1,7 @@
 _BASE_: "backbone/Base-RCNN-FPN.yaml"
 MODEL:
   ROI_HEADS:
-    NUM_CLASSES: 8
+    NUM_CLASSES: 27
 DATASETS:
   TRAIN: ("pitfall-cameras_train",)
   TEST: ("pitfall-cameras_val",)

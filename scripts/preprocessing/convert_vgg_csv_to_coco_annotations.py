@@ -64,8 +64,8 @@ def image(row, images_dir):
 
     image = {}
     image["id"] = row.fileid
-    image["height"] = width 
-    image["width"] = height 
+    image["height"] = height 
+    image["width"] = width 
     image["file_name"] = row.filename
     return image
 
