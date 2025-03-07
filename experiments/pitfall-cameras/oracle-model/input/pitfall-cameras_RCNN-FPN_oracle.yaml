@@ -3,8 +3,8 @@ MODEL:
   ROI_HEADS:
     NUM_CLASSES: 8
 DATASETS:
-  TRAIN: ("cityscapes_foggy_train",)
-  TEST: ("cityscapes_val","cityscapes_foggy_val",)
+  TRAIN: ("pitfall-cameras_train",)
+  TEST: ("pitfall-cameras_val",)
   BATCH_CONTENTS: ("labeled_strong", )
 EMA:
   ENABLED: True
