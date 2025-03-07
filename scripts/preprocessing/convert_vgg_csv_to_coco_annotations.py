@@ -194,7 +194,7 @@ def main():
     parser.add_argument("dataset_name", help="E.g. pitfall-cameras (matches the directory)")
     parser.add_argument("images_dir", help="Path to images directory.")
 
-    # python scripts/preprocessing/convert_vgg_csv_to_coco_annotations.py pitfall-cameras ../../../mnt/data0/martez/images/
+    # python scripts/preprocessing/convert_vgg_csv_to_coco_annotations.py pitfall-cameras ../../../mnt/data0/martez/pitfall-cameras/images/
 
     # Parse the arguments
     args = parser.parse_args()
