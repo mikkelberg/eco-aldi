@@ -39,14 +39,17 @@ def merge_coco_json(coco_list):
             raise ValueError(f"Categories do not match in file {file}")
         
         for img in coco["images"]:
-            if img["id"] in seen_images: raise ValueError(f"Image {img["id"]} already seen!")
+            img_id = img["id"]
+            if img_id in seen_images: 
+                raise ValueError(f"Image {img_id} already seen!")
             merged_images.append(img)
-            seen_annotations.add(img["id"])
+            seen_annotations.add(img_id)
         
         for ann in coco["annotations"]:
-            if ann["id"] in seen_annotations: raise ValueError(f"Annotation {ann["id"]} already seen!")
+            ann_id = ann["id"]
+            if ann_id in seen_annotations: raise ValueError(f"Annotation {ann_id} already seen!")
             merged_annotations.append(ann)
-            seen_annotations.add(ann["id"])
+            seen_annotations.add(ann_id)
 
         # Print progress every 5 files
         if index % 5 == 0 or index == total_files:

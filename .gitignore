@@ -2,3 +2,4 @@
 *.pkl
 **/output/
 __pycache__
+experiments/*/*/datasets
