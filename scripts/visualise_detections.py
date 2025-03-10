@@ -36,17 +36,19 @@ def load_coco_json(coco_json_path):
     return coco_data
 
 # Load image by its ID
-def load_image(image_id, images_info, image_dir):
-    img_info = next(item for item in images_info if item['id'] == image_id)
+def load_image(image_id, coco_images, image_dir):
+    img_info = next(img for img in coco_images if img['id'] == image_id)
     img_path = f"{image_dir}/{img_info['file_name']}"
     image = cv2.imread(img_path)
     return image, img_info
 
-def draw_bboxes(image, bboxes, labels, category_names, color=(0, 255, 0), thickness=5):
+def draw_bboxes(image, bboxes, labels, category_names, thickness=3, pred=True):
+    color = (0, 0, 255) if pred else (255, 0, 0) # blue for GT, red for pred
     for bbox, label in zip(bboxes, labels):
         x, y, w, h = list(map(int, bbox))
         cv2.rectangle(img=image, pt1=(x, y), pt2=(x + w, y + h), color=color, thickness=thickness)
-        cv2.putText(image, f"Class: {category_names[label]}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+        if pred: cv2.putText(image, f"Predicted class: {category_names[label]}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.5, color, 2)
+        else: cv2.putText(image, f"GT class: {category_names[label]}", (x + w + 10, y + int(h/2)), cv2.FONT_HERSHEY_SIMPLEX, 1.5, color, 2)
     return image
 
 # Get random samples for each class and negative class
@@ -87,7 +89,11 @@ def predict_bboxes(image, predictor):
     scores = outputs['instances'].scores.cpu().numpy()
     labels = outputs['instances'].pred_classes.cpu().numpy()
 
-    # Convert the bounding boxes from tensor format [x_min, y_min, x_max, y_max]
+    
+    # Convert from (xmin, ymin, xmax, ymax) to (xmin, ymin, width, height)
+    boxes[:, 2] = boxes[:, 2] - boxes[:, 0]  # width = xmax - xmin
+    boxes[:, 3] = boxes[:, 3] - boxes[:, 1]  # height = ymax - ymin
+    # Convert the bounding boxes from tensor format to list format [[x_min, y_min, width, height],...]
     predicted_bboxes = boxes.tolist()
     
     # Filter predictions based on confidence scores (for example, confidence > 0.5)
@@ -106,8 +112,6 @@ def create_image_matrix(coco_json_path, image_dir, output_path, predictor, num_s
     coco_data = load_coco_json(coco_json_path)
     catid_to_name = {cat["id"]: cat["name"] for cat in coco_data["categories"]}
     selected_samples = get_random_samples(coco_data, num_samples)
-
-    fig, axes = plt.subplots(len(selected_samples), 3, figsize=(3*45, len(selected_samples)*20))
     
     for idx, sample in enumerate(selected_samples):
         # Load the image corresponding to the sample
@@ -127,31 +131,24 @@ def create_image_matrix(coco_json_path, image_dir, output_path, predictor, num_s
         
         # Draw GT bboxes (Green)
         gt_image = image.copy()
-        gt_image = draw_bboxes(image=gt_image, bboxes=gt_bboxes, labels=gt_labels, color=(255, 0, 0), category_names=catid_to_name)  # Blue for GT
+        gt_image = draw_bboxes(image=gt_image, bboxes=gt_bboxes, labels=gt_labels, category_names=catid_to_name, pred=False)  # Blue for GT
         
         # Draw predicted bboxes (Red)
-        pred_image = image.copy()
-        pred_image = draw_bboxes(image=pred_image, bboxes=pred_bboxes, labels=pred_labels, color=(0, 0, 255),category_names=catid_to_name)  # Red for predictions
+        pred_image = gt_image.copy()
+        pred_image = draw_bboxes(image=pred_image, bboxes=pred_bboxes, labels=pred_labels, category_names=catid_to_name)  # Red for predictions
         
         # Show images in the matrix
-        fig, axes = plt.subplots(1, 3, figsize=(3*45, 20))
+        fig, ax= plt.subplots(1, 1, figsize=(45, 20))
+        plt.rc('font', size=50)
 
-        axes[0].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-        axes[0].set_title(f"Original Image")
-        axes[0].axis('off')
-        
-        axes[1].imshow(cv2.cvtColor(pred_image, cv2.COLOR_BGR2RGB))
-        axes[1].set_title(f"Prediction")
-        axes[1].axis('off')
-
-        # Show original image for reference
-        axes[2].imshow(cv2.cvtColor(gt_image, cv2.COLOR_BGR2RGB))
-        axes[2].set_title(f"Ground Truth")
-        axes[2].axis('off')
+        ax.imshow(cv2.cvtColor(pred_image, cv2.COLOR_BGR2RGB))
+        ax.set_title(f"Prediction and Ground Truth for: {img_id}")
+        ax.axis('off')
     
         # Save the final matrix as a PNG file
+        gt_labels_string = "none" if not gt_bboxes else "-".join([catid_to_name[l] for l in gt_labels])
         plt.tight_layout()
-        plt.savefig(output_path+"/example_detections_" + str(idx) + ".png")
+        plt.savefig(output_path+"/example_detections_" + str(gt_labels_string) + "_" + str(img_id.split(".")[0])+ ".png")
         plt.close()
 
 def main():
