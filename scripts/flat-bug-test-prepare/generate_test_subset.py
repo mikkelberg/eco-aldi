@@ -10,7 +10,7 @@ ROOT = Path("data-annotations").joinpath("controlled-conditions", "annotations")
 CSV_FILE = ROOT.joinpath("Insect_position_date.csv")
 ANNOTATIONS = ROOT.joinpath("Annotations")
 
-IMAGE_FOLDER_DATE_MAP = {"040523":"040523", "150523":"150523", "160523":"160523", "170523":"170523", "050623":"0506-120623", "070623":"0506-120623"}
+IMAGE_FOLDER_DATE_MAP = {"040523":"040523", "150523":"150523", "160523":"160523", "170523":"170522", "050623":"0506-120623", "070623":"0506-120623"}
 
 def format_date_column(df: DataFrame):
     """Format date column in dataframe series: ddmmyy"""
