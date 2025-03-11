@@ -26,34 +26,46 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
 
         # No objects in this image
         if not true_labels: 
-            for cls in pred_classes:
-                ground_truths.append(-1) # unsure about what i want to append here
-                predictions.append(cls)
-            continue
-        # Match predictions with ground truth using IoU
+            if not pred_classes:
+                # nothing was detected --> true negative
+                ground_truths.append(-1)
+                predictions.append(-1)
+                continue
+            else:
+                # something WAS detected --> false positive
+                for cls in pred_classes:
+                    ground_truths.append(-1)
+                    predictions.append(cls)
+                continue
+
+    
+        # There ARE objected in this image
         for true_bbox, true_cls in true_labels:
             true_bbox = cc.coco_bbox_to_xyxy(bbox=true_bbox)
             best_score = 0
             best_pred_idx = -1
+
+            # Match predicted bboxes with the true bbox based on the best score (largest overlap)
             for i, score in enumerate(pred_scores):
                 if score > best_score and i not in matched: # note that the predictions are all with a score above 0.5 (the threshold), so we don't have a chek for that here
                     best_score = score
                     best_pred_idx = i
            
-            if best_pred_idx == -1: # no pred was found for this ground truth bbox (false negative)
+            if best_pred_idx == -1: 
+                # no pred was found for this ground truth bbox --> false negative
                 ground_truths.append(true_cls)
                 predictions.append(-1)
             else: 
-                # we found a predicted bbox for this true bbox (true positive)
+                # we found a predicted bbox for this true bbox --> true positive
                 ground_truths.append(true_cls)
                 predictions.append(pred_classes[best_pred_idx]) # (but the class might still be wrong)
-                matched.add(best_pred_idx)                 # remember that we already assigned this prediction to a true label
+                matched.add(best_pred_idx)                      # remember that we already assigned this prediction to a true label
 
-        # Any remaining predicted bboxes are false positives - we 
-        for i in range(len(pred_scores)):
-            if i not in matched:
+        # Predicted bboxes that have not been matched to a true bbox --> false positive
+        for j in range(len(pred_scores)):
+            if j not in matched:
                 ground_truths.append(-1)
-                predictions.append(pred_classes[i])
+                predictions.append(pred_classes[j])
 
     print("Finished generating true and predicted bounding boxes and classes.")
     return ground_truths, predictions
@@ -64,10 +76,10 @@ def plot_confusion_matrix(y_true, y_pred, coco_categories, output_path):
     cm = confusion_matrix(y_true, y_pred, labels=list(range(num_classes)) + [-1])
     cmn = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis] # normalise
 
-    labels = [cat["name"] for cat in coco_categories] + ["No object"] # Convert to readable class names
+    labels = [cat["name"] for cat in coco_categories] + ["no object"] # Convert to readable class names
     
     # plot
-    plt.figure(figsize=(12, 12))
+    plt.figure(figsize=(10, 8))
     sns.heatmap(cmn, annot=True, fmt=".2f", xticklabels=labels, yticklabels=labels)
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
