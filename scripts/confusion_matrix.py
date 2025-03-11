@@ -71,6 +71,7 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
     return ground_truths, predictions
 
 def plot_confusion_matrix(y_true, y_pred, coco_categories, output_path):
+    print("Plotting confusion matrix...")
     num_classes = len(coco_categories)
 
     cm = confusion_matrix(y_true, y_pred, labels=list(range(num_classes)) + [-1])
@@ -87,6 +88,7 @@ def plot_confusion_matrix(y_true, y_pred, coco_categories, output_path):
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
+    print(f"Saved confusion matrix to {output_path}")
 
 def plot_and_save_confusion_matrix(coco_json_path, image_dir, predictions_path, output_path):
     pred_dict = cc.load_from_file(predictions_path)

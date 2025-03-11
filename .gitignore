@@ -3,4 +3,4 @@
 **/output/
 __pycache__
 experiments/*/*/datasets
-experiments/*/*/eval-results
+experiments/*/*/example-evals
