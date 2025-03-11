@@ -102,15 +102,14 @@ def main():
      # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("dataset_name", help="")
-    parser.add_argument("predictions_file", help="")
     
     # Parse the arguments
     args = parser.parse_args()
 
     IMAGE_FOLDER = "/mnt/data0/martez/" + args.dataset_name + "/images/"   # Folder containing test images
     COCO_JSON = "/mnt/data0/martez/" + args.dataset_name + "/annotations/" + args.dataset_name + "_test.json"
-    OUTPUT_PATH = "eval-results/confusion_matrix.png"
-    PREDS_FILE = args.predictions_file
+    OUTPUT_PATH = "results/confusion_matrix.png"
+    PREDS_FILE = "results/predictions.json"
 
     plot_and_save_confusion_matrix(coco_json_path=COCO_JSON, image_dir=IMAGE_FOLDER, predictions_path=PREDS_FILE, output_path=OUTPUT_PATH)
 
