@@ -51,11 +51,11 @@ def save_predictions_to_file(image_id, pred_boxes, pred_classes, scores, dest):
     with open(dest, "r") as f:
         predictions = json.load(f)
     
-    predictions["predictions"].append(
-        {image_id: {
+    predictions["predictions"][image_id] = {
         "pred_boxes": pred_boxes.tolist(),
         "pred_classes": pred_classes.tolist(),
-        "pred_scores": scores.tolist()}})
+        "pred_scores": scores.tolist()
+        }
 
     with open(dest, "w") as ff:
         json.dump(predictions, ff, indent=4)
