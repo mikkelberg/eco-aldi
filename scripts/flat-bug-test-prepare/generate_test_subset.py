@@ -28,7 +28,6 @@ def filter_meta_csv(df: DataFrame):
 
     df = df[df['background'] == 'paper']
     return df
-    # TODO Remove extra dates
 
 def find_paper_annotations(annotations, dates_cameras):
     paper_annotations = []
@@ -50,6 +49,25 @@ def find_images_with_bb(annotation_file):
         
         return images_with_bb
 
+def write_target_subset(test_images, output):
+    with open(ROOT.joinpath(output), "w") as f:
+        f.write("\n".join(str(image) for image in test_images))
+
+def collect_target_subset(dictionary):
+    # Collect image paths to be loaded by 7z, save to a .txt file 
+    no_to_sample = 18 # found via printing the number of values for each entry in dictionary. Let the lowest number decide.
+    test_images = []
+    for annotation_filename in dictionary: 
+        annotated_images = list(dictionary[annotation_filename])
+        sample_distance = int(len(annotated_images)/no_to_sample) # Round down 
+        for index in range(0, len(annotated_images), sample_distance):
+            date_camera = annotation_filename.split(" ")
+            date = date_camera[0]
+            camera = os.path.splitext(date_camera[1])[0]
+            test_image = Path(IMAGE_FOLDER_DATE_MAP[date]).joinpath(camera, annotated_images[index])
+            test_images.append(test_image)
+    return test_images
+
 if __name__ == '__main__':
     df = pd.read_csv(CSV_FILE, on_bad_lines='skip')
     
@@ -62,19 +80,6 @@ if __name__ == '__main__':
     for annotation_filename in paper_annotation_filenames:
         dictionary[annotation_filename] = find_images_with_bb(ANNOTATIONS.joinpath(annotation_filename))
 
-    # Collect image paths to be loaded by 7z, save to a .txt file 
-    no_to_sample = 18 # found via printing the number of values for each entry in dictionary. Let the lowest number decide. 
-    test_images = []
-    for annotation_filename in dictionary: 
-        annotated_images = list(dictionary[annotation_filename])
-        sample_distance = int(len(annotated_images)/no_to_sample) # Round down 
-        for index in range(0, len(annotated_images), sample_distance):
-            date_camera = annotation_filename.split(" ")
-            date = date_camera[0]
-            camera = os.path.splitext(date_camera[1])[0]
-            test_image = Path(IMAGE_FOLDER_DATE_MAP[date]).joinpath(camera, annotated_images[index])
-            test_images.append(test_image)
+    test_images = collect_target_subset( dictionary)
     
-    output = "flat-bug-test-images.txt"
-    with open(ROOT.joinpath(output), "w") as f:
-        f.write("\n".join(str(image) for image in test_images))
+    write_target_subset(test_images=test_images, output="flat-bug-test-images.txt")
