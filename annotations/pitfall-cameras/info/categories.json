@@ -188,5 +188,21 @@
     "automatically_set_to_unknown": [
         "coleoptera",
         "parasitoid"
+    ],
+    "categories_set_to_unknown_due_to_low_frequency": [
+        "acari",
+        "argasidae",
+        "bibionidae",
+        "braconidae",
+        "cantharidae",
+        "carabid larvae",
+        "chalcididae",
+        "diapriidae",
+        "diptera larvae",
+        "elateridae",
+        "lepidoptera",
+        "nitidulidae",
+        "syrphidae",
+        "tipulidae"
     ]
 }

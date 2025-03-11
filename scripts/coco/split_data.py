@@ -16,14 +16,6 @@ def image_ids_with_annotations(images, annotations):
     image_ids_without_annotations = [img for img in images if img["id"] not in [ann["image_id"] for ann in annotations]]   
     return image_ids_with_annotations, image_ids_without_annotations
 
-def gen_basic_coco(coco, partition:str):
-    return {"info": f"{partition.upper()}-partition for: {coco["info"]}",
-            "license": coco["license"],
-            "images": [],
-            "annotations": [],
-            "categories": coco["categories"]
-            }
-
 def gen_image_to_detected_classes_dict(images, annotations):
     print("Collecting image ids and detected class labels from annotations...")
     image_to_detected_classes = {}
@@ -98,7 +90,8 @@ def split_data(coco):
 
     ##### Create the coco object for each partition (same as the original coco, but with the ids filtered out)
     def gen_coco_partition(partition_name, ids):
-        return {   "info": f"{partition_name.upper()}-partition for: {coco["info"]}", # FIXME not possible to write to dicts this way
+        original_info = coco["info"]
+        return {   "info": f"{partition_name.upper()}-partition for: {original_info}", 
                     "license": coco["license"],
                     "images": filter_images(all_images=images, image_ids_to_filter=ids),
                     "annotations": filter_annotations(all_annotations=annotations, image_ids_to_filter=ids),

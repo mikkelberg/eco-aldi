@@ -2,6 +2,7 @@
     "overall": {
         "total images": 16481,
         "total annotations": 10962,
+        "no of categories": 13,
         "positive samples": 9889,
         "negative samples": 6592,
         "class distribution": {
@@ -24,6 +25,7 @@
         "pitfall-cameras-all": {
             "total images": 16481,
             "total annotations": 10962,
+            "no of categories": 13,
             "positive samples": 9889,
             "negative samples": 6592,
             "class distribution": {

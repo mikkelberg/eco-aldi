@@ -64,14 +64,17 @@ def image(row, images_dir):
 
     image = {}
     image["id"] = row.fileid
-    image["height"] = width 
-    image["width"] = height 
+    image["height"] = height 
+    image["width"] = width 
     image["file_name"] = row.filename
     return image
 
+annotation_counter = 0
 def annotation(row, category_id):
+    global annotation_counter
+    
     annotation = {}
-    annotation["id"] = row.fileid + "_" + str(row.region_id) 
+    annotation["id"] = annotation_counter # row.fileid + "_" + str(row.region_id) 
     annotation["image_id"] = row.fileid
     annotation["category_id"] = category_id
     annotation["segmentation"] = [] # NOTE blank? We don't have this. Wondering if this needs to be disabled if we use flat-bug data 
@@ -79,6 +82,8 @@ def annotation(row, category_id):
     annotation["area"] = shape["width"]*shape["height"]
     annotation["bbox"] = [shape["x"], shape["y"], shape["width"], shape["height"]]
     annotation["iscrowd"] = 0
+
+    annotation_counter += 1 # incr the global counter
     return annotation
 
 def record_ignored_images(ignored_images, dest_dir):
@@ -140,7 +145,6 @@ def convert(file_prefix, img_folder_name, csv_file_path, coco_file_destination, 
         category_id = category_name_to_id[category_name]
         ann = annotation(row,category_id)
         annotations.append(ann)
-        if category_id == 4: print(row.filename)
 
     # Clean out images that need to be removed due to errors (undefined annotation)
     images = [img for img in images if img["id"] not in images_to_clean_out]
@@ -190,7 +194,7 @@ def main():
     parser.add_argument("dataset_name", help="E.g. pitfall-cameras (matches the directory)")
     parser.add_argument("images_dir", help="Path to images directory.")
 
-    # python scripts/preprocessing/convert_vgg_csv_to_coco_annotations.py pitfall-cameras ../../../mnt/data0/martez/images/
+    # python scripts/preprocessing/convert_vgg_csv_to_coco_annotations.py pitfall-cameras ../../../mnt/data0/martez/pitfall-cameras/images/
 
     # Parse the arguments
     args = parser.parse_args()
