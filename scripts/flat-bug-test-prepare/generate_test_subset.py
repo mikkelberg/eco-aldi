@@ -7,7 +7,7 @@ from pandas import DataFrame, Series
 pd.options.mode.copy_on_write = True # https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 ROOT = Path("data-annotations").joinpath("controlled-conditions", "annotations")
-CSV_FILE = ROOT.joinpath("Insect_position_date.csv")
+CSV_FILE = ROOT.joinpath("meta-files", "Insect_position_date.csv")
 ANNOTATIONS = ROOT.joinpath("Annotations")
 
 IMAGE_FOLDER_DATE_MAP = {"040523":"040523", "150523":"150523", "160523":"160523", "170523":"170522", "050623":"0506-120623", "070623":"0506-120623"}
@@ -68,7 +68,7 @@ def collect_target_subset(dictionary):
             test_images.append(test_image)
     return test_images
 
-if __name__ == '__main__':
+def generate_test_subset():
     df = pd.read_csv(CSV_FILE, on_bad_lines='skip')
     
     df = filter_meta_csv(df)
@@ -83,3 +83,6 @@ if __name__ == '__main__':
     test_images = collect_target_subset( dictionary)
     
     write_target_subset(test_images=test_images, output="flat-bug-test-images.txt")
+
+if __name__ == '__main__':
+    generate_test_subset()
