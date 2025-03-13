@@ -121,14 +121,14 @@ def extract_categories_from_controlled_conditions_metadata(codes:list[int]):
     # eliminate duplicates
     categories = set()
     name_to_concon_code = normalised_name_to_concon_code(concon_categories) # keep track of which ids map to the same species
-    for i, n in enumerate(sorted(list(name_to_concon_code.keys())), start=1): # add each unique name
+    for n in sorted(list(name_to_concon_code.keys())): # add each unique name
         categories.add(n)
     print(f"Extracted {len(list(categories))} unique categories from the dataset.")
-    return categories
+    return categories, ignored_codes
 
 def remove_if_not_in_target_dataset(cats, target_dataset):
-    target_categories = utils.load_json_from_file("annotations/"+target_dataset+"/info/categories.json")["categories"]
-    target_category_names = [cat["name"] for cat in target_categories]
+    target_categories = utils.load_json_from_file("annotations/"+target_dataset+"/info/categories.json")
+    target_category_names = [cat["name"] for cat in target_categories["categories"]]
     
     approved_cats = set()
     removed_cats = set()
@@ -137,12 +137,15 @@ def remove_if_not_in_target_dataset(cats, target_dataset):
             approved_cats.add(cat)
         else:
             removed_cats.add(cat)
-
+    for unknown in target_categories["categories_set_to_unknown_due_to_low_frequency"]:
+        if unknown in approved_cats:
+            approved_cats.remove(unknown)
+            removed_cats.add(unknown)
     missing_cats = set()
     for cat in target_category_names:
-        if cat not in approved_cats:
+        if cat not in approved_cats and cat not in target_categories["categories_set_to_unknown_due_to_low_frequency"]:
             missing_cats.add(cat)
-
+    
     return approved_cats, removed_cats, missing_cats
             
 
@@ -153,10 +156,11 @@ def extract_clean_categories_from_controlled_conditions_metadata(codes:list[int]
     categories = clean_categories(cats=categories, dataset="controlled-conditions")
     print(f"Extracted {len(list(categories))} after cleaning up/grouping.")
     categories, removed, mssing = remove_if_not_in_target_dataset(categories, target_dataset="pitfall-cameras")
-    print(f"Removed the following {len(list(removed))} categories, which are not present in the target dataset: {list(removed)}")
+    print(f"Removed the following {len(list(removed))} categories, which are not present or too rare in the target dataset: {list(removed)}")
+    print(f"Ended with {len(categories)} categories.")
     print(f"These {len(list(mssing))} categories are present in the target dataset but not in this one: {list(mssing)}")
     coco_categories = create_coco_categories_from_set(categories)
-    print(f"Ended with {len(coco_categories)} categories.")
+    
     return coco_categories
 
 def main():

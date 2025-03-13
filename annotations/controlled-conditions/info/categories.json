@@ -7,61 +7,41 @@
         },
         {
             "id": 2,
-            "name": "cantharidae",
-            "supercategory": "insect"
-        },
-        {
-            "id": 3,
-            "name": "carabid larvae",
-            "supercategory": "insect"
-        },
-        {
-            "id": 4,
             "name": "carabidae",
             "supercategory": "insect"
         },
         {
-            "id": 5,
+            "id": 3,
             "name": "chrysomelidae",
             "supercategory": "insect"
         },
         {
-            "id": 6,
+            "id": 4,
             "name": "coccinellidae",
             "supercategory": "insect"
         },
         {
-            "id": 7,
+            "id": 5,
             "name": "dermaptera",
             "supercategory": "insect"
         },
         {
-            "id": 8,
-            "name": "diptera larvae",
-            "supercategory": "insect"
-        },
-        {
-            "id": 9,
+            "id": 6,
             "name": "formicidae",
             "supercategory": "insect"
         },
         {
-            "id": 10,
+            "id": 7,
             "name": "isopoda",
             "supercategory": "insect"
         },
         {
-            "id": 11,
+            "id": 8,
             "name": "myriapoda",
             "supercategory": "insect"
         },
         {
-            "id": 12,
-            "name": "nitidulidae",
-            "supercategory": "insect"
-        },
-        {
-            "id": 13,
+            "id": 9,
             "name": "staphylinidae",
             "supercategory": "insect"
         }
