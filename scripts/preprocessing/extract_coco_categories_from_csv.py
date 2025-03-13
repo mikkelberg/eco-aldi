@@ -8,6 +8,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.pitfall_cameras_utils as pc
+import utils.controlled_conditions_utils as concon
 
 def clean_categories(cats):
     """Normalises all category names and merges according to typos/redundancies (manually defined in the dict above)"""
@@ -29,6 +30,23 @@ def clean_categories(cats):
         cleaned_set.add(category_name) # insert the (corrected) category 
 
     return cleaned_set
+
+def create_coco_categories_from_set(cats:set):
+    """Create category dictionary with unique, sorted category names"""
+    return [
+        {"id": idx + 1, "name": cat, "supercategory": "insect"}
+        for idx, cat in enumerate(sorted(cats))  # Sorted to ensure consistency
+    ]
+
+def save_categories_to_file(cats, dest_dir, filename, mappings={}, groupings={}, unknown_overwrites={}):
+    path = os.path.join(dest_dir, filename)
+    categories = {}
+    categories["categories"] = cats
+    categories["name_mappings"] = mappings # also save the mappings to use when generating the annotations from the csv-files that have those typos
+    categories["grouped_names"] = groupings
+    categories["automatically_set_to_unknown"] = unknown_overwrites
+    with open(path, "w") as f:
+        json.dump(categories, f, indent=4)
 
 def extract_categories_from_vgg_csv(src):
     df = pd.read_csv(src, on_bad_lines='skip')
@@ -64,23 +82,6 @@ def extract_categories_from_vgg_csv_dir(src_dir):
             print(f"Processed {index} out of {total_files} files")
     return categories
 
-def create_coco_categories_from_set(cats:set):
-    """Create category dictionary with unique, sorted category names"""
-    return [
-        {"id": idx + 1, "name": cat, "supercategory": "insect"}
-        for idx, cat in enumerate(sorted(cats))  # Sorted to ensure consistency
-    ]
-
-def save_categories_to_file(cats, dest_dir, filename, mappings={}, groupings={}, unknown_overwrites={}):
-    path = os.path.join(dest_dir, filename)
-    categories = {}
-    categories["categories"] = cats
-    categories["name_mappings"] = mappings # also save the mappings to use when generating the annotations from the csv-files that have those typos
-    categories["grouped_names"] = groupings
-    categories["automatically_set_to_unknown"] = unknown_overwrites
-    with open(path, "w") as f:
-        json.dump(categories, f, indent=4)
-
 def extract_clean_categories_from_vgg_csv_dir(src_dir):
     categories_set = extract_categories_from_vgg_csv_dir(src_dir)
     categories_set_clean = clean_categories(categories_set)
@@ -88,19 +89,35 @@ def extract_clean_categories_from_vgg_csv_dir(src_dir):
     print(f"Extracted {len(coco_categories)} categories from the annotations.")
     return coco_categories
 
+
+def extract_categories_from_controlled_conditions_metadata(codes:list[int], code_to_name:dict):
+    categories = set()
+    for code in codes:
+        name = code_to_name[code]
+        categories.add(name)
+    
+    print(categories)
+
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Extract categories from all VGG-CSV annotations into a single JSON-object (\"categories\") compatible with the COCO-format.")
-    parser.add_argument("src_dir", nargs="?", help="Source directory containing the csv files.", default="annotations/pitfall-cameras/originals/")
-    parser.add_argument("dest_dir", nargs="?", help="Directory at which to save the generated categories.json.", default="./annotations/pitfall-cameras/info/")
-    parser.add_argument("filename", nargs="?", default="categories.json", help="Optional name of the generated file (default is \"categories.json\").")
+    parser.add_argument("dataset_name", help="")
     
     # Parse the arguments
     args = parser.parse_args()
 
-    # do the thing :)
-    coco_categories = extract_clean_categories_from_vgg_csv_dir(args.src_dir)
-    save_categories_to_file(cats=coco_categories, mappings=pc.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=args.dest_dir, filename=args.filename)
+    if args.dataset_name == "pitfall_cameras":
+        SRC_DIR = "annotations/pitfall-cameras/originals/"
+        DEST_DIR = "annotations/pitfall-cameras/info/"
+        FILENAME = DEST_DIR + "/categories.json"
+        # do the thing :)
+        coco_categories = extract_clean_categories_from_vgg_csv_dir(SRC_DIR)
+        save_categories_to_file(cats=coco_categories, mappings=pc.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
+    elif args.dataset_name == "controlled-conditions":
+        print(concon.get_insect_codes_from_paper_conditions())
+        #coco_categories = {}
+        #save_categories_to_file(cats=coco_categories, mappings=.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
+
 
 
 if __name__ == "__main__":
