@@ -9,22 +9,27 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.pitfall_cameras_utils as pc
 import utils.controlled_conditions_utils as concon
+import utils.utils as utils
 
-def clean_categories(cats):
+def clean_categories(cats, dataset):
     """Normalises all category names and merges according to typos/redundancies (manually defined in the dict above)"""
     cleaned_set = set()
 
+    if dataset == "pitfall-cameras":
+        import utils.pitfall_cameras_utils as d
+    elif dataset == "controlled-conditions":
+        import utils.controlled_conditions_utils as d
     for category in cats:
         normalized = pc.normalise_category_name(category) # lower case, space separation, "unknown" comes last
         
         category_name = normalized
-        if normalized in pc.name_mappings: # overwrite with the correction if it's there!
-            category_name = pc.name_mappings[normalized]
+        if normalized in d.name_mappings: # overwrite with the correction if it's there!
+            category_name = d.name_mappings[normalized]
         
-        if category_name in pc.names_to_group: # group if needed 
-            category_name = pc.names_to_group[category_name]
+        if category_name in d.names_to_group: # group if needed 
+            category_name = d.names_to_group[category_name]
 
-        if category_name in pc.categories_to_set_to_unknown: 
+        if category_name in d.categories_to_set_to_unknown: 
             category_name = "unknown"  
 
         cleaned_set.add(category_name) # insert the (corrected) category 
@@ -89,14 +94,70 @@ def extract_clean_categories_from_vgg_csv_dir(src_dir):
     print(f"Extracted {len(coco_categories)} categories from the annotations.")
     return coco_categories
 
-
-def extract_categories_from_controlled_conditions_metadata(codes:list[int], code_to_name:dict):
-    categories = set()
-    for code in codes:
-        name = code_to_name[code]
-        categories.add(name)
+def normalised_name_to_concon_code(categories:list[dict]):
+    name_to_original_ids = {}
+    for i, cat in enumerate(categories):
+        normalised_name = pc.normalise_category_name(name=cat["name"])
+        if normalised_name in name_to_original_ids.keys():
+            name_to_original_ids[normalised_name].append(cat["code"])
+        else:
+            name_to_original_ids[normalised_name] = [cat["code"]]
+    utils.save_json_to_file(name_to_original_ids,"annotations/controlled-conditions/category-codes.json")
+    return name_to_original_ids
     
-    print(categories)
+
+def extract_categories_from_controlled_conditions_metadata(codes:list[int]):
+    code_to_insect = concon.get_code_to_insect_dict()
+    ignored_codes = {}
+    concon_categories = []
+    for code in codes:
+        if str(code) not in code_to_insect.keys():
+            ignored_codes[code] = f"Insect code ({code}) denoted for these images did not exist."
+            continue
+        name = pc.normalise_category_name(name= code_to_insect[str(code)])
+        concon_categories.append({"code": code, "name": name})
+    utils.save_json_to_file(ignored_codes, "annotations/controlled-conditions/category-codes-ignored.json")
+    
+    # eliminate duplicates
+    categories = set()
+    name_to_concon_code = normalised_name_to_concon_code(concon_categories) # keep track of which ids map to the same species
+    for i, n in enumerate(sorted(list(name_to_concon_code.keys())), start=1): # add each unique name
+        categories.add(n)
+    print(f"Extracted {len(list(categories))} unique categories from the dataset.")
+    return categories
+
+def remove_if_not_in_target_dataset(cats, target_dataset):
+    target_categories = utils.load_json_from_file("annotations/"+target_dataset+"/info/categories.json")["categories"]
+    target_category_names = [cat["name"] for cat in target_categories]
+    
+    approved_cats = set()
+    removed_cats = set()
+    for cat in cats:
+        if cat in target_category_names:
+            approved_cats.add(cat)
+        else:
+            removed_cats.add(cat)
+
+    missing_cats = set()
+    for cat in target_category_names:
+        if cat not in approved_cats:
+            missing_cats.add(cat)
+
+    return approved_cats, removed_cats, missing_cats
+            
+
+
+
+def extract_clean_categories_from_controlled_conditions_metadata(codes:list[int]):
+    categories = extract_categories_from_controlled_conditions_metadata(codes=codes)
+    categories = clean_categories(cats=categories, dataset="controlled-conditions")
+    print(f"Extracted {len(list(categories))} after cleaning up/grouping.")
+    categories, removed, mssing = remove_if_not_in_target_dataset(categories, target_dataset="pitfall-cameras")
+    print(f"Removed the following {len(list(removed))} categories, which are not present in the target dataset: {list(removed)}")
+    print(f"These {len(list(mssing))} categories are present in the target dataset but not in this one: {list(mssing)}")
+    coco_categories = create_coco_categories_from_set(categories)
+    print(f"Ended with {len(coco_categories)} categories.")
+    return coco_categories
 
 def main():
     # Set up command-line argument parsing
@@ -105,16 +166,20 @@ def main():
     
     # Parse the arguments
     args = parser.parse_args()
+    
+    FILENAME = "categories.json"
 
     if args.dataset_name == "pitfall_cameras":
         SRC_DIR = "annotations/pitfall-cameras/originals/"
         DEST_DIR = "annotations/pitfall-cameras/info/"
-        FILENAME = DEST_DIR + "/categories.json"
         # do the thing :)
         coco_categories = extract_clean_categories_from_vgg_csv_dir(SRC_DIR)
         save_categories_to_file(cats=coco_categories, mappings=pc.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
     elif args.dataset_name == "controlled-conditions":
-        print(concon.get_insect_codes_from_paper_conditions())
+        DEST_DIR = "annotations/controlled-conditions/info/"
+        codes = concon.get_insect_codes_from_paper_conditions()
+        coco_categories = extract_clean_categories_from_controlled_conditions_metadata(codes=codes)
+        save_categories_to_file(cats=coco_categories, mappings=concon.name_mappings, groupings=concon.names_to_group, unknown_overwrites=concon.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
         #coco_categories = {}
         #save_categories_to_file(cats=coco_categories, mappings=.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
 

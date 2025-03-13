@@ -1,0 +1,385 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "achenium depressum",
+            "supercategory": "insect"
+        },
+        {
+            "id": 2,
+            "name": "acupalpus meridianus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 3,
+            "name": "agonum muelleri",
+            "supercategory": "insect"
+        },
+        {
+            "id": 4,
+            "name": "aleochara",
+            "supercategory": "insect"
+        },
+        {
+            "id": 5,
+            "name": "aleocharinae",
+            "supercategory": "insect"
+        },
+        {
+            "id": 6,
+            "name": "amara",
+            "supercategory": "insect"
+        },
+        {
+            "id": 7,
+            "name": "amara aenea",
+            "supercategory": "insect"
+        },
+        {
+            "id": 8,
+            "name": "amara convexior",
+            "supercategory": "insect"
+        },
+        {
+            "id": 9,
+            "name": "amara ovata",
+            "supercategory": "insect"
+        },
+        {
+            "id": 10,
+            "name": "amara ritida",
+            "supercategory": "insect"
+        },
+        {
+            "id": 11,
+            "name": "amara similata",
+            "supercategory": "insect"
+        },
+        {
+            "id": 12,
+            "name": "anchomenus dorsalis",
+            "supercategory": "insect"
+        },
+        {
+            "id": 13,
+            "name": "anotylus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 14,
+            "name": "armadillidium",
+            "supercategory": "insect"
+        },
+        {
+            "id": 15,
+            "name": "asaphidion flavipes",
+            "supercategory": "insect"
+        },
+        {
+            "id": 16,
+            "name": "bembidion lampros",
+            "supercategory": "insect"
+        },
+        {
+            "id": 17,
+            "name": "bembidion lunulatum",
+            "supercategory": "insect"
+        },
+        {
+            "id": 18,
+            "name": "bembidion obtrissum",
+            "supercategory": "insect"
+        },
+        {
+            "id": 19,
+            "name": "bembidion properans",
+            "supercategory": "insect"
+        },
+        {
+            "id": 20,
+            "name": "brachinus crepitans",
+            "supercategory": "insect"
+        },
+        {
+            "id": 21,
+            "name": "brassicogethes",
+            "supercategory": "insect"
+        },
+        {
+            "id": 22,
+            "name": "cantharis flavilabris",
+            "supercategory": "insect"
+        },
+        {
+            "id": 23,
+            "name": "cantharis lateralis",
+            "supercategory": "insect"
+        },
+        {
+            "id": 24,
+            "name": "cantharis rustica",
+            "supercategory": "insect"
+        },
+        {
+            "id": 25,
+            "name": "carabid larva",
+            "supercategory": "insect"
+        },
+        {
+            "id": 26,
+            "name": "carabidae",
+            "supercategory": "insect"
+        },
+        {
+            "id": 27,
+            "name": "chrysoperla carnea",
+            "supercategory": "insect"
+        },
+        {
+            "id": 28,
+            "name": "coccinella septempunctata",
+            "supercategory": "insect"
+        },
+        {
+            "id": 29,
+            "name": "cylindroiulus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 30,
+            "name": "drassyllus pusillus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 31,
+            "name": "forficula auricularia male",
+            "supercategory": "insect"
+        },
+        {
+            "id": 32,
+            "name": "formicidae",
+            "supercategory": "insect"
+        },
+        {
+            "id": 33,
+            "name": "harpalus affinis",
+            "supercategory": "insect"
+        },
+        {
+            "id": 34,
+            "name": "harpalus rufipes",
+            "supercategory": "insect"
+        },
+        {
+            "id": 35,
+            "name": "hoverfly larva",
+            "supercategory": "insect"
+        },
+        {
+            "id": 36,
+            "name": "ischnosoma",
+            "supercategory": "insect"
+        },
+        {
+            "id": 37,
+            "name": "larnycetes emarginatus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 38,
+            "name": "lasius",
+            "supercategory": "insect"
+        },
+        {
+            "id": 39,
+            "name": "lepthyphantes",
+            "supercategory": "insect"
+        },
+        {
+            "id": 40,
+            "name": "linyphiidae",
+            "supercategory": "insect"
+        },
+        {
+            "id": 41,
+            "name": "loricera pilicornis",
+            "supercategory": "insect"
+        },
+        {
+            "id": 42,
+            "name": "loricera pilicornis larva",
+            "supercategory": "insect"
+        },
+        {
+            "id": 43,
+            "name": "lycosidae",
+            "supercategory": "insect"
+        },
+        {
+            "id": 44,
+            "name": "megalepthyphantes",
+            "supercategory": "insect"
+        },
+        {
+            "id": 45,
+            "name": "micaria pulicaria",
+            "supercategory": "insect"
+        },
+        {
+            "id": 46,
+            "name": "microlestes minutulus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 47,
+            "name": "myrmica",
+            "supercategory": "insect"
+        },
+        {
+            "id": 48,
+            "name": "nebria brevicolis",
+            "supercategory": "insect"
+        },
+        {
+            "id": 49,
+            "name": "nebria salina",
+            "supercategory": "insect"
+        },
+        {
+            "id": 50,
+            "name": "neottiura binaculata",
+            "supercategory": "insect"
+        },
+        {
+            "id": 51,
+            "name": "notophilus biguttatus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 52,
+            "name": "ocypus olens",
+            "supercategory": "insect"
+        },
+        {
+            "id": 53,
+            "name": "pardosa",
+            "supercategory": "insect"
+        },
+        {
+            "id": 54,
+            "name": "phalangiidae",
+            "supercategory": "insect"
+        },
+        {
+            "id": 55,
+            "name": "philonthus cognatus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 56,
+            "name": "philonthus laminatus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 57,
+            "name": "philoscia muscorum",
+            "supercategory": "insect"
+        },
+        {
+            "id": 58,
+            "name": "poecilus cupreus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 59,
+            "name": "polydesmus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 60,
+            "name": "psylloides chrysocephala",
+            "supercategory": "insect"
+        },
+        {
+            "id": 61,
+            "name": "pterostichus madidus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 62,
+            "name": "pterostichus niger",
+            "supercategory": "insect"
+        },
+        {
+            "id": 63,
+            "name": "pterostichus nigrita",
+            "supercategory": "insect"
+        },
+        {
+            "id": 64,
+            "name": "pterostichus strenus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 65,
+            "name": "staphylinidae",
+            "supercategory": "insect"
+        },
+        {
+            "id": 66,
+            "name": "staphylinidae larva",
+            "supercategory": "insect"
+        },
+        {
+            "id": 67,
+            "name": "stomis punicatus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 68,
+            "name": "tachinus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 69,
+            "name": "trechus quadristriatus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 70,
+            "name": "trochosa",
+            "supercategory": "insect"
+        },
+        {
+            "id": 71,
+            "name": "trochosa ruricola",
+            "supercategory": "insect"
+        },
+        {
+            "id": 72,
+            "name": "xantholinus",
+            "supercategory": "insect"
+        },
+        {
+            "id": 73,
+            "name": "xantholinus linearis",
+            "supercategory": "insect"
+        },
+        {
+            "id": 74,
+            "name": "xysticus cristatus",
+            "supercategory": "insect"
+        }
+    ],
+    "name_mappings": {},
+    "grouped_names": {
+        "bembidion lampros": "carabidae",
+        "notophilus biguttatus": "carabidae",
+        "nebria brevicolis": "carabidae",
+        "amara": "carabidae",
+        "amara aenea": "carabidae",
+        "amara ovata": "carabidae",
+        "philonthus cognatus": "staphylinidae"
+    },
+    "automatically_set_to_unknown": []
+}
