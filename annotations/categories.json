@@ -1,16 +1,19 @@
 {
     "categories": {
         "araneae": {
+            "id": 1,
             "contains": [
                 "araneae", "drassyllus pusillus", "gnaphosidae", "lepthyphantes", "linyphiidae", "lycosidae", 
                 "megalepthyphantes", "micaria pulicaria", "neottiura bimaculata", "pardosa", "trochosa", 
                 "trochosa ruricola", "xysticus cristatus"
             ]
         },
-        "cantharidae": { 
+        "cantharidae": {
+            "id": 2, 
             "contains": ["cantharis flavilabris", "cantharis rustica", "cantharis rufa", "cantharis lateralis"]
         },
         "carabidae": { 
+            "id": 3,
             "contains":  [  
                             "carabidae", "acupalpus meridianus", "agonum muelleri", "amara", "amara aenea", 
                             "amara convexior", "amara ovata", "amara nitida", "amara similata", "anchomenus dorsalis", 
@@ -22,44 +25,55 @@
                         ]
         },
         "chrysomelidae": {
+            "id": 4,
             "contains": ["psylliodes chrysocephalus", "phyllotreta"]
         },
         "coccinellidae": { 
+            "id": 5,
             "contains":  ["coccinella","coccinella septempunctata", "coccinellidae", "psylliodes chrysocephala"]
         },
+        "dermaptera": {
+            "id": 6,
+            "contains": ["dermaptera", "forficula auricularia"]
+        },
         "diptera/hymenoptera": { 
+            "id": 7,
             "contains":  [
                 "diptera", "bibionidae", "syrphidae", "tipulidae",
                 "braconidae", "chalcididae", "diapriidae", "formicidae", "lasius", "myrmica"
             ]
         },
-        "dermaptera": {
-            "contains": ["dermaptera", "forficula auricularia"]
-        },
         "isopoda": {
+            "id": 8,
             "contains": ["armadillidium","isopoda", "philoscia muscorum"]
         },
         "myriapoda": {
+            "id": 9,
             "contains": ["cylindroiulus", "larnycetes emarginatus", "myriapoda", "polydesmus"]
         },
         "nitidulidae": {
+            "id": 10,
             "contains": ["brassicogethes", "brassicogethes aeneus"]
         },
-        "opiliones": { 
+        "opiliones": {
+            "id": 11, 
             "contains":  ["opiliones", "phalangiidae"]
         },
         "staphylinidae": { 
+            "id": 12,
             "contains": [
                 "achenium depressum", "aleochara", "aleocharinae", "anotylus", "philonthus cognatus", 
                 "ischnosoma", "ocypus olens", "philonthus laminatus", "tachinus", "tachyporus hypnorum",
                 "xantholinus", "xantholinus linearis", "staphylinidae"
             ]
         },
-        "diptera (larvae)": { 
-            "contains":  ["diptera (larvae)"]
-        },
         "coleoptera (larvae)": { 
+            "id": 13,
             "contains":  ["staphylinidae (larvae)", "carabidae (larvae)", "coccinella (larvae)", "loricera pilicornis (larvae)"]
+        },
+        "diptera (larvae)": { 
+            "id": 14,
+            "contains":  ["diptera (larvae)"]
         }
     },
 
