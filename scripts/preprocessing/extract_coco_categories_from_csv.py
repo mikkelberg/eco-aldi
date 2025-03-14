@@ -14,23 +14,22 @@ import utils.utils as utils
 def clean_categories(cats, dataset):
     """Normalises all category names and merges according to typos/redundancies (manually defined in the dict above)"""
     cleaned_set = set()
+    mother = utils.load_json_from_file(MOTHER_FILE)
+    cats_to_remove = mother["remove"].keys()
+    name_corrections = mother["name_corrections"]
+    
+    name_to_official_category = {}
+    for off_cat in mother["categories"]:
+        for n in off_cat["contains"]:
+            name_to_official_category[n] = off_cat
 
-    if dataset == "pitfall-cameras":
-        import utils.pitfall_cameras_utils as d
-    elif dataset == "controlled-conditions":
-        import utils.controlled_conditions_utils as d
     for category in cats:
-        normalised = pc.normalise_category_name(category) # lower case, space separation, "unknown" comes last
+        category_name = pc.normalise_category_name(category) # lower case, space separation, "unknown" comes last
         
-        category_name = normalised
-        if normalised in d.name_mappings: # overwrite with the correction if it's there!
-            category_name = d.name_mappings[normalised]
-        
-        if category_name in d.names_to_group: # group if needed 
-            category_name = d.names_to_group[category_name]
+        if category_name in name_corrections: # overwrite with the correction if it's there!
+            category_name = name_corrections[category_name]
 
-        if category_name in d.categories_to_set_to_unknown: 
-            category_name = "unknown"  
+        category_name = name_to_official_category[category_name] # set to name groups
 
         cleaned_set.add(category_name) # insert the (corrected) category 
 
@@ -147,9 +146,6 @@ def remove_if_not_in_target_dataset(cats, target_dataset):
             missing_cats.add(cat)
     
     return approved_cats, removed_cats, missing_cats
-            
-
-
 
 def extract_clean_categories_from_controlled_conditions_metadata(codes:list[int]):
     categories, _ = extract_categories_from_controlled_conditions_metadata(codes=codes)
@@ -163,6 +159,8 @@ def extract_clean_categories_from_controlled_conditions_metadata(codes:list[int]
     
     return coco_categories
 
+
+MOTHER_FILE = "annotations/categories.json"
 def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Extract categories from all VGG-CSV annotations into a single JSON-object (\"categories\") compatible with the COCO-format.")
@@ -170,23 +168,22 @@ def main():
     
     # Parse the arguments
     args = parser.parse_args()
-    
+
     FILENAME = "categories.json"
+    root = "annotations/"
 
     if args.dataset_name == "pitfall_cameras":
-        SRC_DIR = "annotations/pitfall-cameras/originals/"
-        DEST_DIR = "annotations/pitfall-cameras/info/"
-        # do the thing :)
+        SRC_DIR = root+"pitfall-cameras/originals/"
+        DEST_DIR = root+"pitfall-cameras/info/"
+        
         coco_categories = extract_clean_categories_from_vgg_csv_dir(SRC_DIR)
         save_categories_to_file(cats=coco_categories, mappings=pc.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
     elif args.dataset_name == "controlled-conditions":
-        DEST_DIR = "annotations/controlled-conditions/info/"
+        DEST_DIR = root+"controlled-conditions/info/"
         codes = concon.get_insect_codes_from_paper_conditions()
+        
         coco_categories = extract_clean_categories_from_controlled_conditions_metadata(codes=codes)
         save_categories_to_file(cats=coco_categories, mappings=concon.name_mappings, groupings=concon.names_to_group, unknown_overwrites=concon.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
-        #coco_categories = {}
-        #save_categories_to_file(cats=coco_categories, mappings=.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
-
 
 
 if __name__ == "__main__":
