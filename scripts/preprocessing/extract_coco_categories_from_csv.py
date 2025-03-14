@@ -11,29 +11,33 @@ import utils.pitfall_cameras_utils as pc
 import utils.controlled_conditions_utils as concon
 import utils.utils as utils
 
-def clean_categories(cats, dataset):
+def clean_categories(cats):
     """Normalises all category names and merges according to typos/redundancies (manually defined in the dict above)"""
-    cleaned_set = set()
     mother = utils.load_json_from_file(MOTHER_FILE)
     cats_to_remove = mother["remove"].keys()
     name_corrections = mother["name_corrections"]
     
     name_to_official_category = {}
-    for off_cat in mother["categories"]:
-        for n in off_cat["contains"]:
+    for off_cat, info in mother["categories"].items():
+        for n in info["contains"]:
             name_to_official_category[n] = off_cat
 
+    cleaned_set = set()
+    removed = set()
     for category in cats:
         category_name = pc.normalise_category_name(category) # lower case, space separation, "unknown" comes last
         
         if category_name in name_corrections: # overwrite with the correction if it's there!
             category_name = name_corrections[category_name]
 
+        if category_name in cats_to_remove:
+            removed.add(category_name)
+            continue
         category_name = name_to_official_category[category_name] # set to name groups
 
         cleaned_set.add(category_name) # insert the (corrected) category 
 
-    return cleaned_set
+    return cleaned_set, removed
 
 def create_coco_categories_from_set(cats:set):
     """Create category dictionary with unique, sorted category names"""
@@ -42,13 +46,10 @@ def create_coco_categories_from_set(cats:set):
         for idx, cat in enumerate(sorted(cats))  # Sorted to ensure consistency
     ]
 
-def save_categories_to_file(cats, dest_dir, filename, mappings={}, groupings={}, unknown_overwrites={}):
+def save_categories_to_file(cats, dest_dir, filename):
     path = os.path.join(dest_dir, filename)
     categories = {}
     categories["categories"] = cats
-    categories["name_mappings"] = mappings # also save the mappings to use when generating the annotations from the csv-files that have those typos
-    categories["grouped_names"] = groupings
-    categories["automatically_set_to_unknown"] = unknown_overwrites
     with open(path, "w") as f:
         json.dump(categories, f, indent=4)
 
@@ -88,9 +89,10 @@ def extract_categories_from_vgg_csv_dir(src_dir):
 
 def extract_clean_categories_from_vgg_csv_dir(src_dir):
     categories_set = extract_categories_from_vgg_csv_dir(src_dir)
-    categories_set_clean = clean_categories(categories_set)
+    categories_set_clean, removed = clean_categories(categories_set)
     coco_categories = create_coco_categories_from_set(categories_set_clean)
     print(f"Extracted {len(coco_categories)} categories from the annotations.")
+    print(f"Removed the following {len(list(removed))}: {list(removed)}")
     return coco_categories
 
 def normalised_name_to_concon_code(categories:list[dict]):
@@ -101,7 +103,6 @@ def normalised_name_to_concon_code(categories:list[dict]):
             name_to_original_ids[normalised_name].append(cat["code"])
         else:
             name_to_original_ids[normalised_name] = [cat["code"]]
-    utils.save_json_to_file(name_to_original_ids,"annotations/controlled-conditions/category-codes.json")
     return name_to_original_ids
     
 
@@ -115,8 +116,6 @@ def extract_categories_from_controlled_conditions_metadata(codes:list[int]):
             continue
         name = pc.normalise_category_name(name= code_to_insect[str(code)])
         concon_categories.append({"code": code, "name": name})
-    utils.save_json_to_file(ignored_codes, "annotations/controlled-conditions/category-codes-ignored.json")
-    
     # eliminate duplicates
     categories = set()
     name_to_concon_code = normalised_name_to_concon_code(concon_categories) # keep track of which ids map to the same species
@@ -149,12 +148,9 @@ def remove_if_not_in_target_dataset(cats, target_dataset):
 
 def extract_clean_categories_from_controlled_conditions_metadata(codes:list[int]):
     categories, _ = extract_categories_from_controlled_conditions_metadata(codes=codes)
-    categories = clean_categories(cats=categories, dataset="controlled-conditions")
+    categories, removed = clean_categories(cats=categories)
     print(f"Extracted {len(list(categories))} after cleaning up/grouping.")
-    categories, removed, mssing = remove_if_not_in_target_dataset(categories, target_dataset="pitfall-cameras")
-    print(f"Removed the following {len(list(removed))} categories, which are not present or too rare in the target dataset: {list(removed)}")
-    print(f"Ended with {len(categories)} categories.")
-    print(f"These {len(list(mssing))} categories are present in the target dataset but not in this one: {list(mssing)}")
+    print(f"Removed the following {len(list(removed))}: {list(removed)}")
     coco_categories = create_coco_categories_from_set(categories)
     
     return coco_categories
@@ -172,18 +168,18 @@ def main():
     FILENAME = "categories.json"
     root = "annotations/"
 
-    if args.dataset_name == "pitfall_cameras":
+    if args.dataset_name == "pitfall-cameras":
         SRC_DIR = root+"pitfall-cameras/originals/"
         DEST_DIR = root+"pitfall-cameras/info/"
         
         coco_categories = extract_clean_categories_from_vgg_csv_dir(SRC_DIR)
-        save_categories_to_file(cats=coco_categories, mappings=pc.name_mappings, groupings=pc.names_to_group, unknown_overwrites=pc.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
+        save_categories_to_file(cats=coco_categories, dest_dir=DEST_DIR, filename=FILENAME)
     elif args.dataset_name == "controlled-conditions":
         DEST_DIR = root+"controlled-conditions/info/"
         codes = concon.get_insect_codes_from_paper_conditions()
         
         coco_categories = extract_clean_categories_from_controlled_conditions_metadata(codes=codes)
-        save_categories_to_file(cats=coco_categories, mappings=concon.name_mappings, groupings=concon.names_to_group, unknown_overwrites=concon.categories_to_set_to_unknown, dest_dir=DEST_DIR, filename=FILENAME)
+        save_categories_to_file(cats=coco_categories, dest_dir=DEST_DIR, filename=FILENAME)
 
 
 if __name__ == "__main__":

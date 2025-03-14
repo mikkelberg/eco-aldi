@@ -17,7 +17,7 @@
                             "asaphidion flavipes", "bembidion lampros", "bembidion lunulatum", "bembidion obtrissum", 
                             "bembidion properans", "brachinus crepitans", "harpalus affinis", "harpalus rufipes",
                             "loricera pilicornis", "microlestes minutulus", "nebria salina","nebria brevicollis", 
-                            "notophilus biguttatus", "poecilus cupreus", "pterostichus madidus", "pterostichus melanarius",
+                            "notiophilus biguttatus", "poecilus cupreus", "pterostichus madidus", "pterostichus melanarius",
                             "pterostichus madidus", "pterostichus niger", "pterostichus nigrita", "pterostichus strenuus", "stomis punicatus", "trechus quadristriatus"
                         ]
         },
@@ -34,13 +34,13 @@
             ]
         },
         "dermaptera": {
-            "contains": ["forficula auricularia"]
+            "contains": ["dermaptera", "forficula auricularia"]
         },
         "isopoda": {
             "contains": ["armadillidium","isopoda", "philoscia muscorum"]
         },
         "myriapoda": {
-            "contains": ["cylindroiulus","larnycetes emarginatus", "polydesmus"]
+            "contains": ["cylindroiulus", "larnycetes emarginatus", "myriapoda", "polydesmus"]
         },
         "nitidulidae": {
             "contains": ["brassicogethes", "brassicogethes aeneus"]
@@ -52,28 +52,29 @@
             "contains": [
                 "achenium depressum", "aleochara", "aleocharinae", "anotylus", "philonthus cognatus", 
                 "ischnosoma", "ocypus olens", "philonthus laminatus", "tachinus", "tachyporus hypnorum",
-                "xantholinus", "xantholinus linearis"
+                "xantholinus", "xantholinus linearis", "staphylinidae"
             ]
         },
         "diptera (larvae)": { 
             "contains":  ["diptera (larvae)"]
         },
-        "staphylinidae (larvae)": { 
-            "contains":  ["staphylinidae (larvae)"]
-        },
-        "carabidae (larvae)": { 
-            "contains":  ["carabidae (larvae)"]
+        "coleoptera (larvae)": { 
+            "contains":  ["staphylinidae (larvae)", "carabidae (larvae)", "coccinella (larvae)", "loricera pilicornis (larvae)"]
         }
     },
 
     "remove": {
+        "argasidae": "present in target only",
+        "lepidoptera": "present in target only",
+        "mollusca": "present in target only",
+        "elateridae": "present in target only",
+        "unknown": "present in target only",
+        "chrysoperla carnea": "present in source only",
+        "acari": "not distinct clade",
         "arachnida": "ambiguous, not so many instances that we lose data",
         "coleoptera": "ambiguous, not so many instances that we lose data",
         "parasitoid": "not distinct clade"
     },
-    "target_only": ["argasidae", "lepidoptera", "mollusca", "elateridae", "unknown"],
-    "source_only": ["chrysopidae", "staphylinidae (larvae)"],
-
     "notes": [
         "Diptera is only present in the target domain but is the most numerous class. To not lose out on this, we have merged the class with hymenoptera, which is the order most related to diptera an the specimen share visual features relevant for bounding box generation."
     ],
@@ -91,9 +92,9 @@
         "dipteran (larvae)": "diptera (larvae)",
         "forficula auricularia male": "forficula auricularia",
         "gnaposidae": "gnaphosidae",
+        "hoverfly (larvae)": "diptera (larvae)",
         "isopod": "isopoda",
         "linyphiiidae": "linyphiidae",
-        "loricera pilicornis larva": "carabidae (larvae)",
         "molllusca": "mollusca",
         "molllusc": "mollusca",
         "mollusc": "mollusca",

@@ -44,6 +44,7 @@ def normalise_category_name(name:str):
     name = re.sub(r"[._]", " ", name)  # Replace dots and underscores with spaces
     name = re.sub(r"\s+", " ", name).strip()  # Remove extra spaces
     name = reorder_unknown(name)
+    name = normalise_larvae(name)
     return name
 
 def reorder_unknown(name):
@@ -53,6 +54,19 @@ def reorder_unknown(name):
         words.remove("unknown")
         words.append("unknown")  # Place "unknown" last
     return " ".join(words)   
+
+def normalise_larvae(name):
+    """Spells it 'larvae' and puts it in the end and in parentheses, e.g. carabidae (larvae)."""
+    words = name.split()
+    if "larva" not in words and "larvae" not in words:
+        return name
+    if "larva" in words:
+        words.remove("larva")
+    if "larvae" in words:
+        words.remove("larvae")
+    words.append("(larvae)")
+    
+    return " ".join(words)  
 
 def extract_category_name_from_region_attributes(attr):
     try:
