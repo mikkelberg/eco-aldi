@@ -1,0 +1,310 @@
+{   
+    "ignored_codes": {
+        "18": "Insect code (18) denoted for these images did not exist.",
+        "22": "Insect code (22) denoted for these images did not exist.",
+        "26": "Insect code (26) denoted for these images did not exist.",
+        "34": "Insect code (34) denoted for these images did not exist."
+    },
+    "name_to_codes": {
+        "bembidion lampros": [
+            13,
+            15,
+            65,
+            86,
+            92,
+            161
+        ],
+        "notophilus biguttatus": [
+            16,
+            21,
+            60,
+            69,
+            87
+        ],
+        "bembidion lunulatum": [
+            19,
+            20
+        ],
+        "nebria brevicolis": [
+            25,
+            68,
+            78
+        ],
+        "amara": [
+            29,
+            37
+        ],
+        "amara aenea": [
+            30,
+            74
+        ],
+        "philonthus cognatus": [
+            33,
+            99,
+            113,
+            125
+        ],
+        "amara ovata": [
+            35,
+            72,
+            118,
+            150
+        ],
+        "loricera pilicornis": [
+            40,
+            107,
+            145,
+            152
+        ],
+        "xantholinus linearis": [
+            45
+        ],
+        "acupalpus meridianus": [
+            46,
+            159
+        ],
+        "anchomenus dorsalis": [
+            47,
+            93,
+            132
+        ],
+        "pterostichus madidus": [
+            51,
+            112
+        ],
+        "trochosa": [
+            52,
+            62
+        ],
+        "poecilus cupreus": [
+            53,
+            55,
+            67,
+            75
+        ],
+        "nebria salina": [
+            54,
+            76,
+            79
+        ],
+        "achenium depressum": [
+            56
+        ],
+        "pardosa": [
+            57,
+            82,
+            84
+        ],
+        "pterostichus strenus": [
+            58,
+            117,
+            168
+        ],
+        "bembidion obtrissum": [
+            59
+        ],
+        "harpalus affinis": [
+            64,
+            162,
+            208
+        ],
+        "trochosa ruricola": [
+            66
+        ],
+        "asaphidion flavipes": [
+            70
+        ],
+        "pterostichus nigrita": [
+            77
+        ],
+        "amara similata": [
+            80,
+            104
+        ],
+        "polydesmus": [
+            81,
+            129
+        ],
+        "lasius": [
+            83
+        ],
+        "harpalus rufipes": [
+            85,
+            90,
+            98,
+            142
+        ],
+        "armadillidium": [
+            88,
+            133,
+            156,
+            167,
+            171,
+            180
+        ],
+        "cantharis rustica": [
+            94
+        ],
+        "philonthus laminatus": [
+            95
+        ],
+        "stomis punicatus": [
+            96,
+            175
+        ],
+        "amara convexior": [
+            97
+        ],
+        "anotylus": [
+            100
+        ],
+        "micaria pulicaria": [
+            101
+        ],
+        "aleochara": [
+            102,
+            201
+        ],
+        "xysticus cristatus": [
+            103
+        ],
+        "cantharis flavilabris": [
+            106
+        ],
+        "amara ritida": [
+            108
+        ],
+        "lycosidae": [
+            110
+        ],
+        "staphylinidae larva": [
+            111,
+            119
+        ],
+        "coccinella septempunctata": [
+            114
+        ],
+        "drassyllus pusillus": [
+            115
+        ],
+        "formicidae": [
+            116,
+            122
+        ],
+        "microlestes minutulus": [
+            121
+        ],
+        "aleocharinae": [
+            124,
+            181,
+            202,
+            206
+        ],
+        "cantharis lateralis": [
+            126
+        ],
+        "trechus quadristriatus": [
+            127,
+            182,
+            187,
+            188
+        ],
+        "staphylinidae": [
+            128,
+            131,
+            140,
+            158
+        ],
+        "cylindroiulus": [
+            130
+        ],
+        "lepthyphantes": [
+            136,
+            138
+        ],
+        "linyphiidae": [
+            137,
+            193,
+            195
+        ],
+        "tachinus": [
+            139,
+            149,
+            191,
+            192
+        ],
+        "myrmica": [
+            141
+        ],
+        "philoscia muscorum": [
+            144
+        ],
+        "psylloides chrysocephala": [
+            146
+        ],
+        "brassicogethes": [
+            147
+        ],
+        "chrysoperla carnea": [
+            148
+        ],
+        "hoverfly larva": [
+            153
+        ],
+        "ischnosoma": [
+            154
+        ],
+        "larnycetes emarginatus": [
+            155
+        ],
+        "pterostichus niger": [
+            160,
+            166
+        ],
+        "agonum muelleri": [
+            163
+        ],
+        "megalepthyphantes": [
+            164
+        ],
+        "neottiura binaculata": [
+            165,
+            203
+        ],
+        "xantholinus": [
+            170
+        ],
+        "bembidion properans": [
+            172
+        ],
+        "ocypus olens": [
+            173,
+            184,
+            190,
+            200
+        ],
+        "brachinus crepitans": [
+            176,
+            189
+        ],
+        "carabid larva": [
+            177,
+            178,
+            196,
+            199,
+            204
+        ],
+        "loricera pilicornis larva": [
+            179
+        ],
+        "phalangiidae": [
+            183
+        ],
+        "forficula auricularia male": [
+            185
+        ],
+        "carabidae": [
+            197
+        ]
+    }
+}

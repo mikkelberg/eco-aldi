@@ -1,0 +1,115 @@
+{
+    "categories": {
+        "araneae": {
+            "contains": ["araneae", "drassyllus pusillus", "gnaphosidae", "lepthyphantes", "linyphiidae", "lycosidae", 
+                        "megalepthyphantes", "micaria pulicaria", "neottiura bimaculata", "pardosa", "trochosa", 
+                        "trochosa ruricola",
+                        "xysticus cristatus"]
+        },
+        "cantharidae": { 
+            "contains": ["cantharis flavilabris", "cantharis rustica", "cantharis rufa", "cantharis lateralis"]
+        },
+        "carabidae": { 
+            "contains":  ["carabidae", "acupalpus meridianus", "agonum muelleri", "amara", "amara aenea", 
+                            "amara convexior", "amara ovata", "amara nitida", "amara similata", "anchomenus dorsalis", 
+                            "asaphidion flavipes", "bembidion lampros", "bembidion lunulatum", "bembidion obtrissum", 
+                            "bembidion properans", "brachinus crepitans", "harpalus affinis", "harpalus rufipes",
+                            "loricera pilicornis", "microlestes minutulus", "nebria salina","nebria brevicollis", 
+                            "notophilus biguttatus", "poecilus cupreus", "pterostichus madidus", "pterostichus melanarius",
+                            "pterostichus madidus", "pterostichus niger", "pterostichus nigrita", "pterostichus strenuus", "stomis punicatus", "trechus quadristriatus"
+                        ]
+        },
+        "chrysomelidae": {
+            "contains": ["psylliodes chrysocephalus", "phyllotreta"]
+        },
+        "coccinellidae": { 
+            "contains":  ["coccinella","coccinella septempunctata", "coccinellidae", "psylliodes chrysocephala"]
+        },
+        "diptera/hymenoptera": { 
+            "contains":  ["diptera", "braconidae", "chalcididae", "formicidae", "lasius", "myrmica"]
+        },
+        "dermaptera": {
+            "contains": ["forficula auricularia"]
+        },
+        "isopoda": {
+            "contains": ["armadillidium","isopoda", "philoscia muscorum"]
+        },
+        "myriapoda": {
+            "contains": ["cylindroiulus","larnycetes emarginatus", "polydesmus"]
+        },
+        "nitidulidae": {
+            "contains": ["brassicogethes", "brassicogethes aeneus"]
+        },
+        "opiliones": { 
+            "contains":  ["opiliones", "phalangiidae"]
+        },
+        "staphylinidae": { 
+            "contains": ["achenium depressum", "aleochara", "aleocharinae", "anotylus", "philonthus cognatus", 
+                        "ischnosoma", "ocypus olens", "philonthus laminatus", "tachinus", "tachyporus hypnorum",
+                        "xantholinus", "xantholinus linearis"]
+        },
+        "diptera (larvae)": { 
+            "contains":  ["diptera (larvae)"]
+        },
+        "staphylinidae (larvae)": { 
+            "contains":  ["staphylinidae (larvae)"]
+        },
+        "carabidae (larvae)": { 
+            "contains":  ["carabidae (larvae)"]
+        }
+    },
+    "name_corrections": {
+        "arachnid": "arachnida",
+        "amara sp": "amara",
+        "amara ritida": "amara nitida",
+        "braconid": "braconidae",
+        "carabid": "carabidae",
+        "carabid unknown": "carabidae",
+        "carabids": "carabidae",
+        "carabid (larvae)": "carabidae (larvae)",
+        "chalcidae": "chalcididae",
+        "dipteran (larvae)": "diptera (larvae)",
+        "forficula auricularia male": "forficula auricularia",
+        "gnaposidae": "gnaphosidae",
+        "isopod": "isopoda",
+        "linyphiiidae": "linyphiidae",
+        "loricera pilicornis larva": "carabidae (larvae)",
+        "molllusca": "mollusca",
+        "molllusc": "mollusca",
+        "mollusc": "mollusca",
+        "molluska": "mollusca",
+        "myriapod": "myriapoda",
+        "nebria brevicolis": "nebria brevicollis",
+        "neottiura binaculata": "neottiura bimaculata",
+        "notophilus biguttatus": "notiophilus biguttatus",
+        "phyllotreta sp": "phyllotreta",
+        "poecilius cupreus": "poecilus cupreus",
+        "psyllidoes chrysocephalus": "psylliodes chrysocephalus",
+        "psylloides chrysocephala": "psylliodes chrysocephalus",
+        "pterostichus strenus": "pterostichus strenuus",
+        "spider": "araneae",
+        "tachyporus hyphorum": "tachyporus hypnorum",
+        "tachyprous hypnorum": "tachyporus hypnorum",
+        "unsure": "unknown"
+    },
+
+    "remove": {
+        "arachnida": "ambiguous, not so many instances that we lose data",
+        "coleoptera": "ambiguous, not so many instances that we lose data",
+        "parasitoid": "not distinct clade"
+    },
+
+    "target_only": ["mollusca", "unknown"],
+
+    "source_only": ["chrysopidae", "staphylinidae (larvae)"],
+    "notes": [
+        "Diptera is only present in the target domain but is the most numerous class. To not lose out on this, we have merged the class with hymenoptera, which is the order most related to diptera an the specimen share visual features relevant for bounding box generation."
+    ],
+    "ignored_insect_codes_in_concon": {
+        "18": "Insect code (18) denoted for these images did not exist.",
+        "22": "Insect code (22) denoted for these images did not exist.",
+        "26": "Insect code (26) denoted for these images did not exist.",
+        "34": "Insect code (34) denoted for these images did not exist."
+    }
+
+}

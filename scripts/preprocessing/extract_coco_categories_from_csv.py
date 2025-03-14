@@ -20,11 +20,11 @@ def clean_categories(cats, dataset):
     elif dataset == "controlled-conditions":
         import utils.controlled_conditions_utils as d
     for category in cats:
-        normalized = pc.normalise_category_name(category) # lower case, space separation, "unknown" comes last
+        normalised = pc.normalise_category_name(category) # lower case, space separation, "unknown" comes last
         
-        category_name = normalized
-        if normalized in d.name_mappings: # overwrite with the correction if it's there!
-            category_name = d.name_mappings[normalized]
+        category_name = normalised
+        if normalised in d.name_mappings: # overwrite with the correction if it's there!
+            category_name = d.name_mappings[normalised]
         
         if category_name in d.names_to_group: # group if needed 
             category_name = d.names_to_group[category_name]
@@ -152,7 +152,7 @@ def remove_if_not_in_target_dataset(cats, target_dataset):
 
 
 def extract_clean_categories_from_controlled_conditions_metadata(codes:list[int]):
-    categories = extract_categories_from_controlled_conditions_metadata(codes=codes)
+    categories, _ = extract_categories_from_controlled_conditions_metadata(codes=codes)
     categories = clean_categories(cats=categories, dataset="controlled-conditions")
     print(f"Extracted {len(list(categories))} after cleaning up/grouping.")
     categories, removed, mssing = remove_if_not_in_target_dataset(categories, target_dataset="pitfall-cameras")
