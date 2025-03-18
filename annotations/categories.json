@@ -36,7 +36,7 @@
             "id": 6,
             "contains": ["dermaptera", "forficula auricularia"]
         },
-        "diptera/hymenoptera": { 
+        "diptera-hymenoptera": { 
             "id": 7,
             "contains":  [
                 "diptera", "bibionidae", "syrphidae", "tipulidae",
@@ -76,7 +76,6 @@
             "contains":  ["diptera (larvae)"]
         }
     },
-
     "remove": {
         "argasidae": "present in target only",
         "lepidoptera": "present in target only",
