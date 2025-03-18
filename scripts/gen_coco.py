@@ -4,7 +4,6 @@ import os
 import re
 import argparse
 
-from dataset_prep import convert_vgg_csv_to_coco_annotations as v2c
 from utils.utils import load_json_from_file, save_json_to_file, read_image_size
 import utils.pitfall_cameras_utils as pc
 import dataset_prep.extract_coco_categories as cats
