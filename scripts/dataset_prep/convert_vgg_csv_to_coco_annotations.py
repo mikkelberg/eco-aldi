@@ -4,7 +4,6 @@ import os
 import re
 import argparse
 
-from extract_coco_categories_from_csv import extract_clean_categories_from_vgg_csv_dir, save_categories_to_file
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.pitfall_cameras_utils as pc
@@ -38,14 +37,8 @@ def gen_dict_for_cam_and_date_to_img_folder_name():
             date_and_camera_to_folder_name[f"{camera}-{date}"] = folder
     return date_and_camera_to_folder_name
 
-def load_json(file):
-    o = {}
-    with open(file, 'r') as f:
-        o = json.load(f)
-    return o
-
 def gen_info(img_folder_name):
-    info_json = load_json(pc.INFO_FILE_PATH)
+    info_json = utils.load_json_from_file(pc.INFO_FILE_PATH)
     specs = info_json["folders"][img_folder_name]["specs"]
     field = specs["field"]
     crop = info_json["crops"][specs["crop"]]["name"]
@@ -87,7 +80,7 @@ def annotation(row, category_id):
     return annotation
 
 def record_ignored_images(ignored_images, dest_dir):
-    already_ignored = load_json(pc.IGNORED_IMAGES_PATH)
+    already_ignored = utils.load_json_from_file(pc.IGNORED_IMAGES_PATH)
     if not bool(already_ignored): already_ignored = {}
     with open(pc.IGNORED_IMAGES_PATH, 'w') as f:
         for key in ignored_images.keys():
@@ -107,7 +100,7 @@ def convert(file_prefix, img_folder_name, csv_file_path, coco_file_destination, 
     images_to_clean_out = set()
     
     # Create categories entries 
-    categories = load_json(categories_file)["categories"]
+    categories = utils.load_json_from_file(categories_file)["categories"]
     
     # Create images entries, one for each image
     images = []
@@ -117,7 +110,7 @@ def convert(file_prefix, img_folder_name, csv_file_path, coco_file_destination, 
     
     # Create annotations entries
     annotations = []
-    name_mappings = load_json(categories_file)["name_mappings"]
+    name_mappings = utils.load_json_from_file(categories_file)["name_mappings"]
     category_name_to_id = {cat["name"]: cat["id"] for cat in categories}
     for row in data.itertuples():
         if row.region_count <= 0:
@@ -203,13 +196,6 @@ def main():
     dest_dir = "annotations/" + args.dataset_name + "/originals-converted/"
     categories_file = "annotations/" + args.dataset_name + "/info/categories.json"
     ignored_images_path = "annotations/" + args.dataset_name + "/info/ignored_images.json"
-    
-    # Extract categories (ensures consistent category ids)
-    coco_categories = extract_clean_categories_from_vgg_csv_dir(src_dir=src_dir)
-    save_categories_to_file(
-        cats=coco_categories, dest_dir="annotations/" + args.dataset_name + "/info/", filename="categories.json", 
-        mappings=pc.name_mappings, groupings=pc.names_to_group, 
-        unknown_overwrites=pc.categories_to_set_to_unknown)
     
     # Convert
     convert_all_vgg_csv_in_dir_to_COCO(src_dir=src_dir, dest_dir=dest_dir, cats_file=categories_file, images_dir=args.images_dir)
