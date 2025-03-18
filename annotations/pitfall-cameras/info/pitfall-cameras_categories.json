@@ -1,0 +1,214 @@
+{
+    "info": {
+        "description": "The cleaned categories are matched between the source and target dataset (respectively controlled-conditions and pitfall-cameras), and the original_categories are all of the unique classifications from this dataset before any grouping for redundancies and other cleaning.",
+        "number_of_original_categories": 49,
+        "number_of_official_categories": 14
+    },
+    "cleaned_categories": [
+        {
+            "id": 1,
+            "name": "araneae"
+        },
+        {
+            "id": 2,
+            "name": "cantharidae"
+        },
+        {
+            "id": 3,
+            "name": "carabidae"
+        },
+        {
+            "id": 4,
+            "name": "chrysomelidae"
+        },
+        {
+            "id": 5,
+            "name": "coccinellidae"
+        },
+        {
+            "id": 6,
+            "name": "coleoptera (larvae)"
+        },
+        {
+            "id": 7,
+            "name": "dermaptera"
+        },
+        {
+            "id": 8,
+            "name": "diptera (larvae)"
+        },
+        {
+            "id": 9,
+            "name": "diptera-hymenoptera"
+        },
+        {
+            "id": 10,
+            "name": "isopoda"
+        },
+        {
+            "id": 11,
+            "name": "myriapoda"
+        },
+        {
+            "id": 12,
+            "name": "nitidulidae"
+        },
+        {
+            "id": 13,
+            "name": "opiliones"
+        },
+        {
+            "id": 14,
+            "name": "staphylinidae"
+        }
+    ],
+    "original_categories": [
+        {
+            "name": "acari"
+        },
+        {
+            "name": "amara"
+        },
+        {
+            "name": "anchomenus dorsalis"
+        },
+        {
+            "name": "arachnida"
+        },
+        {
+            "name": "araneae"
+        },
+        {
+            "name": "argasidae"
+        },
+        {
+            "name": "bibionidae"
+        },
+        {
+            "name": "braconidae"
+        },
+        {
+            "name": "brassicogethes"
+        },
+        {
+            "name": "brassicogethes aeneus"
+        },
+        {
+            "name": "cantharis lateralis"
+        },
+        {
+            "name": "cantharis rufa"
+        },
+        {
+            "name": "cantharis rustica"
+        },
+        {
+            "name": "carabidae"
+        },
+        {
+            "name": "carabidae (larvae)"
+        },
+        {
+            "name": "chalcididae"
+        },
+        {
+            "name": "coccinella"
+        },
+        {
+            "name": "coccinella (larvae)"
+        },
+        {
+            "name": "coccinellidae"
+        },
+        {
+            "name": "coleoptera"
+        },
+        {
+            "name": "dermaptera"
+        },
+        {
+            "name": "diapriidae"
+        },
+        {
+            "name": "diptera"
+        },
+        {
+            "name": "diptera (larvae)"
+        },
+        {
+            "name": "elateridae"
+        },
+        {
+            "name": "formicidae"
+        },
+        {
+            "name": "gnaphosidae"
+        },
+        {
+            "name": "harpalus affinis"
+        },
+        {
+            "name": "harpalus rufipes"
+        },
+        {
+            "name": "isopoda"
+        },
+        {
+            "name": "lepidoptera"
+        },
+        {
+            "name": "linyphiidae"
+        },
+        {
+            "name": "lycosidae"
+        },
+        {
+            "name": "mollusca"
+        },
+        {
+            "name": "myriapoda"
+        },
+        {
+            "name": "nebria brevicollis"
+        },
+        {
+            "name": "notiophilus biguttatus"
+        },
+        {
+            "name": "opiliones"
+        },
+        {
+            "name": "parasitoid"
+        },
+        {
+            "name": "phyllotreta"
+        },
+        {
+            "name": "poecilus cupreus"
+        },
+        {
+            "name": "psylliodes chrysocephalus"
+        },
+        {
+            "name": "pterostichus madidus"
+        },
+        {
+            "name": "pterostichus melanarius"
+        },
+        {
+            "name": "staphylinidae"
+        },
+        {
+            "name": "syrphidae"
+        },
+        {
+            "name": "tachyporus hypnorum"
+        },
+        {
+            "name": "tipulidae"
+        },
+        {
+            "name": "unknown"
+        }
+    ]
+}
