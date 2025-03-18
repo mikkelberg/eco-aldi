@@ -1,6 +1,7 @@
 import json
 import os
 import argparse
+from copy import deepcopy
 from collections import Counter
 
 import sys
@@ -9,16 +10,14 @@ import utils.pitfall_cameras_utils as pc
 from utils import utils
 
 def update_global_stats(global_stats, stats_to_add):
-    updated = global_stats.copy()
-    updated["total images"] += stats_to_add["total images"]
-    updated["total annotations"] += stats_to_add["total annotations"]
-    updated["positive samples"] +=  stats_to_add["positive samples"]
-    updated["negative samples"] += stats_to_add["negative samples"]
+    global_stats["total images"] += stats_to_add["total images"]
+    global_stats["total annotations"] += stats_to_add["total annotations"]
+    global_stats["positive samples"] +=  stats_to_add["positive samples"]
+    global_stats["negative samples"] += stats_to_add["negative samples"]
     for cls, count in stats_to_add.get("class distribution", {}).items():
-        if cls in updated["class distribution"]: updated["class distribution"][cls] += count
-        else: updated["class distribution"][cls] = count
-    return updated
-
+        if cls in global_stats["class distribution"]: global_stats["class distribution"][cls] += count
+        else: global_stats["class distribution"][cls] = count
+   
 def get_coco_statistics(coco):
     """
     Extracts statistics from a COCO JSON dataset.
@@ -70,8 +69,10 @@ def collect_statistics_from_directory(json_dir):
         clean_filename = pc.get_img_folder_name_from_image_filename(filename.split(".")[0]) # remove .json)
         per_file_stats[ clean_filename] = this_files_stats
 
-        if index == 1: global_stats = this_files_stats.copy()
-        else: global_stats = update_global_stats(global_stats=global_stats, stats_to_add=this_files_stats)
+        if bool(global_stats): 
+            update_global_stats(global_stats=global_stats, stats_to_add=this_files_stats)
+        else: global_stats = deepcopy(this_files_stats)
+        
         if index % 5 == 0 or index == total_files:
             print(f"Processed {index} out of {total_files} files.")
 

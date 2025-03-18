@@ -8,50 +8,10 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import utils
 
-def reindex_category_ids(coco_data):
-    # Reassign ids
-    old_to_new_cat_id = {} # keep track of which ids were assigned to which new number
-    for idx, category in enumerate(sorted(coco_data["categories"], key=lambda x: x["id"])):
-        old_to_new_cat_id[category["id"]] = idx  # Assign new sequential ID, starting from 0
-        category["id"] = idx  # Update category ID 
-    # Update category id in annotations to match
-    for ann in coco_data["annotations"]:
-        ann["category_id"] = old_to_new_cat_id[ann["category_id"]]
-
 def get_category_id_from_name(category_name, categories):
     for cat in categories:
         if cat["name"] == category_name: return cat["id"]
     return None
-
-def set_rare_categories_to_unknown(coco_data):
-    category_name_to_id = {cat["name"]: cat["id"] for cat in coco_data["categories"]} # category name -> category id
-    category_id_to_name = {cat["id"]: cat["name"] for cat in coco_data["categories"]}
-    unknown_id = category_name_to_id["unknown"]
-
-    category_count = Counter() # occurrences of each category, Counter({id: count, id: count, id: count, ...})
-    for ann in coco_data["annotations"]:
-        category_count[ann["category_id"]] += 1
-    
-    categories_to_set_to_unknown = set()
-    for cat_id in category_count:
-        if category_count[cat_id] < 40:
-            categories_to_set_to_unknown.add(cat_id)
-    
-    # set categories to unknown
-    for ann in coco_data["annotations"]:
-        if ann["category_id"] in categories_to_set_to_unknown:
-            ann["category_id"] = unknown_id
-    
-    # remove the old categories from the "categories" list.
-    cleaned_cats = [cat for cat in coco_data["categories"] if cat["id"] not in categories_to_set_to_unknown]
-    coco_data["categories"] = cleaned_cats
-
-    # document which categories were sets to unknown
-    categories_file = "annotations/pitfall-cameras/info/categories.json"
-    categories_log = utils.load_json_from_file(categories_file)
-    categories_log["categories_set_to_unknown_due_to_low_frequency"] = [category_id_to_name[cat] for cat in list(categories_to_set_to_unknown)]
-    utils.save_json_to_file(json_obj=categories_log, path=categories_file)
-
 
 def get_positive_and_negative_samples(images, annotations):
     positive_sample_ids = {ann["image_id"] for ann in annotations}
@@ -92,15 +52,15 @@ def enforce_negative_sample_ratio_in_dir(target_ratio: int, src_dir, dest_dir):
         # Save the filtered data
         original_info = coco_data["info"]
         balanced_coco = {
-            "info": f"Balanced version (40 % negative samples, and rare categories set to \"unknown\") of: {original_info}",
+            "info": f"Balanced version (40 % negative samples) of: {original_info}",
             "license": coco_data["license"],
             "images": balanced_images,
             "annotations": balanced_anns,
             "categories": coco_data["categories"]
             }
 
-        set_rare_categories_to_unknown(coco_data=balanced_coco)
-        reindex_category_ids(coco_data=balanced_coco)
+        # set_rare_categories_to_unknown(coco_data=balanced_coco)
+        # reindex_category_ids(coco_data=balanced_coco)
 
         with open(os.path.join(dest_dir, filename), "w") as f:
             json.dump(balanced_coco, f, indent=4)
@@ -124,3 +84,45 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+
+def reindex_category_ids(coco_data):
+    # Reassign ids
+    old_to_new_cat_id = {} # keep track of which ids were assigned to which new number
+    for idx, category in enumerate(sorted(coco_data["categories"], key=lambda x: x["id"])):
+        old_to_new_cat_id[category["id"]] = idx  # Assign new sequential ID, starting from 0
+        category["id"] = idx  # Update category ID 
+    # Update category id in annotations to match
+    for ann in coco_data["annotations"]:
+        ann["category_id"] = old_to_new_cat_id[ann["category_id"]]
+
+def set_rare_categories_to_unknown(coco_data):
+    category_name_to_id = {cat["name"]: cat["id"] for cat in coco_data["categories"]} # category name -> category id
+    category_id_to_name = {cat["id"]: cat["name"] for cat in coco_data["categories"]}
+    unknown_id = category_name_to_id["unknown"]
+
+    category_count = Counter() # occurrences of each category, Counter({id: count, id: count, id: count, ...})
+    for ann in coco_data["annotations"]:
+        category_count[ann["category_id"]] += 1
+    
+    categories_to_set_to_unknown = set()
+    for cat_id in category_count:
+        if category_count[cat_id] < 40:
+            categories_to_set_to_unknown.add(cat_id)
+    
+    # set categories to unknown
+    for ann in coco_data["annotations"]:
+        if ann["category_id"] in categories_to_set_to_unknown:
+            ann["category_id"] = unknown_id
+    
+    # remove the old categories from the "categories" list.
+    cleaned_cats = [cat for cat in coco_data["categories"] if cat["id"] not in categories_to_set_to_unknown]
+    coco_data["categories"] = cleaned_cats
+
+    # document which categories were sets to unknown
+    categories_file = "annotations/pitfall-cameras/info/categories.json"
+    categories_log = utils.load_json_from_file(categories_file)
+    categories_log["categories_set_to_unknown_due_to_low_frequency"] = [category_id_to_name[cat] for cat in list(categories_to_set_to_unknown)]
+    utils.save_json_to_file(json_obj=categories_log, path=categories_file)
+"""
