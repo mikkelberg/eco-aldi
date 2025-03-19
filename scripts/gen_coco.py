@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import re
 import argparse
+from PIL import Image
 
 from utils.utils import load_json_from_file, save_json_to_file, read_image_size
 import utils.pitfall_cameras_utils as pc
@@ -130,6 +131,41 @@ def pitfall_cameras_coco(src_dir, dest_dir, categories, images_dir):
     
     print(f"Converted all the csv-annotations in {src_dir}")
 
+def image_entries_from_dir(images_dir):
+    images = []
+    stop = 0
+    img_id = 1
+    for root, _, files in os.walk(images_dir):
+        print(f"Processing folder: {root}.")
+        for file in files:
+            if not file.lower().endswith(('.png', '.jpg', '.jpeg')): continue  # Ensure it's an image file
+            image_path = os.path.join(root, file)
+            relative_path = os.path.relpath(image_path, images_dir)
+            images.append(image(id=img_id, file_name=relative_path, images_dir=images_dir))
+            img_id += 1
+        stop += 1
+        if stop == 5: break
+    return images
+
+    
+
+def concon_coco(meta_csv, dest_path, categories, images_dir):
+    df = pd.read_csv(meta_csv, dtype={"date": str})
+    df["date"].astype(str)
+    for row in df.itertuples():
+        img_folder_name = row.date + "/" + row.camera + "/"
+        #print(img_folder_name)
+    print(df)
+    info = ""
+    images = image_entries_from_dir(images_dir)
+
+    annotations = []
+
+    coco = gen_coco(info, images, annotations, categories)
+    save_json_to_file(json_obj=coco, path=dest_path)
+    print(f"Generated coco-annotations.")
+
+
 ignored_images = {} # {"csv_file_name": [{"filename": "bla", "explanation": "bla", "original_filename": "bla", "original_csv_file" : "bla"}, ...], ...}
 def main():
     # Set up command-line argument parsing
@@ -160,12 +196,19 @@ def main():
 
         # Convert
         pitfall_cameras_coco(src_dir=src_dir, dest_dir=dest_dir, categories=categories, images_dir=args.images_dir)
+    elif args.dataset_name == "controlled-conditions":
+        root = root + args.dataset_name
+        meta_csv = root + "/info/meta.csv"
+        dest_path = root + "/controlled-conditions_all.json"
+        ignored_images_path = root + "/info/ignored_images.json"
 
-        # Store record of ignored images
-        with open(ignored_images_path, 'w') as f:
-            json.dump(ignored_images, f, indent=4)
+        concon_coco(meta_csv=meta_csv, dest_path=dest_path, categories=categories, images_dir=args.images_dir)
 
-        print(f"Ignored {sum([len(ignored_images[key]) for key in ignored_images.keys()])} images due to errors - see the file for more details.")
+    # Store record of ignored images
+    with open(ignored_images_path, 'w') as f:
+        json.dump(ignored_images, f, indent=4)
+
+    print(f"Ignored {sum([len(ignored_images[key]) for key in ignored_images.keys()])} images due to errors - see the file for more details.")
 
 if __name__ == "__main__":
     main()
