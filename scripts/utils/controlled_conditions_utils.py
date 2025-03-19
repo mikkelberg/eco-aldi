@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-META_FILES_PATH = "annotations/controlled-conditions/src-files/originals/"
+META_FILES_PATH = "annotations/controlled-conditions/src-files/"
 
 codes_to_ignore = ["91.B"]
 

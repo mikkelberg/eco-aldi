@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.utils as utils
 import utils.controlled_conditions_utils as concon
 
-META_FILES_PATH = "annotations/controlled-conditions/src-files/originals/"
+META_FILES_PATH = "annotations/controlled-conditions/src-files/"
 
 codes_to_ignore = ["91.B"]
 
@@ -34,10 +34,11 @@ df.drop(['background', 'comment.insect'], axis=1, inplace=True)
 format_date_column(df)
 
 code_to_insect = concon.get_code_to_insect_dict()
-df["insect.name"] = df['insect.code'].map(code_to_insect)
-df.drop(df[df['insect.name'].isnull()].index, inplace=True)
-df['insect.name'] = df['insect.name'].apply(normalise_category_name)
-df['insect.name.og'] = df['insect.name']
+df["insect_name"] = df['insect.code'].map(code_to_insect)
+df.drop(['insect.code'], axis=1, inplace=True)
+df.drop(df[df['insect_name'].isnull()].index, inplace=True)
+df['insect_name'] = df['insect_name'].apply(normalise_category_name)
+df['og_insect_name'] = df['insect_name']
 
 mother = utils.load_json_from_file("annotations/categories.json")
 cats_to_remove = mother["remove"].keys()
@@ -46,9 +47,9 @@ for off_cat, info in mother["categories"].items():
     for n in info["contains"]:
         name_to_official_category[n] = off_cat
 
-df['insect.name'] = df['insect.name'].map(name_to_official_category)
-df.drop(df[df['insect.name'].isnull()].index, inplace=True)
+df['insect_name'] = df['insect_name'].map(name_to_official_category)
+df.drop(df[df['insect_name'].isnull()].index, inplace=True)
 
 print(df)
 
-df.to_csv('annotations/controlled-conditions/src-files/meta.csv', index=False)
+df.to_csv('annotations/controlled-conditions/info/meta.csv', index=False)

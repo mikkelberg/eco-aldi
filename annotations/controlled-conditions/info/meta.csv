@@ -1,0 +1,260 @@
+date,camera,insect_name,og_insect_name
+150523,CAM7,carabidae,bembidion lampros
+150523,CAM9,carabidae,notiophilus biguttatus
+150523,HF2F,carabidae,bembidion lunulatum
+160523,CAM7,carabidae,bembidion lampros
+160523,HF2F,carabidae,notiophilus biguttatus
+160523,LF2E,carabidae,bembidion lunulatum
+170523,CAM9,carabidae,nebria brevicollis
+170523,LS3E,carabidae,amara aenea
+180523,CAM7,staphylinidae,philonthus cognatus
+180523,LS3E,carabidae,amara
+180523,LF2E,carabidae,amara
+220523,CAM9,staphylinidae,philonthus cognatus
+220523,HF2F,carabidae,amara aenea
+220523,LF2E,carabidae,amara ovata
+230523,CAM4,carabidae,loricera pilicornis
+230523,CAM8,staphylinidae,xantholinus linearis
+240523,HF2G,carabidae,acupalpus meridianus
+240523,CAM8,araneae,trochosa
+250523,CAM4,carabidae,poecilus cupreus
+250523,HF2F,araneae,pardosa
+250523,HF2G,carabidae,poecilus cupreus
+250523,CAM8,carabidae,pterostichus madidus
+300523,CAM4,carabidae,nebria salina
+300523,HF2F,staphylinidae,achenium depressum
+300523,HF2G,carabidae,anchomenus dorsalis
+300523,CAM8,carabidae,acupalpus meridianus
+300523,LF2E,carabidae,pterostichus strenuus
+310523,CAM4,araneae,pardosa
+310523,HF2F,carabidae,poecilus cupreus
+310523,HF2G,carabidae,pterostichus madidus
+310523,CAM8,carabidae,poecilus cupreus
+310523,CAM9,carabidae,bembidion obtrissum
+010623,CAM4,staphylinidae,achenium depressum
+010623,HF2F,carabidae,nebria salina
+010623,HF2G,carabidae,notiophilus biguttatus
+020623,CAM4,carabidae,bembidion lampros
+020623,HF2F,carabidae,poecilus cupreus
+020623,HF2G,carabidae,nebria brevicollis
+020623,CAM8,carabidae,asaphidion flavipes
+020623,CAM9,carabidae,amara ovata
+030623,CAM4,carabidae,harpalus affinis
+030623,HF2F,araneae,trochosa ruricola
+030623,HF2G,araneae,trochosa
+030623,CAM8,carabidae,notiophilus biguttatus
+030623,CAM9,carabidae,amara aenea
+040623,CAM4,carabidae,poecilus cupreus
+040623,HF2F,carabidae,bembidion lampros
+040623,HF2G,carabidae,asaphidion flavipes
+040623,CAM8,carabidae,nebria brevicollis
+040623,LF2E,carabidae,amara aenea
+050623,CAM4,araneae,trochosa ruricola
+050623,HF2F,carabidae,harpalus affinis
+050623,HF2G,carabidae,notiophilus biguttatus
+050623,CAM8,carabidae,poecilus cupreus
+050623,LF2E,carabidae,amara ovata
+060623,CAM4,carabidae,pterostichus nigrita
+060623,HF2F,carabidae,nebria salina
+060623,HF2G,carabidae,amara similata
+060623,CAM9,carabidae,amara ovata
+070623,CAM4,carabidae,nebria salina
+070623,HF2F,carabidae,nebria brevicollis
+070623,HF2G,carabidae,poecilus cupreus
+070623,CAM8,myriapoda,polydesmus
+070623,CAM9,diptera-hymenoptera,lasius
+080623,CAM4,carabidae,nebria salina
+080623,HF2F,carabidae,pterostichus nigrita
+080623,HF2G,araneae,pardosa
+080623,CAM8,carabidae,amara similata
+080623,LF2E,araneae,pardosa
+090623,CAM4,carabidae,nebria brevicollis
+090623,HF2F,carabidae,nebria salina
+090623,HF2G,myriapoda,polydesmus
+090623,CAM8,carabidae,harpalus rufipes
+100623,CAM4,carabidae,notiophilus biguttatus
+100623,HF2G,carabidae,harpalus rufipes
+100623,CAM8,araneae,pardosa
+100623,CAM9,araneae,pardosa
+110623,CAM4,carabidae,bembidion lampros
+110623,HF2F,isopoda,armadillidium
+110623,HF2G,carabidae,harpalus rufipes
+110623,CAM8,carabidae,anchomenus dorsalis
+120623,CAM4,carabidae,bembidion lampros
+120623,HF2F,carabidae,notiophilus biguttatus
+120623,HF2G,cantharidae,cantharis rustica
+120623,CAM8,carabidae,harpalus rufipes
+120623,LF2E,staphylinidae,philonthus laminatus
+130623,CAM4,isopoda,armadillidium
+130623,HF2F,carabidae,bembidion lampros
+130623,HF2G,carabidae,anchomenus dorsalis
+130623,CAM8,carabidae,harpalus rufipes
+140623,CAM4,carabidae,amara convexior
+140623,HF2F,carabidae,bembidion lampros
+140623,HF2G,staphylinidae,philonthus cognatus
+140623,CAM8,staphylinidae,anotylus
+140623,CAM9,staphylinidae,aleochara
+150623,CAM4,carabidae,stomis punicatus
+150623,HF2F,carabidae,harpalus rufipes
+150623,HF2G,araneae,micaria pulicaria
+150623,CAM9,staphylinidae,aleochara
+160623,CAM4,carabidae,amara similata
+160623,HF2F,carabidae,amara convexior
+160623,HF2G,staphylinidae,anotylus
+160623,CAM8,staphylinidae,philonthus cognatus
+160623,CAM9,araneae,xysticus cristatus
+170623,CAM4,carabidae,harpalus rufipes
+170623,HF2F,carabidae,stomis punicatus
+170623,HF2G,cantharidae,cantharis flavilabris
+170623,CAM8,araneae,micaria pulicaria
+170623,LF2E,staphylinidae,aleochara
+190623,CAM8,cantharidae,cantharis flavilabris
+200623,CAM4,carabidae,amara nitida
+200623,HF2F,araneae,lycosidae
+200623,HF2G,coleoptera (larvae),staphylinidae (larvae)
+200623,CAM8,staphylinidae,philonthus cognatus
+200623,LF2E,diptera-hymenoptera,formicidae
+210623,CAM4,carabidae,loricera pilicornis
+210623,HF2F,carabidae,pterostichus strenuus
+210623,HF2G,coccinellidae,coccinella septempunctata
+210623,CAM8,carabidae,pterostichus madidus
+210623,LF2E,araneae,drassyllus pusillus
+220623,HF2F,carabidae,amara nitida
+220623,HF2G,staphylinidae,philonthus cognatus
+220623,CAM8,coleoptera (larvae),staphylinidae (larvae)
+220623,CAM9,diptera-hymenoptera,formicidae
+230623,CAM4,carabidae,pterostichus strenuus
+230623,HF2F,carabidae,loricera pilicornis
+230623,HF2G,carabidae,pterostichus madidus
+230623,CAM8,coccinellidae,coccinella septempunctata
+230623,CAM9,araneae,drassyllus pusillus
+300623,CAM4,coleoptera (larvae),staphylinidae (larvae)
+300623,HF2F,carabidae,microlestes minutulus
+300623,HF2G,diptera-hymenoptera,formicidae
+300623,CAM8,staphylinidae,aleocharinae
+300623,CAM9,cantharidae,cantharis lateralis
+010723,CAM4,carabidae,amara ovata
+010723,HF2G,staphylinidae,philonthus cognatus
+010723,CAM8,staphylinidae,staphylinidae
+010723,CAM9,carabidae,trechus quadristriatus
+020723,CAM4,carabidae,microlestes minutulus
+020723,HF2F,coleoptera (larvae),staphylinidae (larvae)
+020723,HF2G,myriapoda,cylindroiulus
+020723,CAM8,diptera-hymenoptera,formicidae
+020723,LF2E,staphylinidae,staphylinidae
+030723,HF2F,carabidae,amara ovata
+030723,CAM8,staphylinidae,philonthus cognatus
+040723,HF2F,carabidae,microlestes minutulus
+040723,HF2G,araneae,lepthyphantes
+040723,CAM8,myriapoda,cylindroiulus
+040723,LF2E,staphylinidae,staphylinidae
+050723,HF2F,myriapoda,polydesmus
+050723,HF2G,araneae,lepthyphantes
+050723,CAM8,araneae,linyphiidae
+050723,CAM9,staphylinidae,tachinus
+060723,HF2F,isopoda,armadillidium
+060723,HF2G,carabidae,harpalus rufipes
+060723,CAM8,araneae,lepthyphantes
+060723,LF2E,staphylinidae,tachinus
+070723,CAM4,isopoda,philoscia muscorum
+070723,HF2F,carabidae,anchomenus dorsalis
+070723,HF2G,araneae,linyphiidae
+070723,CAM8,araneae,lepthyphantes
+070723,LF2E,staphylinidae,tachinus
+080723,HF2F,carabidae,loricera pilicornis
+080723,CAM8,carabidae,harpalus rufipes
+080723,LF2E,diptera-hymenoptera,myrmica
+090723,HF2F,isopoda,philoscia muscorum
+090723,HF2G,chrysomelidae,psylliodes chrysocephalus
+100723,CAM4,carabidae,amara ovata
+100723,HF2F,carabidae,loricera pilicornis
+100723,HF2G,staphylinidae,tachinus
+100723,CAM8,nitidulidae,brassicogethes
+100723,LF2E,staphylinidae,ischnosoma
+110723,CAM4,myriapoda,larnycetes emarginatus
+110723,HF2F,isopoda,armadillidium
+110723,CAM8,staphylinidae,staphylinidae
+110723,LF2E,diptera (larvae),diptera (larvae)
+120723,CAM4,carabidae,loricera pilicornis
+120723,HF2F,carabidae,amara ovata
+120723,CAM8,carabidae,pterostichus niger
+120723,CAM9,staphylinidae,ischnosoma
+130723,CAM4,isopoda,armadillidium
+130723,HF2F,carabidae,acupalpus meridianus
+130723,HF2G,carabidae,agonum muelleri
+130723,CAM8,carabidae,bembidion lampros
+130723,CAM9,diptera (larvae),diptera (larvae)
+140723,CAM4,carabidae,pterostichus niger
+140723,HF2F,isopoda,armadillidium
+140723,HF2G,carabidae,pterostichus niger
+140723,CAM8,carabidae,harpalus affinis
+140723,CAM9,araneae,megalepthyphantes
+150723,CAM4,carabidae,acupalpus meridianus
+150723,HF2F,carabidae,pterostichus strenuus
+150723,HF2G,carabidae,bembidion lampros
+150723,CAM8,carabidae,agonum muelleri
+150723,LF2E,araneae,neottiura bimaculata
+160723,CAM4,isopoda,armadillidium
+160723,HF2F,carabidae,bembidion properans
+160723,HF2G,carabidae,harpalus affinis
+160723,CAM8,staphylinidae,xantholinus
+160723,LF2E,araneae,megalepthyphantes
+170723,CAM4,carabidae,pterostichus strenuus
+170723,HF2F,isopoda,armadillidium
+170723,CAM9,araneae,neottiura bimaculata
+180723,CAM4,carabidae,bembidion properans
+180723,HF2G,staphylinidae,xantholinus
+180723,CAM8,staphylinidae,ocypus olens
+190723,CAM4,isopoda,armadillidium
+190723,HF2G,carabidae,stomis punicatus
+190723,CAM8,carabidae,brachinus crepitans
+190723,CAM9,coleoptera (larvae),carabidae (larvae)
+250723,HF2G,staphylinidae,ocypus olens
+250723,CAM9,coleoptera (larvae),carabidae (larvae)
+260723,HF2G,carabidae,brachinus crepitans
+260723,CAM8,carabidae,stomis punicatus
+260723,LF2E,coleoptera (larvae),carabidae (larvae)
+270723,LF2E,coleoptera (larvae),carabidae (larvae)
+010823,CAM4,isopoda,armadillidium
+010823,HF2F,carabidae,trechus quadristriatus
+010823,HF2G,opiliones,phalangiidae
+010823,CAM8,dermaptera,forficula auricularia
+010823,LF2E,carabidae,trechus quadristriatus
+020823,CAM4,coleoptera (larvae),loricera pilicornis (larvae)
+020823,HF2F,staphylinidae,aleocharinae
+020823,CAM8,staphylinidae,ocypus olens
+020823,CAM9,carabidae,trechus quadristriatus
+030823,CAM4,carabidae,trechus quadristriatus
+030823,HF2F,isopoda,armadillidium
+030823,CAM8,opiliones,phalangiidae
+030823,CAM9,carabidae,trechus quadristriatus
+040823,CAM4,staphylinidae,aleocharinae
+040823,HF2F,coleoptera (larvae),loricera pilicornis (larvae)
+040823,HF2G,staphylinidae,ocypus olens
+040823,LF2E,carabidae,trechus quadristriatus
+070823,HF2G,staphylinidae,ocypus olens
+070823,CAM8,staphylinidae,tachinus
+070823,LF2E,araneae,linyphiidae
+080823,CAM4,carabidae,brachinus crepitans
+080823,HF2G,araneae,linyphiidae
+080823,CAM8,staphylinidae,tachinus
+090823,HF2G,staphylinidae,tachinus
+100823,HF2G,staphylinidae,tachinus
+100823,CAM9,araneae,linyphiidae
+140823,CAM4,carabidae,carabidae
+140823,HF2F,coleoptera (larvae),carabidae (larvae)
+140823,HF2G,staphylinidae,ocypus olens
+140823,CAM8,staphylinidae,aleocharinae
+140823,CAM9,coleoptera (larvae),carabidae (larvae)
+150823,CAM4,coleoptera (larvae),carabidae (larvae)
+150823,HF2G,araneae,neottiura bimaculata
+150823,CAM8,staphylinidae,aleochara
+160823,CAM4,coleoptera (larvae),carabidae (larvae)
+160823,HF2G,staphylinidae,aleocharinae
+160823,CAM8,staphylinidae,ocypus olens
+170823,HF2G,staphylinidae,aleochara
+170823,CAM8,araneae,neottiura bimaculata
+210823,HF2G,staphylinidae,aleocharinae
+210823,CAM8,carabidae,harpalus affinis
+230823,CAM8,staphylinidae,aleocharinae
+240823,CAM8,carabidae,harpalus affinis
