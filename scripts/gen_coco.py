@@ -156,9 +156,8 @@ def concon_coco(meta_csv, dest_path, categories, images_dir):
         img_folder_name = row.date + "/" + row.camera + "/"
         #print(img_folder_name)
     print(df)
-    info = ""
+    info = "Annotations for object detections in the images collection in the ECOSTACK-project's experiment with controlled conditions, where various insects where photographed in boxes with paper or soil background (we use only the paper images here). The images were taken in June-August 2023. Converted to COCO-format by Stinna Danger and Mikkel Berg for their thesis project at Aarhus University at the Department of Computer Science with biodiversity group at the Department of Ecoscience."
     images = image_entries_from_dir(images_dir)
-
     annotations = []
 
     coco = gen_coco(info, images, annotations, categories)
