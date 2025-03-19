@@ -2,12 +2,12 @@
 
 import pandas as pd
 
-META_FILES_PATH = "annotations/controlled-conditions/info/meta-files/"
+META_FILES_PATH = "annotations/controlled-conditions/src-files/originals/"
 
 codes_to_ignore = ["91.B"]
 
 def get_insect_codes_from_paper_conditions():
-    df = pd.read_csv(META_FILES_PATH + "/Insect_position_date.csv")
+    df = pd.read_csv(META_FILES_PATH + "Insect_position_date.csv")
     df = df[df['comment.insect'].isnull()]
     insect_codes = set()
     for _, row in df.iterrows():
@@ -20,14 +20,14 @@ def get_insect_codes_from_paper_conditions():
     return sorted(list(insect_codes))
 
 def get_code_to_insect_dict():
-    df = pd.read_csv(META_FILES_PATH + "/Insect_code_list.csv")
+    df = pd.read_csv(META_FILES_PATH + "Insect_code_list.csv")
     code_to_insect = {}
     for _, row in df.iterrows():
         code_to_insect[row["insect.code"]] = row["scientificName"]
     return code_to_insect
 
 def get_codes_with_comment_dict():
-    df = pd.read_csv(META_FILES_PATH + "/Insect_code_list.csv")
+    df = pd.read_csv(META_FILES_PATH + "Insect_code_list.csv")
     df_with_comments = df[df['Comments'].notnull()]
     code_to_comment = {}
     for _, row in df_with_comments.iterrows():
