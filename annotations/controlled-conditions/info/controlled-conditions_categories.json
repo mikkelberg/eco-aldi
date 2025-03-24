@@ -1,7 +1,7 @@
 {
     "info": {
         "description": "The cleaned categories are matched between the source and target dataset (respectively controlled-conditions and pitfall-cameras), and the original_categories are all of the unique classifications from this dataset before any grouping for redundancies and other cleaning.",
-        "number_of_original_categories": 74,
+        "number_of_original_categories": 73,
         "number_of_official_categories": 14
     },
     "cleaned_categories": [
@@ -227,9 +227,6 @@
         },
         {
             "name": "philonthus cognatus"
-        },
-        {
-            "name": "philonthus laminatus"
         },
         {
             "name": "philoscia muscorum"

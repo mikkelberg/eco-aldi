@@ -34,6 +34,8 @@ date,camera,insect_name,og_insect_name
 010623,CAM4,staphylinidae,achenium depressum
 010623,HF2F,carabidae,nebria salina
 010623,HF2G,carabidae,notiophilus biguttatus
+010623,CAM8,araneae,trochosa
+010623,CAM9,carabidae,pterostichus strenuus
 020623,CAM4,carabidae,bembidion lampros
 020623,HF2F,carabidae,poecilus cupreus
 020623,HF2G,carabidae,nebria brevicollis
@@ -84,7 +86,6 @@ date,camera,insect_name,og_insect_name
 120623,HF2F,carabidae,notiophilus biguttatus
 120623,HF2G,cantharidae,cantharis rustica
 120623,CAM8,carabidae,harpalus rufipes
-120623,LF2E,staphylinidae,philonthus laminatus
 130623,CAM4,isopoda,armadillidium
 130623,HF2F,carabidae,bembidion lampros
 130623,HF2G,carabidae,anchomenus dorsalis
@@ -93,16 +94,14 @@ date,camera,insect_name,og_insect_name
 140623,HF2F,carabidae,bembidion lampros
 140623,HF2G,staphylinidae,philonthus cognatus
 140623,CAM8,staphylinidae,anotylus
-140623,CAM9,staphylinidae,aleochara
+140623,LF2E,araneae,xysticus cristatus
 150623,CAM4,carabidae,stomis punicatus
 150623,HF2F,carabidae,harpalus rufipes
 150623,HF2G,araneae,micaria pulicaria
-150623,CAM9,staphylinidae,aleochara
 160623,CAM4,carabidae,amara similata
 160623,HF2F,carabidae,amara convexior
 160623,HF2G,staphylinidae,anotylus
 160623,CAM8,staphylinidae,philonthus cognatus
-160623,CAM9,araneae,xysticus cristatus
 170623,CAM4,carabidae,harpalus rufipes
 170623,HF2F,carabidae,stomis punicatus
 170623,HF2G,cantharidae,cantharis flavilabris
@@ -134,6 +133,7 @@ date,camera,insect_name,og_insect_name
 300623,CAM8,staphylinidae,aleocharinae
 300623,CAM9,cantharidae,cantharis lateralis
 010723,CAM4,carabidae,amara ovata
+010723,HF2F,coleoptera (larvae),staphylinidae (larvae)
 010723,HF2G,staphylinidae,philonthus cognatus
 010723,CAM8,staphylinidae,staphylinidae
 010723,CAM9,carabidae,trechus quadristriatus
@@ -144,18 +144,17 @@ date,camera,insect_name,og_insect_name
 020723,LF2E,staphylinidae,staphylinidae
 030723,HF2F,carabidae,amara ovata
 030723,CAM8,staphylinidae,philonthus cognatus
-040723,HF2F,carabidae,microlestes minutulus
+040723,CAM4,isopoda,armadillidium
 040723,HF2G,araneae,lepthyphantes
 040723,CAM8,myriapoda,cylindroiulus
 040723,LF2E,staphylinidae,staphylinidae
-050723,HF2F,myriapoda,polydesmus
+050723,CAM4,carabidae,anchomenus dorsalis
 050723,HF2G,araneae,lepthyphantes
 050723,CAM8,araneae,linyphiidae
 050723,CAM9,staphylinidae,tachinus
-060723,HF2F,isopoda,armadillidium
 060723,HF2G,carabidae,harpalus rufipes
 060723,CAM8,araneae,lepthyphantes
-060723,LF2E,staphylinidae,tachinus
+060723,CAM9,diptera-hymenoptera,myrmica
 070723,CAM4,isopoda,philoscia muscorum
 070723,HF2F,carabidae,anchomenus dorsalis
 070723,HF2G,araneae,linyphiidae
@@ -238,9 +237,10 @@ date,camera,insect_name,og_insect_name
 080823,CAM4,carabidae,brachinus crepitans
 080823,HF2G,araneae,linyphiidae
 080823,CAM8,staphylinidae,tachinus
+080823,LF2E,araneae,megalepthyphantes
 090823,HF2G,staphylinidae,tachinus
+100823,HF2F,carabidae,brachinus crepitans
 100823,HF2G,staphylinidae,tachinus
-100823,CAM9,araneae,linyphiidae
 140823,CAM4,carabidae,carabidae
 140823,HF2F,coleoptera (larvae),carabidae (larvae)
 140823,HF2G,staphylinidae,ocypus olens
