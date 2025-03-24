@@ -4,7 +4,8 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from detectron2.engine import DefaultPredictor
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, precision_recall_curve, confusion_matrix, f1_score, classification_report, average_precision_score
+
 
 from utils import detectron_model as model
 from utils import coco as cc
@@ -30,10 +31,11 @@ def iou(box1, box2):
     # Compute IoU
     return inter_area / union_area if union_area > 0 else 0.0
 
-def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json: dict, images_dir: str):
+def match_detections(ground_truth_dict: dict, pred_dict: dict, coco_json: dict, images_dir: str):
     print("Generating true and predicted bounding boxes and classes...")
     ground_truths = []
     predictions = []
+    scores = []
     no_of_images = len(coco_json["images"])
 
     for idx, img in enumerate(coco_json["images"], start=1):
@@ -52,12 +54,14 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
                 # nothing was detected --> true negative
                 ground_truths.append(-1)
                 predictions.append(-1)
+                scores.append(0.0)
                 continue
             else:
                 # something WAS detected --> false positive
-                for cls in pred_classes:
+                for cls, score in zip(pred_classes, pred_scores):
                     ground_truths.append(-1)
                     predictions.append(cls)
+                    scores.append(score)
                 continue
 
         # There ARE objects in this image
@@ -80,12 +84,14 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
            
             if best_pred_idx == -1: 
                 # no predicted bbox was found for this ground truth bbox --> false negative
-                ground_truths.append(true_cls)
+                ground_truths.append(true_cls-1)
                 predictions.append(-1)
+                scores.append(0.0)
             else: 
                 # we found a predicted bbox for this true bbox --> true positive
-                ground_truths.append(true_cls)
+                ground_truths.append(true_cls-1)
                 predictions.append(pred_classes[best_pred_idx]) # (but the class might still be wrong)
+                scores.append(pred_scores[best_pred_idx])
                 matched.add(best_pred_idx)                      # remember that we already assigned this prediction to a true label
 
         # Predicted bboxes that have not been matched to a true bbox --> false positive
@@ -93,11 +99,12 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
             if j not in matched:
                 ground_truths.append(-1)
                 predictions.append(pred_classes[j])
+                scores.append(pred_scores[j])
 
     print("Finished generating true and predicted bounding boxes and classes.")
-    return ground_truths, predictions
+    return ground_truths, predictions, scores
 
-def plot_confusion_matrix(y_true, y_pred, coco_categories, output_path):
+def plot_confusion_matrix(y_true, y_pred, coco_categories, output_dir):
     print("Plotting confusion matrix...")
     num_classes = len(coco_categories)
 
@@ -113,17 +120,40 @@ def plot_confusion_matrix(y_true, y_pred, coco_categories, output_path):
     plt.ylabel("Actual")
     plt.title("Confusion Matrix")
     plt.tight_layout()
-    plt.savefig(output_path)
+    plt.savefig(output_dir+"confusion_matrix.png")
     plt.close()
-    print(f"Saved confusion matrix to {output_path}")
+    print(f"Saved confusion matrix to {output_dir}confusion_matrix.png")
 
-def plot_and_save_confusion_matrix(coco_json_path, image_dir, predictions_path, output_path):
+def plot_precision_recall(y_true, y_pred, y_scores, coco_categories, output_dir):
+    class_labels = [cat["name"] for cat in coco_categories] + ["no object"]
+    class_ids = list(range(len(coco_categories))) + [-1]
+    # For each class, compute precision-recall curve and plot
+    plt.figure(figsize=(8, 6))
+    for class_id in range(len(class_ids)):
+        # Binarize the labels for each class
+        y_true_class = [1 if t == class_id else 0 for t in y_true]
+        y_scores_class = [score if pred == class_id else 0.0 for pred, score in zip(y_pred, y_scores)]
+        
+        # Only compute the precision-recall curve if there are positive samples
+        if any(y_true_class):  # Only proceed if there are positive samples for this class
+            precision, recall, _ = precision_recall_curve(y_true_class, y_scores_class)
+            plt.plot(recall, precision, marker='.', label=class_labels[class_id])
+    
+    plt.xlabel("Recall")
+    plt.ylabel("Precision")
+    plt.title("Precision-Recall Curve (Per Class)")
+    plt.legend()
+    plt.savefig(output_dir+"precision_recall_curve.png", bbox_inches='tight')
+    plt.close()
+
+def plot_and_save_results(coco_json_path, image_dir, predictions_path, output_dir):
     coco_json = cc.load_from_file(coco_json_path)
     pred_dict = cc.load_from_file(predictions_path)
     ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
-    ground_truth_classes, predicted_classes = get_true_and_pred_labels(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, images_dir=image_dir, coco_json=coco_json)
-    plot_confusion_matrix(y_true=ground_truth_classes, y_pred=predicted_classes, coco_categories=coco_json["categories"], output_path=output_path)
-
+    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, images_dir=image_dir, coco_json=coco_json)
+    
+    plot_confusion_matrix(y_true=ground_truth_classes, y_pred=predicted_classes, coco_categories=coco_json["categories"], output_dir=output_dir)
+    plot_precision_recall(y_true=ground_truth_classes, y_pred=predicted_classes, y_scores=scores, coco_categories=coco_json["categories"], output_dir=output_dir)
 
 def main():
      # Set up command-line argument parsing
@@ -135,10 +165,10 @@ def main():
 
     IMAGE_FOLDER = "/mnt/data0/martez/" + args.dataset_name + "/images/"   # Folder containing test images
     COCO_JSON = "/mnt/data0/martez/" + args.dataset_name + "/annotations/" + args.dataset_name + "_test.json"
-    OUTPUT_PATH = "results/confusion_matrix.png"
+    OUTPUT_DIR = "results/"
     PREDS_FILE = "results/predictions.json"
 
-    plot_and_save_confusion_matrix(coco_json_path=COCO_JSON, image_dir=IMAGE_FOLDER, predictions_path=PREDS_FILE, output_path=OUTPUT_PATH)
+    plot_and_save_results(coco_json_path=COCO_JSON, image_dir=IMAGE_FOLDER, predictions_path=PREDS_FILE, output_dir=OUTPUT_DIR)
 
 
 if __name__ == "__main__":
