@@ -8,6 +8,7 @@ from sklearn.metrics import confusion_matrix
 
 from utils import detectron_model as model
 from utils import coco as cc
+
 def iou(box1, box2):
     x1, y1, x2, y2 = box1  # Unpack coordinates for box1
     x1g, y1g, x2g, y2g = box2  # Unpack coordinates for box2
@@ -59,8 +60,7 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
                     predictions.append(cls)
                 continue
 
-    
-        # There ARE objected in this image
+        # There ARE objects in this image
         for true_bbox, true_cls in true_labels:
             true_bbox = cc.coco_bbox_to_xyxy(bbox=true_bbox)
             best_iou = 0
@@ -69,7 +69,7 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
             # Match predicted bboxes with the true bbox based on the best iou (largest overlap)
             for i, pred_bbox in enumerate(pred_bboxes):
                 this_iou = iou(pred_bbox, true_bbox)
-                if this_iou > best_iou and this_iou > 0.5:
+                if this_iou > best_iou:
                     best_iou = this_iou
                     best_pred_idx = i
             '''
@@ -79,12 +79,12 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
                     best_pred_idx = i'''
            
             if best_pred_idx == -1: 
-                # no pred was found for this ground truth bbox --> false negative
-                ground_truths.append(true_cls-1)
+                # no predicted bbox was found for this ground truth bbox --> false negative
+                ground_truths.append(true_cls)
                 predictions.append(-1)
             else: 
                 # we found a predicted bbox for this true bbox --> true positive
-                ground_truths.append(true_cls-1)
+                ground_truths.append(true_cls)
                 predictions.append(pred_classes[best_pred_idx]) # (but the class might still be wrong)
                 matched.add(best_pred_idx)                      # remember that we already assigned this prediction to a true label
 
