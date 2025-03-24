@@ -80,11 +80,11 @@ def get_true_and_pred_labels(ground_truth_dict: dict, pred_dict: dict, coco_json
            
             if best_pred_idx == -1: 
                 # no pred was found for this ground truth bbox --> false negative
-                ground_truths.append(true_cls)
+                ground_truths.append(true_cls-1)
                 predictions.append(-1)
             else: 
                 # we found a predicted bbox for this true bbox --> true positive
-                ground_truths.append(true_cls)
+                ground_truths.append(true_cls-1)
                 predictions.append(pred_classes[best_pred_idx]) # (but the class might still be wrong)
                 matched.add(best_pred_idx)                      # remember that we already assigned this prediction to a true label
 
@@ -118,7 +118,7 @@ def plot_confusion_matrix(y_true, y_pred, coco_categories, output_path):
     print(f"Saved confusion matrix to {output_path}")
 
 def plot_and_save_confusion_matrix(coco_json_path, image_dir, predictions_path, output_path):
-    coco_json = cc.load_from_file(coco_json)
+    coco_json = cc.load_from_file(coco_json_path)
     pred_dict = cc.load_from_file(predictions_path)
     ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
     ground_truth_classes, predicted_classes = get_true_and_pred_labels(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, images_dir=image_dir, coco_json=coco_json)
