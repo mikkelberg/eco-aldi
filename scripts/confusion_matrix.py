@@ -112,7 +112,7 @@ def plot_confusion_matrix(y_true, y_pred, coco_categories, output_dir):
     print(f"Saved confusion matrix to {output_dir}confusion_matrix.png")
 
 def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_dir):
-    class_labels = [cat["name"] for cat in coco_categories] + ["no object"]
+    class_labels = [cat["name"] for cat in coco_categories]# + ["no object"]
     # class_ids = list(range(len(coco_categories))) + [-1]
     num_classes = len(class_labels)
 
@@ -122,10 +122,10 @@ def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_di
     fig, axes = plt.subplots(rows, cols, figsize=(15, 5 * rows))
     axes = axes.flatten()  # Flatten the axes array for easy iteration
     
-    for i, label in enumerate(class_labels):
+    for class_id, label in enumerate(class_labels):
         # Binarize the labels for each class
-        y_true_class = [1 if t == i else 0 for t in y_true]
-        y_scores_class = [score if pred == i else 0.0 for pred, score in zip(y_pred, y_scores)]
+        y_true_class = [1 if true_cls == class_id else 0 for true_cls in y_true]
+        y_scores_class = [score if pred_cls == class_id else 0.0 for pred_cls, score in zip(y_pred, y_scores)]
         
         # Only compute the precision-recall curve if there are positive samples
         if any(y_true_class):  # Only proceed if there are positive samples for this class
@@ -133,7 +133,7 @@ def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_di
             auc_score = auc(recall, precision)
 
 
-            ax = axes[i]
+            ax = axes[class_id]
             ax.plot(recall, precision, label=f"PR Curve (AUC = {auc_score:.2f})")
             ax.set_xlabel("Recall")
             ax.set_ylabel("Precision")
@@ -155,7 +155,7 @@ def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_di
                             textcoords="offset points", 
                             xytext=(0, 10), 
                             ha='center', fontsize=8, color='red')
-            ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), ncol=2, fancybox=True, shadow=True)
+            ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, fancybox=True, shadow=True)
             
             '''
             # Label the thresholds on the curve
@@ -167,7 +167,6 @@ def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_di
                             xytext=(0, 10), 
                             ha='center', fontsize=8, color='blue')'''
     plt.tight_layout()
-    plt.title("Precision-Recall Curve (Per Class)")
     #plt.legend()
     plt.savefig(output_dir+"pr_curve-per_class.png", bbox_inches='tight')
     plt.close()
