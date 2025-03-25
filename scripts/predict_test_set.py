@@ -1,6 +1,7 @@
 import utils.detectron_model as model
 import argparse
 import utils.coco as cc
+
 def main():
      # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="")
@@ -17,10 +18,10 @@ def main():
     CONFIG_PATH = args.config_file
 
     print(f"Loading in model {CONFIG_PATH} with weights from {MODEL_WEIGHTS}...")
-    predictor = model.load_model(CONFIG_PATH, MODEL_WEIGHTS)
+    predictor = model.load_model(CONFIG_PATH, MODEL_WEIGHTS, score_thresh=0.0)
     coco_json = cc.load_from_file(COCO_JSON)
 
-    print(f"Generating predictions for images from {coco_json}...")
+    print(f"Generating predictions for images from {COCO_JSON}...")
     no_of_images = len(coco_json["images"])
     for idx, img in enumerate(coco_json["images"], start=1):
         img_path = f"{IMAGE_FOLDER}/{img["file_name"]}"

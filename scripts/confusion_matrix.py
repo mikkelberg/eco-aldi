@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from detectron2.engine import DefaultPredictor
-from sklearn.metrics import confusion_matrix, precision_recall_curve, confusion_matrix, f1_score, classification_report, average_precision_score
+from sklearn.metrics import confusion_matrix, precision_recall_curve, confusion_matrix, f1_score, classification_report, average_precision_score, auc
 
 
 from utils import detectron_model as model
@@ -39,7 +39,7 @@ def match_detections(ground_truth_dict: dict, pred_dict: dict, coco_json: dict, 
     no_of_images = len(coco_json["images"])
 
     for idx, img in enumerate(coco_json["images"], start=1):
-        if idx % 100 == 0 or idx == no_of_images:
+        if idx % 200 == 0 or idx == no_of_images:
             print(f"-- Processed {idx} of {no_of_images} in the test set.")
         pred_classes = pred_dict[img["id"]]["pred_classes"] 
         pred_scores = pred_dict[img["id"]]["pred_scores"]
@@ -73,7 +73,7 @@ def match_detections(ground_truth_dict: dict, pred_dict: dict, coco_json: dict, 
             # Match predicted bboxes with the true bbox based on the best iou (largest overlap)
             for i, pred_bbox in enumerate(pred_bboxes):
                 this_iou = iou(pred_bbox, true_bbox)
-                if this_iou > best_iou:
+                if this_iou > best_iou and i not in matched and pred_scores[i] > 0.5:
                     best_iou = this_iou
                     best_pred_idx = i
             '''
@@ -124,36 +124,133 @@ def plot_confusion_matrix(y_true, y_pred, coco_categories, output_dir):
     plt.close()
     print(f"Saved confusion matrix to {output_dir}confusion_matrix.png")
 
-def plot_precision_recall(y_true, y_pred, y_scores, coco_categories, output_dir):
-    class_labels = [cat["name"] for cat in coco_categories] + ["no object"]
-    class_ids = list(range(len(coco_categories))) + [-1]
-    # For each class, compute precision-recall curve and plot
+
+def macro_average_pr(y_true, y_scores, num_classes):
+    all_precisions, all_recalls = [], []
+
+    for class_id in range(num_classes):
+        binary_y_true = np.array([1 if y == class_id else 0 for y in y_true])
+        binary_y_scores = np.array([score if pred == class_id else 0 for score, pred in zip(y_scores, y_pred)])
+
+
+        precision, recall, _ = precision_recall_curve(binary_y_true, binary_y_scores)
+        all_precisions.append(np.interp(np.linspace(0, 1, 100), recall[::-1], precision[::-1]))
+        all_recalls.append(np.linspace(0, 1, 100))
+
+    avg_precision = np.mean(all_precisions, axis=0)
+    avg_recall = np.linspace(0, 1, 100)
+
+    return avg_recall, avg_precision
+
+def weighted_average_pr(y_true, y_scores, num_classes):
+    all_precisions, all_recalls, class_weights = [], [], []
+
+    for class_id in range(num_classes):
+        binary_y_true = np.array([1 if y == class_id else 0 for y in y_true])
+        binary_y_scores = np.array([score if pred == class_id else 0 for score, pred in zip(y_scores, y_pred)])
+
+
+        if np.sum(binary_y_true) == 0:  # No ground truth for this class
+            continue  
+
+        precision, recall, _ = precision_recall_curve(binary_y_true, binary_y_scores)
+        weight = np.sum(binary_y_true) / len(y_true)  # Proportion of this class
+
+        all_precisions.append(np.interp(np.linspace(0, 1, 100), recall[::-1], precision[::-1]) * weight)
+        class_weights.append(weight)
+
+    weighted_precision = np.sum(all_precisions, axis=0) / np.sum(class_weights)
+    avg_recall = np.linspace(0, 1, 100)
+
+    return avg_recall, weighted_precision
+
+
+def plot_pr_curve(y_true, y_scores, output_dir):
+    num_classes = len(set(y_true))  # Get the number of classes
+    macro_recall, macro_precision = macro_average_pr(y_true, y_scores, num_classes)
+    weighted_recall, weighted_precision = weighted_average_pr(y_true, y_scores, num_classes)
+
     plt.figure(figsize=(8, 6))
-    for class_id in range(len(class_ids)):
+    plt.plot(macro_recall, macro_precision, label="Macro-Averaged PR Curve", linestyle="--")
+    plt.plot(weighted_recall, weighted_precision, label="Weighted-Averaged PR Curve", linestyle="-")
+    plt.xlabel("Recall")
+    plt.ylabel("Precision")
+    plt.title("Overall Precision-Recall Curve")
+    plt.legend()
+    plt.savefig(output_dir+"pr_curve.png", bbox_inches="tight")
+    plt.show()
+
+def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_dir):
+    class_labels = [cat["name"] for cat in coco_categories] + ["no object"]
+    # class_ids = list(range(len(coco_categories))) + [-1]
+    num_classes = len(class_labels)
+
+    # For each class, compute precision-recall curve and plot
+    rows = (num_classes // 3) + (num_classes % 3 > 0)  # Adjust rows based on the number of classes
+    cols = 3  # Set number of columns to 3
+    fig, axes = plt.subplots(rows, cols, figsize=(15, 5 * rows))
+    axes = axes.flatten()  # Flatten the axes array for easy iteration
+    
+    for i, label in enumerate(class_labels):
         # Binarize the labels for each class
-        y_true_class = [1 if t == class_id else 0 for t in y_true]
-        y_scores_class = [score if pred == class_id else 0.0 for pred, score in zip(y_pred, y_scores)]
+        y_true_class = [1 if t == i else 0 for t in y_true]
+        y_scores_class = [score if pred == i else 0.0 for pred, score in zip(y_pred, y_scores)]
         
         # Only compute the precision-recall curve if there are positive samples
         if any(y_true_class):  # Only proceed if there are positive samples for this class
-            precision, recall, _ = precision_recall_curve(y_true_class, y_scores_class)
-            plt.plot(recall, precision, marker='.', label=class_labels[class_id])
-    
-    plt.xlabel("Recall")
-    plt.ylabel("Precision")
+            precision, recall, thresholds = precision_recall_curve(y_true_class, y_scores_class)
+            auc_score = auc(recall, precision)
+
+
+            ax = axes[i]
+            ax.plot(recall, precision, label=f"PR Curve (AUC = {auc_score:.2f})")
+            ax.set_xlabel("Recall")
+            ax.set_ylabel("Precision")
+            ax.set_title(f"{label}")
+
+            # Find the threshold that gives the best F1-score
+            f1_scores = []
+            for p, r in zip(precision, recall):
+                if p + r == 0:
+                    f1_scores.append(0)  # Avoid division by zero
+                else:
+                    f1_scores.append(2 * (p * r) / (p + r))
+            best_threshold_index = np.argmax(f1_scores)
+            best_threshold = thresholds[best_threshold_index]
+            best_f1 = f1_scores[best_threshold_index]
+            ax.scatter(recall[best_threshold_index], precision[best_threshold_index], color='red', label=f'Best Thresh (F1 = {best_f1:.2f})')
+            ax.annotate(f'Thresh: {best_threshold:.2f}', 
+                            (recall[best_threshold_index], precision[best_threshold_index]), 
+                            textcoords="offset points", 
+                            xytext=(0, 10), 
+                            ha='center', fontsize=8, color='red')
+            ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), ncol=2, fancybox=True, shadow=True)
+            
+            '''
+            # Label the thresholds on the curve
+            step_size = max(1, len(thresholds) // 3) # Ensure we get at least 1 step
+            for j in range(0, len(thresholds), step_size):  # Show at 3 different points
+                ax.annotate(f'Thresh: {thresholds[j]:.2f}', 
+                            (recall[j], precision[j]), 
+                            textcoords="offset points", 
+                            xytext=(0, 10), 
+                            ha='center', fontsize=8, color='blue')'''
+    plt.tight_layout()
     plt.title("Precision-Recall Curve (Per Class)")
-    plt.legend()
-    plt.savefig(output_dir+"precision_recall_curve.png", bbox_inches='tight')
+    #plt.legend()
+    plt.savefig(output_dir+"pr_curve-per_class.png", bbox_inches='tight')
     plt.close()
 
 def plot_and_save_results(coco_json_path, image_dir, predictions_path, output_dir):
     coco_json = cc.load_from_file(coco_json_path)
     pred_dict = cc.load_from_file(predictions_path)
+    print("Fetching ground truths...")
     ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
     ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, images_dir=image_dir, coco_json=coco_json)
     
     plot_confusion_matrix(y_true=ground_truth_classes, y_pred=predicted_classes, coco_categories=coco_json["categories"], output_dir=output_dir)
-    plot_precision_recall(y_true=ground_truth_classes, y_pred=predicted_classes, y_scores=scores, coco_categories=coco_json["categories"], output_dir=output_dir)
+    plot_pr_curve(y_true=ground_truth_classes, y_scores=scores, output_dir=output_dir)
+    plot_pr_curve_per_class(y_true=ground_truth_classes, y_pred=predicted_classes, y_scores=scores, coco_categories=coco_json["categories"], output_dir=output_dir)
 
 def main():
      # Set up command-line argument parsing
