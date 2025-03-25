@@ -31,91 +31,78 @@ def iou(box1, box2):
     # Compute IoU
     return inter_area / union_area if union_area > 0 else 0.0
 
-def match_detections(ground_truth_dict: dict, pred_dict: dict, coco_json: dict, images_dir: str):
+def match_detections(ground_truth_dict: dict, pred_dict: dict, iou_thresh = 0.5, conf_thresh = 0.5):
     print("Generating true and predicted bounding boxes and classes...")
     ground_truths = []
     predictions = []
-    scores = []
-    no_of_images = len(coco_json["images"])
+    conf_scores = []
 
-    for idx, img in enumerate(coco_json["images"], start=1):
-        if idx % 200 == 0 or idx == no_of_images:
-            print(f"-- Processed {idx} of {no_of_images} in the test set.")
-        pred_classes = pred_dict[img["id"]]["pred_classes"] 
-        pred_scores = pred_dict[img["id"]]["pred_scores"]
-        pred_bboxes = pred_dict[img["id"]]["pred_boxes"]
-        true_labels = ground_truth_dict[img["id"]]
 
+    for img_id, preds in pred_dict.items():
         matched = set()
-
-        # No objects in this image
-        if not true_labels: 
-            if not pred_classes:
-                # nothing was detected --> true negative
-                ground_truths.append(-1)
-                predictions.append(-1)
-                scores.append(0.0)
+        for pred_bbox, pred_class, pred_score in zip(preds["pred_boxes"], preds["pred_classes"], preds["pred_scores"]):
+            if pred_score < conf_thresh: 
+                # skip predictions below the confidence threshold
                 continue
-            else:
-                # something WAS detected --> false positive
-                for cls, score in zip(pred_classes, pred_scores):
-                    ground_truths.append(-1)
-                    predictions.append(cls)
-                    scores.append(score)
+            
+            if img_id not in ground_truth_dict: 
+                # no objects in this image --> false negative (handled after loop)
                 continue
-
-        # There ARE objects in this image
-        for true_bbox, true_cls in true_labels:
-            true_bbox = cc.coco_bbox_to_xyxy(bbox=true_bbox)
-            best_iou = 0
-            best_pred_idx = -1
-
-            # Match predicted bboxes with the true bbox based on the best iou (largest overlap)
-            for i, pred_bbox in enumerate(pred_bboxes):
+            # else, the image DOES have objects, so we consider each prediction for this image and compare 
+            # it to the ground truth:
+            best_iou, best_gt_idx = 0, -1
+            matched = set()
+            # go through the ground truth bboxes and see if they match this prediction (have sufficiently high IoU)
+            for i, (true_bbox, true_cls) in enumerate(ground_truth_dict[img_id]):
+                if i in matched: continue # skip the already matched gt boxes
+                true_bbox = cc.coco_bbox_to_xyxy(bbox=true_bbox)
                 this_iou = iou(pred_bbox, true_bbox)
-                if this_iou > best_iou and i not in matched and pred_scores[i] > 0.5:
+                if this_iou > best_iou and pred_score > conf_thresh:
                     best_iou = this_iou
-                    best_pred_idx = i
-            '''
-            for i, score in enumerate(pred_scores):
-                if score > best_score and i not in matched: # note that the predictions are all with a score above 0.5 (the threshold), so we don't have a check for that here
-                    best_score = score
-                    best_pred_idx = i'''
-           
-            if best_pred_idx == -1: 
-                # no predicted bbox was found for this ground truth bbox --> false negative
-                ground_truths.append(true_cls-1)
-                predictions.append(-1)
-                scores.append(0.0)
-            else: 
+                    best_gt_idx = i 
+            
+            if best_iou >= iou_thresh:
                 # we found a predicted bbox for this true bbox --> true positive
-                ground_truths.append(true_cls-1)
-                predictions.append(pred_classes[best_pred_idx]) # (but the class might still be wrong)
-                scores.append(pred_scores[best_pred_idx])
-                matched.add(best_pred_idx)                      # remember that we already assigned this prediction to a true label
-
-        # Predicted bboxes that have not been matched to a true bbox --> false positive
-        for j in range(len(pred_scores)):
-            if j not in matched:
+                ground_truths.append(ground_truth_dict[img_id][best_gt_idx][1]-1)
+                predictions.append(pred_class)
+                conf_scores.append(pred_score)
+                matched.add(best_gt_idx)
+                #del unmatched_gt[img_id][best_gt_idx] # remove, now that we've matched this box to a predicted box
+            else: 
+                # no ground truth bbox was matched with this prediction --> false positive
                 ground_truths.append(-1)
-                predictions.append(pred_classes[j])
-                scores.append(pred_scores[j])
+                predictions.append(pred_class)
+                conf_scores.append(pred_score)
+            
+        # any remaining have not been matched to a predicted bbox --> false negative
+        for i, (_, true_cls) in enumerate(ground_truth_dict[img_id]):
+            if i in matched: continue
+            ground_truths.append(true_cls-1)
+            predictions.append(-1)
+            conf_scores.append(0.0)
+
 
     print("Finished generating true and predicted bounding boxes and classes.")
-    return ground_truths, predictions, scores
+    return ground_truths, predictions, conf_scores
 
 def plot_confusion_matrix(y_true, y_pred, coco_categories, output_dir):
     print("Plotting confusion matrix...")
     num_classes = len(coco_categories)
+    class_ids = [cat["id"]-1 for cat in coco_categories] + [-1]
+    class_names = [cat["name"] for cat in coco_categories]
+    class_names_pred = class_names + ["no object\n(missed object)"]
+    class_names_true = class_names + ["no object\n(ghost prediction)"]
 
-    cm = confusion_matrix(y_true, y_pred, labels=list(range(num_classes)) + [-1])
+    cm = confusion_matrix(y_true, y_pred, labels=class_ids)
     cmn = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis] # normalise
 
-    labels = [cat["name"] for cat in coco_categories] + ["no object"] # Convert to readable class names
+    # Create a mask: True for the last row & column (bottom-right cell)
+    mask = np.zeros_like(cm, dtype=bool)
+    mask[-1, -1] = True  # Hide bottom-right cell (No Object vs. No Object)
     
     # plot
     plt.figure(figsize=(10, 8))
-    sns.heatmap(cmn, annot=True, fmt=".2f", xticklabels=labels, yticklabels=labels)
+    sns.heatmap(cmn, annot=True, fmt=".2f", xticklabels=class_names_pred, yticklabels=class_names_true, mask=mask)
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
     plt.title("Confusion Matrix")
@@ -123,62 +110,6 @@ def plot_confusion_matrix(y_true, y_pred, coco_categories, output_dir):
     plt.savefig(output_dir+"confusion_matrix.png")
     plt.close()
     print(f"Saved confusion matrix to {output_dir}confusion_matrix.png")
-
-
-def macro_average_pr(y_true, y_scores, num_classes):
-    all_precisions, all_recalls = [], []
-
-    for class_id in range(num_classes):
-        binary_y_true = np.array([1 if y == class_id else 0 for y in y_true])
-        binary_y_scores = np.array([score if pred == class_id else 0 for score, pred in zip(y_scores, y_pred)])
-
-
-        precision, recall, _ = precision_recall_curve(binary_y_true, binary_y_scores)
-        all_precisions.append(np.interp(np.linspace(0, 1, 100), recall[::-1], precision[::-1]))
-        all_recalls.append(np.linspace(0, 1, 100))
-
-    avg_precision = np.mean(all_precisions, axis=0)
-    avg_recall = np.linspace(0, 1, 100)
-
-    return avg_recall, avg_precision
-
-def weighted_average_pr(y_true, y_scores, num_classes):
-    all_precisions, all_recalls, class_weights = [], [], []
-
-    for class_id in range(num_classes):
-        binary_y_true = np.array([1 if y == class_id else 0 for y in y_true])
-        binary_y_scores = np.array([score if pred == class_id else 0 for score, pred in zip(y_scores, y_pred)])
-
-
-        if np.sum(binary_y_true) == 0:  # No ground truth for this class
-            continue  
-
-        precision, recall, _ = precision_recall_curve(binary_y_true, binary_y_scores)
-        weight = np.sum(binary_y_true) / len(y_true)  # Proportion of this class
-
-        all_precisions.append(np.interp(np.linspace(0, 1, 100), recall[::-1], precision[::-1]) * weight)
-        class_weights.append(weight)
-
-    weighted_precision = np.sum(all_precisions, axis=0) / np.sum(class_weights)
-    avg_recall = np.linspace(0, 1, 100)
-
-    return avg_recall, weighted_precision
-
-
-def plot_pr_curve(y_true, y_scores, output_dir):
-    num_classes = len(set(y_true))  # Get the number of classes
-    macro_recall, macro_precision = macro_average_pr(y_true, y_scores, num_classes)
-    weighted_recall, weighted_precision = weighted_average_pr(y_true, y_scores, num_classes)
-
-    plt.figure(figsize=(8, 6))
-    plt.plot(macro_recall, macro_precision, label="Macro-Averaged PR Curve", linestyle="--")
-    plt.plot(weighted_recall, weighted_precision, label="Weighted-Averaged PR Curve", linestyle="-")
-    plt.xlabel("Recall")
-    plt.ylabel("Precision")
-    plt.title("Overall Precision-Recall Curve")
-    plt.legend()
-    plt.savefig(output_dir+"pr_curve.png", bbox_inches="tight")
-    plt.show()
 
 def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_dir):
     class_labels = [cat["name"] for cat in coco_categories] + ["no object"]
@@ -246,10 +177,12 @@ def plot_and_save_results(coco_json_path, image_dir, predictions_path, output_di
     pred_dict = cc.load_from_file(predictions_path)
     print("Fetching ground truths...")
     ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
-    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, images_dir=image_dir, coco_json=coco_json)
-    
+    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.5)
     plot_confusion_matrix(y_true=ground_truth_classes, y_pred=predicted_classes, coco_categories=coco_json["categories"], output_dir=output_dir)
-    plot_pr_curve(y_true=ground_truth_classes, y_scores=scores, output_dir=output_dir)
+    #plot_pr_curve(y_true=ground_truth_classes, y_scores=scores, output_dir=output_dir)
+    
+    ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
+    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.0)
     plot_pr_curve_per_class(y_true=ground_truth_classes, y_pred=predicted_classes, y_scores=scores, coco_categories=coco_json["categories"], output_dir=output_dir)
 
 def main():

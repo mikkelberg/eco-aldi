@@ -18,7 +18,7 @@ def main():
     CONFIG_PATH = args.config_file
 
     print(f"Loading in model {CONFIG_PATH} with weights from {MODEL_WEIGHTS}...")
-    predictor = model.load_model(CONFIG_PATH, MODEL_WEIGHTS, score_thresh=0.0)
+    predictor = model.load_model(CONFIG_PATH, MODEL_WEIGHTS)
     coco_json = cc.load_from_file(COCO_JSON)
 
     print(f"Generating predictions for images from {COCO_JSON}...")
