@@ -3,6 +3,7 @@ import json
 import random
 import os
 from sklearn.model_selection import train_test_split
+from collections import Counter
 
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -53,21 +54,29 @@ def split_data(coco):
     # with their counts as key/sorting criterion)
     def most_detected_class(img_id): 
         return max(set(image_to_detected_classes[img_id]), key=image_to_detected_classes[img_id].count)
-    most_detected_class_per_image = [most_detected_class(img_id=img_id) for img_id in positive_sample_ids]
-    # first split into train-(val+test), then evenly split (val+test) to val-test - the result is a 80/10/10 split
-    train_pos_image_ids, temp_ids = train_test_split(positive_sample_ids, test_size=0.3, stratify=most_detected_class_per_image, random_state=42)
-    most_detected_class_per_image_for_val_and_test = [most_detected_class_per_image[positive_sample_ids.index(id)] for id in temp_ids] #
-    val_pos_image_ids, test_pos_image_ids = train_test_split(temp_ids, test_size=0.5, stratify=most_detected_class_per_image_for_val_and_test, random_state=42)
-    
-    '''
-    ##### Split the negative data samples based on the location (i.e. background) distribution
-    # the location is defined in the prefix of the image's id
-    negative_sample_image_ids = [img["id"] for img in images if img["id"] not in positive_sample_image_ids]
-    locations_per_image = [pc.get_location_prefix_from_image_filename(image_id) for image_id in negative_sample_image_ids]
-    negative_sample_train_image_ids, temp_ids = train_test_split(negative_sample_image_ids, test_size=0.3, stratify=locations_per_image, random_state=42)
-    locations_per_image_for_val_and_test = [locations_per_image[negative_sample_image_ids.index(id)] for id in temp_ids]
-    negative_sample_val_image_ids, negative_sample_test_image_ids = train_test_split(temp_ids, test_size=0.5, stratify=locations_per_image_for_val_and_test, random_state=42)
-    '''
+    most_detected_class_per_image = {img_id: most_detected_class(img_id=img_id) for img_id in positive_sample_ids}
+    class_counts = Counter(most_detected_class_per_image.values())
+    # sort out the really rare classes (which can't handle a 80/10/10 split)
+    RARE_THRESHOLD = 4
+    rare_classes = {cls for cls, count in class_counts.items() if count <= RARE_THRESHOLD}
+    normal_image_ids = [img_id for img_id in positive_sample_ids if most_detected_class_per_image[img_id] not in rare_classes]
+    rare_image_ids = [img_id for img_id in positive_sample_ids if most_detected_class_per_image[img_id] in rare_classes]
+
+    # split images 80/10/10 (except rare classes)
+    # first split into train-(val+test), then evenly split (val+test) to val-test
+    normal_classes_per_image = [most_detected_class_per_image[img_id] for img_id in normal_image_ids]
+    train_norm, val_test_norm = train_test_split(normal_image_ids, train_size=0.8, stratify=normal_classes_per_image, random_state=42)
+    val_classes_norm = [most_detected_class_per_image[img_id] for img_id in val_test_norm]
+    val_norm, test_norm = train_test_split(val_test_norm, test_size=0.5, stratify=val_classes_norm, random_state=42)
+    # split rare images 50/25/25
+    rare_classes_per_image = [most_detected_class_per_image[img_id] for img_id in rare_image_ids]
+    train_rare, val_test_rare = train_test_split(rare_image_ids, train_size=0.5, stratify=rare_classes_per_image, random_state=42)
+    val_classes_rare = [most_detected_class_per_image[img_id] for img_id in val_test_rare]
+    val_rare, test_rare = train_test_split(val_test_rare, test_size=0.5, stratify=val_classes_rare, random_state=42)
+    # combine
+    train_pos_image_ids = train_norm + train_rare
+    val_pos_image_ids = val_norm + val_rare
+    test_pos_image_ids = test_norm + test_rare
 
     ##### Split the negative data samples ensuring the same positive-negative sample ratio
     num_train_neg = int(len(train_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))

@@ -3,7 +3,7 @@ from detectron2.data.datasets import register_coco_instances
 
 # Pitfall-cameras
 register_coco_instances("pitfall-cameras_train",   {},         "datasets/pitfall-cameras/annotations/pitfall-cameras_train.json",                    "datasets/pitfall-cameras/images/")
-register_coco_instances("pitfall-cameras_val",   {},         "datasets/pitfall-cameras/annotations/pitfall-cameras_val.json",                    "datasets/pitfall-cameras/images/")
+register_coco_instances("pitfall-cameras_eval",   {},         "datasets/pitfall-cameras/annotations/pitfall-cameras_val.json",                    "datasets/pitfall-cameras/images/")
 register_coco_instances("pitfall-cameras_test",   {},         "datasets/pitfall-cameras/annotations/pitfall-cameras_test.json",                    "datasets/pitfall-cameras/images/")
 
 # Cityscapes 

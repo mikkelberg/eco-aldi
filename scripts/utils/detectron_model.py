@@ -31,7 +31,7 @@ def predict_bbox_and_class_with_score(predictor: DefaultPredictor, image_path: s
     return pred_boxes, pred_classes, scores
 
 def save_predictions_to_file(image_id, pred_boxes, pred_classes, scores, dest):
-    if os.path.isfile(dest):
+    if not os.path.isfile(dest):
         predictions = {}
     else:    
         with open(dest, "r") as f:

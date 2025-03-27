@@ -47,7 +47,7 @@ def draw_bboxes(image, bboxes, labels, category_names, thickness=3, pred=True):
     for bbox, label in zip(bboxes, labels):
         x, y, w, h = list(map(int, bbox))
         cv2.rectangle(img=image, pt1=(x, y), pt2=(x + w, y + h), color=color, thickness=thickness)
-        if pred: cv2.putText(image, f"Predicted class: {category_names[label]}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.5, color, 2)
+        if pred: cv2.putText(image, f"Predicted class: {category_names[label+1]}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.5, color, 2)
         else: cv2.putText(image, f"GT class: {category_names[label]}", (x + w + 10, y + int(h/2)), cv2.FONT_HERSHEY_SIMPLEX, 1.5, color, 2)
     return image
 
@@ -148,7 +148,7 @@ def create_image_matrix(coco_json_path, image_dir, output_path, predictor, num_s
         # Save the final matrix as a PNG file
         gt_labels_string = "none" if not gt_bboxes else "-".join([catid_to_name[l] for l in gt_labels])
         plt.tight_layout()
-        plt.savefig(output_path+"/example_detections_" + str(gt_labels_string) + "_" + str(img_id.split(".")[0])+ ".png")
+        plt.savefig(output_path+"example_detections_" + str(gt_labels_string) + "_" + str(img_id.split(".")[0])+ ".png")
         plt.close()
 
 def main():
@@ -160,11 +160,11 @@ def main():
     # Parse the arguments
     args = parser.parse_args()
 
-    MODEL_WEIGHTS = "output/" + args.dataset_name + "_val_model_best.pth"  
+    MODEL_WEIGHTS = "output/training/" + args.dataset_name + "_val_model_best.pth"  
     IMAGE_FOLDER = "/mnt/data0/martez/" + args.dataset_name + "/images/"   # Folder containing test images
     COCO_JSON = "/mnt/data0/martez/" + args.dataset_name + "/annotations/" + args.dataset_name + "_test.json"
     CONFIG_PATH = args.config_file
-    OUTPUT_DIR = "eval-results/"
+    OUTPUT_DIR = "results/example-evals/"
 
     predictor = load_model(CONFIG_PATH, MODEL_WEIGHTS)
     create_image_matrix(coco_json_path=COCO_JSON, image_dir=IMAGE_FOLDER, predictor=predictor, output_path=OUTPUT_DIR)

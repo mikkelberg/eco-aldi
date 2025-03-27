@@ -1,0 +1,286 @@
+{
+    "info": {
+        "description": "The cleaned categories are matched between the source and target dataset (respectively controlled-conditions and pitfall-cameras), and the original_categories are all of the unique classifications from this dataset before any grouping for redundancies and other cleaning.",
+        "number_of_original_categories": 73,
+        "number_of_official_categories": 14
+    },
+    "cleaned_categories": [
+        {
+            "id": 1,
+            "name": "araneae"
+        },
+        {
+            "id": 2,
+            "name": "cantharidae"
+        },
+        {
+            "id": 3,
+            "name": "carabidae"
+        },
+        {
+            "id": 4,
+            "name": "chrysomelidae"
+        },
+        {
+            "id": 5,
+            "name": "coccinellidae"
+        },
+        {
+            "id": 6,
+            "name": "coleoptera (larvae)"
+        },
+        {
+            "id": 7,
+            "name": "dermaptera"
+        },
+        {
+            "id": 8,
+            "name": "diptera (larvae)"
+        },
+        {
+            "id": 9,
+            "name": "diptera-hymenoptera"
+        },
+        {
+            "id": 10,
+            "name": "isopoda"
+        },
+        {
+            "id": 11,
+            "name": "myriapoda"
+        },
+        {
+            "id": 12,
+            "name": "nitidulidae"
+        },
+        {
+            "id": 13,
+            "name": "opiliones"
+        },
+        {
+            "id": 14,
+            "name": "staphylinidae"
+        }
+    ],
+    "original_categories": [
+        {
+            "name": "achenium depressum"
+        },
+        {
+            "name": "acupalpus meridianus"
+        },
+        {
+            "name": "agonum muelleri"
+        },
+        {
+            "name": "aleochara"
+        },
+        {
+            "name": "aleocharinae"
+        },
+        {
+            "name": "amara"
+        },
+        {
+            "name": "amara aenea"
+        },
+        {
+            "name": "amara convexior"
+        },
+        {
+            "name": "amara nitida"
+        },
+        {
+            "name": "amara ovata"
+        },
+        {
+            "name": "amara similata"
+        },
+        {
+            "name": "anchomenus dorsalis"
+        },
+        {
+            "name": "anotylus"
+        },
+        {
+            "name": "armadillidium"
+        },
+        {
+            "name": "asaphidion flavipes"
+        },
+        {
+            "name": "bembidion lampros"
+        },
+        {
+            "name": "bembidion lunulatum"
+        },
+        {
+            "name": "bembidion obtrissum"
+        },
+        {
+            "name": "bembidion properans"
+        },
+        {
+            "name": "brachinus crepitans"
+        },
+        {
+            "name": "brassicogethes"
+        },
+        {
+            "name": "cantharis flavilabris"
+        },
+        {
+            "name": "cantharis lateralis"
+        },
+        {
+            "name": "cantharis rustica"
+        },
+        {
+            "name": "carabidae"
+        },
+        {
+            "name": "carabidae (larvae)"
+        },
+        {
+            "name": "chrysoperla carnea"
+        },
+        {
+            "name": "coccinella septempunctata"
+        },
+        {
+            "name": "cylindroiulus"
+        },
+        {
+            "name": "diptera (larvae)"
+        },
+        {
+            "name": "drassyllus pusillus"
+        },
+        {
+            "name": "forficula auricularia"
+        },
+        {
+            "name": "formicidae"
+        },
+        {
+            "name": "harpalus affinis"
+        },
+        {
+            "name": "harpalus rufipes"
+        },
+        {
+            "name": "ischnosoma"
+        },
+        {
+            "name": "larnycetes emarginatus"
+        },
+        {
+            "name": "lasius"
+        },
+        {
+            "name": "lepthyphantes"
+        },
+        {
+            "name": "linyphiidae"
+        },
+        {
+            "name": "loricera pilicornis"
+        },
+        {
+            "name": "loricera pilicornis (larvae)"
+        },
+        {
+            "name": "lycosidae"
+        },
+        {
+            "name": "megalepthyphantes"
+        },
+        {
+            "name": "micaria pulicaria"
+        },
+        {
+            "name": "microlestes minutulus"
+        },
+        {
+            "name": "myrmica"
+        },
+        {
+            "name": "nebria brevicollis"
+        },
+        {
+            "name": "nebria salina"
+        },
+        {
+            "name": "neottiura bimaculata"
+        },
+        {
+            "name": "notiophilus biguttatus"
+        },
+        {
+            "name": "ocypus olens"
+        },
+        {
+            "name": "pardosa"
+        },
+        {
+            "name": "phalangiidae"
+        },
+        {
+            "name": "philonthus cognatus"
+        },
+        {
+            "name": "philoscia muscorum"
+        },
+        {
+            "name": "poecilus cupreus"
+        },
+        {
+            "name": "polydesmus"
+        },
+        {
+            "name": "psylliodes chrysocephalus"
+        },
+        {
+            "name": "pterostichus madidus"
+        },
+        {
+            "name": "pterostichus niger"
+        },
+        {
+            "name": "pterostichus nigrita"
+        },
+        {
+            "name": "pterostichus strenuus"
+        },
+        {
+            "name": "staphylinidae"
+        },
+        {
+            "name": "staphylinidae (larvae)"
+        },
+        {
+            "name": "stomis punicatus"
+        },
+        {
+            "name": "tachinus"
+        },
+        {
+            "name": "trechus quadristriatus"
+        },
+        {
+            "name": "trochosa"
+        },
+        {
+            "name": "trochosa ruricola"
+        },
+        {
+            "name": "xantholinus"
+        },
+        {
+            "name": "xantholinus linearis"
+        },
+        {
+            "name": "xysticus cristatus"
+        }
+    ]
+}

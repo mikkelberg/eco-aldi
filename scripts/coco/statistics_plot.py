@@ -123,7 +123,7 @@ def plot_and_save_class_distribution(class_distribution, filename):
     class_counts = list(class_distribution.values())
     class_names, class_counts = sort_by_value(keys=class_names, vals=class_counts)
     plt.figure(figsize=(max(10, len(class_names)*0.5), 5))
-    sns.barplot(x=class_names, y=class_counts, palette="viridis", legend=False)
+    sns.barplot(x=class_names, y=class_counts, palette="viridis")#, legend=False)
     plt.xticks(rotation=45, ha="right")
     plt.xlabel("Category")
     plt.ylabel("Number of Instances")

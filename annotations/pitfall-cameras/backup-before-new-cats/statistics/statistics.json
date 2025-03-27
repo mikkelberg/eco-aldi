@@ -1,0 +1,92 @@
+{
+    "overall": {
+        "total images": 16481,
+        "total annotations": 10962,
+        "no of categories": 13,
+        "positive samples": 9889,
+        "negative samples": 6592,
+        "class distribution": {
+            "arachnida": 655,
+            "carabidae": 2722,
+            "chrysomelidae": 90,
+            "coccinella larvae": 143,
+            "coccinellidae": 51,
+            "dermaptera": 46,
+            "diptera": 2722,
+            "formicidae": 573,
+            "isopoda": 67,
+            "mollusca": 1897,
+            "myriapoda": 355,
+            "staphylinidae": 981,
+            "unknown": 660
+        }
+    },
+    "per file": {
+        "pitfall-cameras-test": {
+            "total images": 2473,
+            "total annotations": 1646,
+            "no of categories": 13,
+            "positive samples": 1484,
+            "negative samples": 989,
+            "class distribution": {
+                "arachnida": 655,
+                "carabidae": 2722,
+                "chrysomelidae": 90,
+                "coccinella larvae": 143,
+                "coccinellidae": 51,
+                "dermaptera": 46,
+                "diptera": 2722,
+                "formicidae": 573,
+                "isopoda": 67,
+                "mollusca": 1897,
+                "myriapoda": 355,
+                "staphylinidae": 981,
+                "unknown": 660
+            }
+        },
+        "pitfall-cameras-val": {
+            "total images": 2472,
+            "total annotations": 1632,
+            "no of categories": 13,
+            "positive samples": 1483,
+            "negative samples": 989,
+            "class distribution": {
+                "arachnida": 96,
+                "carabidae": 406,
+                "chrysomelidae": 15,
+                "coccinella larvae": 22,
+                "coccinellidae": 6,
+                "dermaptera": 7,
+                "diptera": 405,
+                "formicidae": 87,
+                "isopoda": 11,
+                "mollusca": 281,
+                "myriapoda": 54,
+                "staphylinidae": 143,
+                "unknown": 99
+            }
+        },
+        "pitfall-cameras-train": {
+            "total images": 11536,
+            "total annotations": 7684,
+            "no of categories": 13,
+            "positive samples": 6922,
+            "negative samples": 4614,
+            "class distribution": {
+                "arachnida": 458,
+                "carabidae": 1913,
+                "chrysomelidae": 62,
+                "coccinella larvae": 101,
+                "coccinellidae": 38,
+                "dermaptera": 32,
+                "diptera": 1900,
+                "formicidae": 402,
+                "isopoda": 47,
+                "mollusca": 1330,
+                "myriapoda": 247,
+                "staphylinidae": 691,
+                "unknown": 463
+            }
+        }
+    }
+}
