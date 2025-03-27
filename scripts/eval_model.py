@@ -121,33 +121,23 @@ def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_di
     cols = 3  # Set number of columns to 3
     fig, axes = plt.subplots(rows, cols, figsize=(15, 5 * rows))
     axes = axes.flatten()  # Flatten the axes array for easy iteration
-    
     for class_id, label in enumerate(class_labels):
         # Binarize the labels for each class
-        y_true_class = [1 if true_cls == class_id else 0 for true_cls in y_true]
-        y_scores_class = [score if pred_cls == class_id else 0.0 for pred_cls, score in zip(y_pred, y_scores)]
+        y_true_cls = np.array([1 if y == class_id else 0 for y in y_true])
+        y_scores_cls = np.array([score if pred == class_id else 0 for pred, score in zip(y_pred, y_scores)])
         
         # Only compute the precision-recall curve if there are positive samples
         # if any(y_true_class):  # Only proceed if there are positive samples for this class
-        precision, recall, thresholds = precision_recall_curve(y_true_class, y_scores_class)
+        precision, recall, thresholds = precision_recall_curve(y_true_cls, y_scores_cls)
         auc_score = auc(recall, precision)
-
+        
         ax = axes[class_id]
         ax.plot(recall, precision, label=f"PR Curve (AUC = {auc_score:.2f})")
         ax.set_xlabel("Recall")
         ax.set_ylabel("Precision")
         ax.set_title(f"{label}")
 
-        # Find the threshold that gives the best F1-score
-        f1_scores = []
-        for p, r in zip(precision, recall):
-            if p + r == 0:
-                f1_scores.append(0)  # Avoid division by zero
-            else:
-                f1_scores.append(2 * (p * r) / (p + r))
-        best_threshold_index = np.argmax(f1_scores)
-        best_threshold = thresholds[best_threshold_index]
-        best_f1 = f1_scores[best_threshold_index]
+        best_threshold, best_threshold_index, best_f1 = threshold_and_idx_of_best_f1_from_pr(precision, recall, thresholds)
         ax.scatter(recall[best_threshold_index], precision[best_threshold_index], color='red', label=f'Best Thresh (F1 = {best_f1:.2f})')
         ax.annotate(f'Thresh: {best_threshold:.2f}', 
                         (recall[best_threshold_index], precision[best_threshold_index]), 
@@ -155,37 +145,82 @@ def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_di
                         xytext=(0, 10), 
                         ha='center', fontsize=8, color='red')
         ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, fancybox=True, shadow=True)
-        '''
-        # Label the thresholds on the curve
-        step_size = max(1, len(thresholds) // 3) # Ensure we get at least 1 step
-        for j in range(0, len(thresholds), step_size):  # Show at 3 different points
-            ax.annotate(f'Thresh: {thresholds[j]:.2f}', 
-                        (recall[j], precision[j]), 
-                        textcoords="offset points", 
-                        xytext=(0, 10), 
-                        ha='center', fontsize=8, color='blue')'''
     plt.tight_layout()
     #plt.legend()
     plt.savefig(output_dir+"pr_curve-per_class.png", bbox_inches='tight')
     plt.close()
 
-def plot_and_save_results(coco_json_path, image_dir, predictions_path, output_dir):
-    coco_json = cc.load_from_file(coco_json_path)
-    pred_dict = cc.load_from_file(predictions_path)
-    print("Fetching ground truths...")
-    ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
-    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.8)
-    plot_confusion_matrix(y_true=ground_truth_classes, y_pred=predicted_classes, coco_categories=coco_json["categories"], output_dir=output_dir)
-    #plot_pr_curve(y_true=ground_truth_classes, y_scores=scores, output_dir=output_dir)
-    
-    ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
-    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.5)
-    plot_pr_curve_per_class(y_true=ground_truth_classes, y_pred=predicted_classes, y_scores=scores, coco_categories=coco_json["categories"], output_dir=output_dir)
+def threshold_and_idx_of_best_f1_from_pr(precision, recall, thresholds):
+    f1_scores = []
+    for p, r in zip(precision, recall):
+        if p + r == 0:
+            f1_scores.append(0)  # Avoid division by zero
+        else:
+            f1_scores.append(2 * (p * r) / (p + r))
+    best_threshold_index = np.argmax(f1_scores)
+    best_threshold = thresholds[best_threshold_index]
+    best_f1 = f1_scores[best_threshold_index]
+    return best_threshold, best_threshold_index, best_f1
 
+def plot_pr_curve(y_true, y_pred, y_scores, coco_categories, output_dir):
+    class_ids = [cat["id"]-1 for cat in coco_categories]# + [-1]
+
+    # Initialize the predicted probabilities for the micro-average PR curve
+    all_y_true = []
+    all_y_scores = []
+
+    # Compute per-class precision-recall curves
+    precisions, recalls, ap_scores, weights = [], [], [], []
+    for class_idx in class_ids:
+        binary_y_true = np.array([1 if y == class_idx else 0 for y in y_true])
+        binary_y_scores = np.array([score if pred == class_idx else 0 for pred, score in zip(y_pred, y_scores)])# Scores for this class
+        
+        all_y_true.extend(binary_y_true)
+        all_y_scores.extend(binary_y_scores)
+        
+        precision, recall, _ = precision_recall_curve(binary_y_true, binary_y_scores)
+        ap = average_precision_score(binary_y_true, binary_y_scores)
+        
+        precisions.append(precision)
+        recalls.append(recall)
+        ap_scores.append(ap)
+        weights.append(sum(binary_y_true))  # Weight based on number of samples per class
+
+
+    micro_precision, micro_recall, _ = precision_recall_curve(all_y_true, all_y_scores)
+    micro_ap = average_precision_score(all_y_true, all_y_scores)
+    # Interpolate all PR curves at fixed recall points
+    interp_recalls = np.linspace(0, 1, num=100)
+    interp_precisions = [np.interp(interp_recalls, r[::-1], p[::-1]) for r, p in zip(recalls, precisions)]
+    # Compute macro and weighted PR curves
+    macro_precision = np.mean(interp_precisions, axis=0)
+    macro_ap = np.mean(ap_scores)
+
+    weighted_precision = np.average(interp_precisions, axis=0, weights=weights)
+    weighted_ap = np.average(ap_scores, weights=weights)
+ 
+    plt.plot(micro_recall, micro_precision, label=f'Micro-Averaged (AP = {micro_ap:.2f})', linewidth=2)
+    plt.plot(interp_recalls, macro_precision, label=f'Macro-Averaged (AP = {macro_ap:.2f})', linewidth=2, linestyle="-.")
+    plt.plot(interp_recalls, weighted_precision, label=f'Weighted-Averaged (AP = {weighted_ap:.2f})', linewidth=2, linestyle="dotted")
+
+
+    plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, fancybox=True, shadow=True)
+    
+    plt.xlabel("Recall")
+    plt.ylabel("Precision")
+    plt.title("Micro vs. Macro vs. Weighted PR Curves")
+    plt.legend()
+    plt.grid()
+    plt.savefig(output_dir+"pr_curve.png", bbox_inches='tight')
+    plt.close()
+    
 def main():
      # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("dataset_name", help="")
+    parser.add_argument('-cm', help="Confusion matrix", action='store_true')
+    parser.add_argument('-pr', help="PR-curves", action='store_true')
+    
     
     # Parse the arguments
     args = parser.parse_args()
@@ -195,8 +230,24 @@ def main():
     OUTPUT_DIR = "results/"
     PREDS_FILE = "results/predictions.json"
 
-    plot_and_save_results(coco_json_path=COCO_JSON, image_dir=IMAGE_FOLDER, predictions_path=PREDS_FILE, output_dir=OUTPUT_DIR)
+    coco_json = cc.load_from_file(COCO_JSON)
+    pred_dict = cc.load_from_file(PREDS_FILE)
 
+    if args.cm:
+        print("Fetching ground truths...")
+        ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
+        print("Matching predictions and ground truths...")
+        ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.3)
+        plot_confusion_matrix(y_true=ground_truth_classes, y_pred=predicted_classes, coco_categories=coco_json["categories"], output_dir=OUTPUT_DIR)
+    if args.pr:
+        print("Fetching ground truths...")
+        ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
+        print("Matching predictions and ground truths...")
+        ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.3)
+        print("Plotting PR curves per class...")
+        plot_pr_curve_per_class(y_true=ground_truth_classes, y_pred=predicted_classes, y_scores=scores, coco_categories=coco_json["categories"], output_dir=OUTPUT_DIR)
+        print("Plotting average PR curve...")
+        plot_pr_curve(y_true=ground_truth_classes, y_pred=predicted_classes, y_scores=scores, coco_categories=coco_json["categories"], output_dir=OUTPUT_DIR)
 
 if __name__ == "__main__":
     main()
