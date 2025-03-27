@@ -128,44 +128,42 @@ def plot_pr_curve_per_class(y_true, y_pred, y_scores, coco_categories, output_di
         y_scores_class = [score if pred_cls == class_id else 0.0 for pred_cls, score in zip(y_pred, y_scores)]
         
         # Only compute the precision-recall curve if there are positive samples
-        if any(y_true_class):  # Only proceed if there are positive samples for this class
-            precision, recall, thresholds = precision_recall_curve(y_true_class, y_scores_class)
-            auc_score = auc(recall, precision)
+        # if any(y_true_class):  # Only proceed if there are positive samples for this class
+        precision, recall, thresholds = precision_recall_curve(y_true_class, y_scores_class)
+        auc_score = auc(recall, precision)
 
+        ax = axes[class_id]
+        ax.plot(recall, precision, label=f"PR Curve (AUC = {auc_score:.2f})")
+        ax.set_xlabel("Recall")
+        ax.set_ylabel("Precision")
+        ax.set_title(f"{label}")
 
-            ax = axes[class_id]
-            ax.plot(recall, precision, label=f"PR Curve (AUC = {auc_score:.2f})")
-            ax.set_xlabel("Recall")
-            ax.set_ylabel("Precision")
-            ax.set_title(f"{label}")
-
-            # Find the threshold that gives the best F1-score
-            f1_scores = []
-            for p, r in zip(precision, recall):
-                if p + r == 0:
-                    f1_scores.append(0)  # Avoid division by zero
-                else:
-                    f1_scores.append(2 * (p * r) / (p + r))
-            best_threshold_index = np.argmax(f1_scores)
-            best_threshold = thresholds[best_threshold_index]
-            best_f1 = f1_scores[best_threshold_index]
-            ax.scatter(recall[best_threshold_index], precision[best_threshold_index], color='red', label=f'Best Thresh (F1 = {best_f1:.2f})')
-            ax.annotate(f'Thresh: {best_threshold:.2f}', 
-                            (recall[best_threshold_index], precision[best_threshold_index]), 
-                            textcoords="offset points", 
-                            xytext=(0, 10), 
-                            ha='center', fontsize=8, color='red')
-            ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, fancybox=True, shadow=True)
-            
-            '''
-            # Label the thresholds on the curve
-            step_size = max(1, len(thresholds) // 3) # Ensure we get at least 1 step
-            for j in range(0, len(thresholds), step_size):  # Show at 3 different points
-                ax.annotate(f'Thresh: {thresholds[j]:.2f}', 
-                            (recall[j], precision[j]), 
-                            textcoords="offset points", 
-                            xytext=(0, 10), 
-                            ha='center', fontsize=8, color='blue')'''
+        # Find the threshold that gives the best F1-score
+        f1_scores = []
+        for p, r in zip(precision, recall):
+            if p + r == 0:
+                f1_scores.append(0)  # Avoid division by zero
+            else:
+                f1_scores.append(2 * (p * r) / (p + r))
+        best_threshold_index = np.argmax(f1_scores)
+        best_threshold = thresholds[best_threshold_index]
+        best_f1 = f1_scores[best_threshold_index]
+        ax.scatter(recall[best_threshold_index], precision[best_threshold_index], color='red', label=f'Best Thresh (F1 = {best_f1:.2f})')
+        ax.annotate(f'Thresh: {best_threshold:.2f}', 
+                        (recall[best_threshold_index], precision[best_threshold_index]), 
+                        textcoords="offset points", 
+                        xytext=(0, 10), 
+                        ha='center', fontsize=8, color='red')
+        ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, fancybox=True, shadow=True)
+        '''
+        # Label the thresholds on the curve
+        step_size = max(1, len(thresholds) // 3) # Ensure we get at least 1 step
+        for j in range(0, len(thresholds), step_size):  # Show at 3 different points
+            ax.annotate(f'Thresh: {thresholds[j]:.2f}', 
+                        (recall[j], precision[j]), 
+                        textcoords="offset points", 
+                        xytext=(0, 10), 
+                        ha='center', fontsize=8, color='blue')'''
     plt.tight_layout()
     #plt.legend()
     plt.savefig(output_dir+"pr_curve-per_class.png", bbox_inches='tight')
@@ -176,12 +174,12 @@ def plot_and_save_results(coco_json_path, image_dir, predictions_path, output_di
     pred_dict = cc.load_from_file(predictions_path)
     print("Fetching ground truths...")
     ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
-    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.5)
+    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.8)
     plot_confusion_matrix(y_true=ground_truth_classes, y_pred=predicted_classes, coco_categories=coco_json["categories"], output_dir=output_dir)
     #plot_pr_curve(y_true=ground_truth_classes, y_scores=scores, output_dir=output_dir)
     
     ground_truth_dict = cc.load_image_to_bbox_and_cat_pairs_from_annotations(coco_json=coco_json)
-    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.0)
+    ground_truth_classes, predicted_classes, scores = match_detections(ground_truth_dict=ground_truth_dict, pred_dict=pred_dict, conf_thresh=0.5)
     plot_pr_curve_per_class(y_true=ground_truth_classes, y_pred=predicted_classes, y_scores=scores, coco_categories=coco_json["categories"], output_dir=output_dir)
 
 def main():
