@@ -10,10 +10,7 @@ import utils.utils as utils
 def merge_coco_json(coco_list):
     """ 
     Merges the COCO JSON files in the provided list to a single JSON object.
-    NOTE the function assumes that the categories match and that there are no 
-    clashes in image or annotation ids (this is handled by our naming convention 
-    when we generated the individual files)
-
+    
     :param coco_list: List of file paths to the COCO-JSON files we want to merge.
     """
 
@@ -29,20 +26,19 @@ def merge_coco_json(coco_list):
     seen_annotations = set()
     total_files = len(coco_list)
 
-    no_of_images = 0
-    no_of_annotations = 0
+    image_id_offset = 0
+    annotation_id_offset = 0
     for index, file in enumerate(coco_list):
         # Load datasets
         with open(file, "r") as f:
             coco = json.load(f)
-        
-        if merged_categories != coco["categories"]:
-            raise ValueError(f"Categories do not match in file {file}")
-        
+
+        image_id_offset = 0        
         for img in coco["images"]:
             img_id = img["id"]
             if img_id in seen_images: 
                 raise ValueError(f"Image {img_id} already seen!")
+            
             merged_images.append(img)
             seen_annotations.add(img_id)
         
@@ -52,15 +48,14 @@ def merge_coco_json(coco_list):
             merged_annotations.append(ann)
             seen_annotations.add(ann_id)
 
-        # Print progress every 5 files
-        if index % 5 == 0 or index == total_files:
-            print(f"--- Processed {index} out of {total_files} files.")
-        
-        no_of_images += len(coco["images"])
-        no_of_annotations += len(coco["annotations"])
+        image_id_offset += len(coco["images"])
+        annotation_id_offset += len(coco["annotations"])
+
+        # Print progress
+        print(f"--- Processed {index} out of {total_files} files.")
    
-    print(f"Sum of images: {no_of_images}\nMerged images: {len(merged_images)}")
-    print(f"Sum of anns: {no_of_annotations}\nMerged anns: {len(merged_annotations)}")
+    print(f"Sum of images: {image_id_offset}\nMerged images: {len(merged_images)}")
+    print(f"Sum of anns: {annotation_id_offset}\nMerged anns: {len(merged_annotations)}")
 
     merged = {}
     merged["info"] = merged_info
