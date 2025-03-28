@@ -38,7 +38,7 @@ def category_name_from_date_cam(date, cam, meta):
     return meta[(meta['date'] == date) & (meta['camera']==cam)]["insect_name"].item()
 
 def add_categories_to_anns(src_coco, meta):
-
+    print("Adding categories to the annotatiosn...")
     anns = src_coco["annotations"]
     img_id_to_filename = coco.image_id_to_filename(coco_images=src_coco["images"])
     cat_name_to_id = coco.category_name_to_id(coco_categories=src_coco["categories"])
@@ -51,12 +51,13 @@ def add_categories_to_anns(src_coco, meta):
         category_name = category_name_from_date_cam(date=date, cam=cam, meta=meta)
         ann["category_id"] = cat_name_to_id[category_name]
         if i % 5000 == 0 or i == total_anns: print(f"Sorted through {i} out of {total_anns} annotations.", end="\r")
-
+    print("\nDone!")
+    
 def main():
     # Set up command-line argument parsing
     # parser = argparse.ArgumentParser(description="Merge the json files for COCO-datasets in a directory.")
     src_file = "annotations/controlled-conditions/info/controlled-conditions_all_unfiltered.json"
-    dest_path = "annotations/controlled-conditions/info/controlled-conditions_all.json"
+    dest_path = "annotations/controlled-conditions/controlled-conditions_all.json"
     coco = utils.load_json_from_file(src_file)
     
     meta = "annotations/controlled-conditions/info/meta.csv"

@@ -66,7 +66,7 @@ def collect_statistics_from_directory(json_dir):
         json_path = os.path.join(json_dir, filename)
         coco_data = utils.load_json_from_file(json_path)
         this_files_stats = get_coco_statistics(coco_data)
-        clean_filename = pc.get_img_folder_name_from_image_filename(filename.split(".")[0]) # remove .json)
+        clean_filename = filename.split(".")[0] # remove .json
         per_file_stats[ clean_filename] = this_files_stats
 
         if bool(global_stats): 
@@ -78,9 +78,6 @@ def collect_statistics_from_directory(json_dir):
 
     print(json.dumps(global_stats, indent=4))
     return {"overall": global_stats, "per file": per_file_stats}
-
-ann_dir = "data-annotations/pitfall-cameras/balanced_unknownfix_grouping"  
-
 
 def main():
     # Set up command-line argument parsing
