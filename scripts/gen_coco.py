@@ -118,6 +118,8 @@ def pitfall_cameras_coco(src_dir, dest_dir, categories, images_dir):
                 images_to_clean_out.add(row.fileid)
                 continue
             
+            # FIXME remove the images_to_clean_out!!!
+
             category_id = category_name_to_id[category_name]
             shape = json.loads(row.region_shape_attributes)
             ann = annotation(image_id=row.fileid, category_id=category_id, bbox=[shape["x"], shape["y"], shape["width"], shape["height"]])
