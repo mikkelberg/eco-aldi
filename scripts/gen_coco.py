@@ -117,8 +117,6 @@ def pitfall_cameras_coco(src_dir, dest_dir, categories, images_dir):
                 add_to_ignored_images(img_folder_name=img_folder_name, explanation=explanation,img_id=row.fileid, og_ann=filename)
                 images_to_clean_out.add(row.fileid)
                 continue
-            
-            # FIXME remove the images_to_clean_out!!!
 
             category_id = category_name_to_id[category_name]
             shape = json.loads(row.region_shape_attributes)

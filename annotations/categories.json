@@ -1,7 +1,7 @@
 {
     "categories": {
         "araneae": {
-            "id": 1,
+            "id": 0,
             "contains": [
                 "araneae", "drassyllus pusillus", "gnaphosidae", "lepthyphantes", "linyphiidae", "lycosidae", 
                 "megalepthyphantes", "micaria pulicaria", "neottiura bimaculata", "pardosa", "trochosa", 
@@ -9,11 +9,11 @@
             ]
         },
         "cantharidae": {
-            "id": 2, 
+            "id": 1, 
             "contains": ["cantharis flavilabris", "cantharis rustica", "cantharis rufa", "cantharis lateralis"]
         },
         "carabidae": { 
-            "id": 3,
+            "id": 2,
             "contains":  [  
                             "carabidae", "acupalpus meridianus", "agonum muelleri", "amara", "amara aenea", 
                             "amara convexior", "amara ovata", "amara nitida", "amara similata", "anchomenus dorsalis", 
@@ -25,42 +25,42 @@
                         ]
         },
         "chrysomelidae": {
-            "id": 4,
+            "id": 3,
             "contains": ["psylliodes chrysocephalus", "phyllotreta"]
         },
         "coccinellidae": { 
-            "id": 5,
+            "id": 4,
             "contains":  ["coccinella","coccinella septempunctata", "coccinellidae", "psylliodes chrysocephala"]
         },
         "dermaptera": {
-            "id": 6,
+            "id": 5,
             "contains": ["dermaptera", "forficula auricularia"]
         },
         "diptera-hymenoptera": { 
-            "id": 7,
+            "id": 6,
             "contains":  [
                 "diptera", "bibionidae", "syrphidae", "tipulidae",
                 "braconidae", "chalcididae", "diapriidae", "formicidae", "lasius", "myrmica"
             ]
         },
         "isopoda": {
-            "id": 8,
+            "id": 7,
             "contains": ["armadillidium","isopoda", "philoscia muscorum"]
         },
         "myriapoda": {
-            "id": 9,
+            "id": 8,
             "contains": ["cylindroiulus", "larnycetes emarginatus", "myriapoda", "polydesmus"]
         },
         "nitidulidae": {
-            "id": 10,
+            "id": 9,
             "contains": ["brassicogethes", "brassicogethes aeneus"]
         },
         "opiliones": {
-            "id": 11, 
+            "id": 10, 
             "contains":  ["opiliones", "phalangiidae"]
         },
         "staphylinidae": { 
-            "id": 12,
+            "id": 11,
             "contains": [
                 "achenium depressum", "aleochara", "aleocharinae", "anotylus", "philonthus cognatus", 
                 "ischnosoma", "ocypus olens", "philonthus laminatus", "tachinus", "tachyporus hypnorum",
@@ -68,11 +68,11 @@
             ]
         },
         "coleoptera (larvae)": { 
-            "id": 13,
+            "id": 12,
             "contains":  ["staphylinidae (larvae)", "carabidae (larvae)", "coccinella (larvae)", "loricera pilicornis (larvae)"]
         },
         "diptera (larvae)": { 
-            "id": 14,
+            "id": 13,
             "contains":  ["diptera (larvae)"]
         }
     },
