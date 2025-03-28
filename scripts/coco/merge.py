@@ -66,7 +66,7 @@ def main():
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(description="Merge the json files for COCO-datasets in a directory.")
     src_dir = "annotations/controlled-conditions/original-files/flatbug-coco/"
-    dest_path = "annotations/controlled-conditions/controlled-conditions_all.json"
+    dest_path = "annotations/controlled-conditions/info/controlled-conditions_all_no-cats.json"
     
     merge_all_in_dir(src_dir=src_dir, dest_path=dest_path)
 
