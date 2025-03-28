@@ -5,7 +5,7 @@
 ln -sfT /mnt/data0/martez/ datasets
 
 # Run experiment
-python ../../../aldi/tools/train_net.py --config input/controlled-conditions_RCNN-FPN_source-only.yaml --num-gpus 4
+python ../../../aldi/tools/train_net.py --config input/concon_RCNN-FPN_source-only.yaml --num-gpus 4
 
 # Evaluate on test-data:
 # python ../../../aldi/tools/train_net.py --eval-only --num-gpus 4 --config-file input/pitfall-cameras_RCNN-FPN_oracle.yaml MODEL.WEIGHTS output/training/pitfall-cameras_val_model_best.pth DATASETS.TEST '("pitfall-cameras_test",)'
