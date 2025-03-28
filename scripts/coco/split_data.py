@@ -26,8 +26,8 @@ def gen_image_to_detected_classes_dict(images, annotations):
         if image_id not in image_to_detected_classes.keys():
             image_to_detected_classes[image_id] = []
         image_to_detected_classes[image_id].append(ann["category_id"])
-        if idx % 500 == 0 or idx == total_anns:
-            print(f"-- Counted annotations for each image ID for {idx} out of {total_anns} annotations.")
+        if idx % 5000 == 0 or idx == total_anns:
+            print(f"-- Counted annotations for each image ID for {idx} out of {total_anns} annotations.", end="\r")
     return image_to_detected_classes
 
 def filter_annotations(all_annotations, image_ids_to_filter):
@@ -46,9 +46,11 @@ def split_data(coco):
     annotations = coco["annotations"]
     images = coco["images"]
 
+    print("Finding positive and negative sample ids...")
     positive_sample_ids, negative_sample_ids = ccu.get_positive_and_negative_sample_ids_lists(images=coco["images"], annotations=coco["annotations"])
     ##### Split the positive data samples according to the class distribution found above
     # Collect all image IDs and the corresponding class labels for each image. image_id --> list of class labels in that image
+    print("Finding the detected classes for each image...")
     image_to_detected_classes = gen_image_to_detected_classes_dict(images=images, annotations=annotations)
     # for each image id, note the most frequent class (max(...) operation on the set of detected classes 
     # with their counts as key/sorting criterion)
@@ -62,23 +64,27 @@ def split_data(coco):
     normal_image_ids = [img_id for img_id in positive_sample_ids if most_detected_class_per_image[img_id] not in rare_classes]
     rare_image_ids = [img_id for img_id in positive_sample_ids if most_detected_class_per_image[img_id] in rare_classes]
 
+    print("Splitting positive data samples... ")
     # split images 80/10/10 (except rare classes)
     # first split into train-(val+test), then evenly split (val+test) to val-test
     normal_classes_per_image = [most_detected_class_per_image[img_id] for img_id in normal_image_ids]
-    train_norm, val_test_norm = train_test_split(normal_image_ids, train_size=0.8, stratify=normal_classes_per_image, random_state=42)
+    train_norm, val_test_norm = train_test_split(normal_image_ids, train_size=0.7, stratify=normal_classes_per_image, random_state=42)
     val_classes_norm = [most_detected_class_per_image[img_id] for img_id in val_test_norm]
     val_norm, test_norm = train_test_split(val_test_norm, test_size=0.5, stratify=val_classes_norm, random_state=42)
-    # split rare images 50/25/25
-    rare_classes_per_image = [most_detected_class_per_image[img_id] for img_id in rare_image_ids]
-    train_rare, val_test_rare = train_test_split(rare_image_ids, train_size=0.5, stratify=rare_classes_per_image, random_state=42)
-    val_classes_rare = [most_detected_class_per_image[img_id] for img_id in val_test_rare]
-    val_rare, test_rare = train_test_split(val_test_rare, test_size=0.5, stratify=val_classes_rare, random_state=42)
+    if rare_image_ids:
+        # split rare images 50/25/25
+        rare_classes_per_image = [most_detected_class_per_image[img_id] for img_id in rare_image_ids]
+        train_rare, val_test_rare = train_test_split(rare_image_ids, train_size=0.5, stratify=rare_classes_per_image, random_state=42)
+        val_classes_rare = [most_detected_class_per_image[img_id] for img_id in val_test_rare]
+        val_rare, test_rare = train_test_split(val_test_rare, test_size=0.5, stratify=val_classes_rare, random_state=42)
+    else: train_rare, test_rare, val_rare = [], [], []
     # combine
     train_pos_image_ids = train_norm + train_rare
     val_pos_image_ids = val_norm + val_rare
     test_pos_image_ids = test_norm + test_rare
 
     ##### Split the negative data samples ensuring the same positive-negative sample ratio
+    print("Splitting negative data samples...")
     num_train_neg = int(len(train_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
     num_neg_in_val_and_test = (len(negative_sample_ids) - num_train_neg)/2
     if num_neg_in_val_and_test % 2 == 0:
@@ -92,6 +98,7 @@ def split_data(coco):
     val_neg_image_ids = random.sample(list(set(negative_sample_ids) - set(train_neg_image_ids)), num_val_neg)
     test_neg_image_ids = list(set(negative_sample_ids) - set(train_neg_image_ids) - set(val_neg_image_ids))[:num_test_neg]
 
+    print("Concatenating positive and negative samples and saving to files...")
     ##### Concatenate negative and positive samples
     train_ids = train_pos_image_ids + train_neg_image_ids
     val_ids = val_pos_image_ids + val_neg_image_ids
@@ -139,6 +146,7 @@ def main():
     # Partition and save
     train, val, test = split_data_from_json(path=src_file)
     save_partitions(train=train, val=val, test=test, path=dest_path_with_prefix)
+    print("Done! Phew. 😮‍💨")
 
     
 
