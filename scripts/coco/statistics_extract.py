@@ -96,7 +96,7 @@ def main():
     
     # Parse the arguments
     args = parser.parse_args()
-    ann_dir = "annotations/"+args.dataset_name+"/originals-converted/"
+    ann_dir = "annotations/"+args.dataset_name+"/"
     dest_path = "annotations/"+args.dataset_name+"/info/statistics/statistics.json"
     stats = collect_statistics_from_directory(ann_dir)
     with open(dest_path, 'w') as f:
