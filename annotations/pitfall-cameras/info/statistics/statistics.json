@@ -1,10 +1,10 @@
 {
     "overall": {
-        "total images": 56208,
+        "total images": 12276,
         "total annotations": 8067,
         "no of categories": 11,
         "positive samples": 7366,
-        "negative samples": 48842,
+        "negative samples": 4910,
         "class distribution": {
             "araneae": 551,
             "cantharidae": 3,
@@ -21,11 +21,11 @@
     },
     "per file": {
         "pitfall-cameras_all": {
-            "total images": 56208,
+            "total images": 12276,
             "total annotations": 8067,
             "no of categories": 11,
             "positive samples": 7366,
-            "negative samples": 48842,
+            "negative samples": 4910,
             "class distribution": {
                 "araneae": 551,
                 "cantharidae": 3,
