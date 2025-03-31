@@ -768,12 +768,6 @@
             "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-24_fl_WSCT2432.JPG"
         },
         {
-            "id": "WW_OSR_LF1G_20-06-24_fl_WSCT2433.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-24_fl_WSCT2433.JPG"
-        },
-        {
             "id": "WW_OSR_LF1G_20-06-24_fl_WSCT2434.JPG",
             "height": 2210,
             "width": 4224,
@@ -3050,9 +3044,9 @@
     ],
     "annotations": [
         {
-            "id": 4642,
+            "id": 4590,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2352.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 3721,
             "bbox": [
@@ -3064,9 +3058,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4643,
+            "id": 4591,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2456.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 12996,
             "bbox": [
@@ -3078,9 +3072,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4644,
+            "id": 4592,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2470.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 5184,
             "bbox": [
@@ -3092,9 +3086,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4645,
+            "id": 4593,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2519.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 10609,
             "bbox": [
@@ -3106,9 +3100,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4646,
+            "id": 4594,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2531.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 6241,
             "bbox": [
@@ -3120,9 +3114,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4647,
+            "id": 4595,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2552.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 8649,
             "bbox": [
@@ -3134,9 +3128,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4648,
+            "id": 4596,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2553.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 3136,
             "bbox": [
@@ -3148,9 +3142,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4649,
+            "id": 4597,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2628.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 35344,
             "bbox": [
@@ -3162,9 +3156,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4650,
+            "id": 4598,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2632.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 6241,
             "bbox": [
@@ -3176,9 +3170,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4651,
+            "id": 4599,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2632.JPG",
-            "category_id": 11,
+            "category_id": 8,
             "segmentation": [],
             "area": 81796,
             "bbox": [
@@ -3190,9 +3184,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4652,
+            "id": 4600,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2632.JPG",
-            "category_id": 11,
+            "category_id": 8,
             "segmentation": [],
             "area": 59536,
             "bbox": [
@@ -3204,9 +3198,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4653,
+            "id": 4601,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2734.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 4761,
             "bbox": [
@@ -3218,9 +3212,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4654,
+            "id": 4602,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2738.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 3364,
             "bbox": [
@@ -3232,9 +3226,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4655,
+            "id": 4603,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2745.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 3364,
             "bbox": [
@@ -3246,9 +3240,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4656,
+            "id": 4604,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2751.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 6724,
             "bbox": [
@@ -3260,9 +3254,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4657,
+            "id": 4605,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2758.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 3364,
             "bbox": [
@@ -3274,9 +3268,9 @@
             "iscrowd": 0
         },
         {
-            "id": 4658,
+            "id": 4606,
             "image_id": "WW_OSR_LF1G_20-06-24_fl_WSCT2771.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 4356,
             "bbox": [
@@ -3290,60 +3284,48 @@
     ],
     "categories": [
         {
-            "id": 1,
+            "id": 0,
             "name": "araneae"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "cantharidae"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "carabidae"
         },
         {
-            "id": 4,
-            "name": "chrysomelidae"
-        },
-        {
-            "id": 5,
+            "id": 3,
             "name": "coccinellidae"
         },
         {
-            "id": 6,
+            "id": 4,
             "name": "dermaptera"
         },
         {
-            "id": 7,
+            "id": 5,
             "name": "diptera-hymenoptera"
         },
         {
-            "id": 8,
+            "id": 6,
             "name": "isopoda"
         },
         {
-            "id": 9,
+            "id": 7,
             "name": "myriapoda"
         },
         {
-            "id": 10,
-            "name": "nitidulidae"
-        },
-        {
-            "id": 11,
+            "id": 8,
             "name": "opiliones"
         },
         {
-            "id": 12,
+            "id": 9,
             "name": "staphylinidae"
         },
         {
-            "id": 13,
+            "id": 10,
             "name": "coleoptera (larvae)"
-        },
-        {
-            "id": 14,
-            "name": "diptera (larvae)"
         }
     ]
 }

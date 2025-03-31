@@ -59,7 +59,7 @@ def collect_statistics_from_directory(json_dir):
     """
     global_stats = {}
     per_file_stats = {} 
-    
+
     files = [f for f in os.listdir(json_dir) if (os.path.isfile(os.path.join(json_dir, f)) and f.lower().endswith((".json")))]
     total_files = len(files)
     for index, filename in enumerate(files, start=1):
@@ -69,9 +69,19 @@ def collect_statistics_from_directory(json_dir):
         clean_filename = filename.split(".")[0] # remove .json
         per_file_stats[ clean_filename] = this_files_stats
 
-        if bool(global_stats): 
-            update_global_stats(global_stats=global_stats, stats_to_add=this_files_stats)
-        else: global_stats = deepcopy(this_files_stats)
+        if not bool(global_stats):
+            global_stats = {
+                "total images": 0,
+                "total annotations": 0,
+                "no of categories": len(coco_data["categories"]),
+                "positive samples": 0,
+                "negative samples": 0,
+                "class distribution": {cat["name"]: 0 for cat in coco_data["categories"]}
+            }
+        update_global_stats(global_stats=global_stats, stats_to_add=this_files_stats)
+        #if bool(global_stats): 
+        #    update_global_stats(global_stats=global_stats, stats_to_add=this_files_stats)
+        #else: global_stats = deepcopy(this_files_stats)
         
         if index % 5 == 0 or index == total_files:
             print(f"Processed {index} out of {total_files} files.")
@@ -86,7 +96,7 @@ def main():
     
     # Parse the arguments
     args = parser.parse_args()
-    ann_dir = "annotations/"+args.dataset_name+"/"
+    ann_dir = "annotations/"+args.dataset_name+"/originals-converted/"
     dest_path = "annotations/"+args.dataset_name+"/info/statistics/statistics.json"
     stats = collect_statistics_from_directory(ann_dir)
     with open(dest_path, 'w') as f:

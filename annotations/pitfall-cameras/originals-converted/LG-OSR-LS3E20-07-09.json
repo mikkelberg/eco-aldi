@@ -716,9 +716,9 @@
     ],
     "annotations": [
         {
-            "id": 6767,
+            "id": 6687,
             "image_id": "LG_OSR_LS3E_20-07-09_WSCT9204.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 7225,
             "bbox": [
@@ -730,9 +730,9 @@
             "iscrowd": 0
         },
         {
-            "id": 6768,
+            "id": 6688,
             "image_id": "LG_OSR_LS3E_20-07-09_WSCT9226.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 55696,
             "bbox": [
@@ -744,9 +744,9 @@
             "iscrowd": 0
         },
         {
-            "id": 6769,
+            "id": 6689,
             "image_id": "LG_OSR_LS3E_20-07-09_WSCT9236.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 9025,
             "bbox": [
@@ -758,9 +758,9 @@
             "iscrowd": 0
         },
         {
-            "id": 6770,
+            "id": 6690,
             "image_id": "LG_OSR_LS3E_20-07-09_WSCT9237.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 7225,
             "bbox": [
@@ -772,9 +772,9 @@
             "iscrowd": 0
         },
         {
-            "id": 6771,
+            "id": 6691,
             "image_id": "LG_OSR_LS3E_20-07-09_WSCT9263.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 10201,
             "bbox": [
@@ -786,9 +786,9 @@
             "iscrowd": 0
         },
         {
-            "id": 6772,
+            "id": 6692,
             "image_id": "LG_OSR_LS3E_20-07-09_WSCT9274.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 9025,
             "bbox": [
@@ -800,9 +800,9 @@
             "iscrowd": 0
         },
         {
-            "id": 6773,
+            "id": 6693,
             "image_id": "LG_OSR_LS3E_20-07-09_WSCT9277.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 9025,
             "bbox": [
@@ -816,60 +816,48 @@
     ],
     "categories": [
         {
-            "id": 1,
+            "id": 0,
             "name": "araneae"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "cantharidae"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "carabidae"
         },
         {
-            "id": 4,
-            "name": "chrysomelidae"
-        },
-        {
-            "id": 5,
+            "id": 3,
             "name": "coccinellidae"
         },
         {
-            "id": 6,
+            "id": 4,
             "name": "dermaptera"
         },
         {
-            "id": 7,
+            "id": 5,
             "name": "diptera-hymenoptera"
         },
         {
-            "id": 8,
+            "id": 6,
             "name": "isopoda"
         },
         {
-            "id": 9,
+            "id": 7,
             "name": "myriapoda"
         },
         {
-            "id": 10,
-            "name": "nitidulidae"
-        },
-        {
-            "id": 11,
+            "id": 8,
             "name": "opiliones"
         },
         {
-            "id": 12,
+            "id": 9,
             "name": "staphylinidae"
         },
         {
-            "id": 13,
+            "id": 10,
             "name": "coleoptera (larvae)"
-        },
-        {
-            "id": 14,
-            "name": "diptera (larvae)"
         }
     ]
 }

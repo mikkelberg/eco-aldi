@@ -1,4 +1,376 @@
 {
+    "GH-OSR-LF2E": {
+        "GH_OSR_LF2E_20-06-01_WSCT7048.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7048.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_WSCT7049.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7049.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_WSCT7050.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7050.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_WSCT7052.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7052.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_WSCT7053.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7053.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_WSCT7056.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7056.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_WSCT7057.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7057.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_WSCT7058.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7058.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_WSCT7059.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT7059.JPG",
+            "orignal_csv_file": "010620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0134.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0134.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0136.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0136.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0313.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT0313.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0314.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT0314.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0315.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT0315.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0316.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT0316.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0363.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0363.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0381.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0381.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0422.JPG": {
+            "explanation": "Invalid category: coleoptera, ambiguous, not so many instances that we lose data.",
+            "original_filename": "WSCT0422.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0423.JPG": {
+            "explanation": "Invalid category: coleoptera, ambiguous, not so many instances that we lose data.",
+            "original_filename": "WSCT0423.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0503.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0503.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0509.JPG": {
+            "explanation": "Invalid category: elateridae, present in target only.",
+            "original_filename": "WSCT0509.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0524.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0524.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0528.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0528.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0537.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0537.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0543.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0543.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0550.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0550.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0552.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0552.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_fl_WSCT0560.JPG": {
+            "explanation": "Invalid category: acari, not distinct clade.",
+            "original_filename": "WSCT0560.JPG",
+            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT0651.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0651.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT0763.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0763.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT0773.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0773.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT0774.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0774.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT0787.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0787.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT0902.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0902.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT0913.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0913.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT0924.JPG": {
+            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
+            "original_filename": "WSCT0924.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT9992.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT9992.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-03_WSCT9994.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT9994.JPG",
+            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7529.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7529.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7530.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7530.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7531.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7531.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7532.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7532.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7533.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7533.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7534.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7534.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7551.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7551.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7552.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7552.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7553.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7553.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7554.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7554.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7556.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7556.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7605.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7605.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7606.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7606.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7607.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7607.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-01_fl_WSCT7608.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7608.JPG",
+            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7655.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT7655.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7656.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT7656.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7673.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7673.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7725.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7725.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7799.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7799.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7800.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7800.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7801.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7801.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7802.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7802.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7803.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7803.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7804.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7804.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7805.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7805.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7806.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7806.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7837.JPG": {
+            "explanation": "Invalid category: arachnida, ambiguous, not so many instances that we lose data.",
+            "original_filename": "WSCT7837.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7898.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7898.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7899.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7899.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7900.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7900.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7901.JPG": {
+            "explanation": "Invalid category: mollusca, present in target only.",
+            "original_filename": "WSCT7901.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7976.JPG": {
+            "explanation": "Invalid category: arachnida, ambiguous, not so many instances that we lose data.",
+            "original_filename": "WSCT7976.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7977.JPG": {
+            "explanation": "Invalid category: arachnida, ambiguous, not so many instances that we lose data.",
+            "original_filename": "WSCT7977.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT7989.JPG": {
+            "explanation": "Invalid category: unknown, present in target only.",
+            "original_filename": "WSCT7989.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        },
+        "GH_OSR_LF2E_20-06-11_fl_WSCT8096.JPG": {
+            "explanation": "Invalid category: arachnida, ambiguous, not so many instances that we lose data.",
+            "original_filename": "WSCT8096.JPG",
+            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
+        }
+    },
     "WW-OSR-LS3E": {
         "WW_OSR_LS3E_20-06-24_fl_WSCT9441.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
@@ -1052,6 +1424,46 @@
             "original_filename": "WSCT4869.JPG",
             "orignal_csv_file": "030620 NARS26 Flash on_csv.csv"
         },
+        "GH_OSR_NARS26_20-06-03_fl_WSCT4955.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT4955.JPG",
+            "orignal_csv_file": "030620 NARS26 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS26_20-06-03_fl_WSCT5004.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT5004.JPG",
+            "orignal_csv_file": "030620 NARS26 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS26_20-06-11_fl_WSCT3554.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3554.JPG",
+            "orignal_csv_file": "110620 NARS26 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS26_20-06-11_fl_WSCT3555.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3555.JPG",
+            "orignal_csv_file": "110620 NARS26 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS26_20-06-11_fl_WSCT3556.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3556.JPG",
+            "orignal_csv_file": "110620 NARS26 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS26_20-06-11_fl_WSCT3557.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3557.JPG",
+            "orignal_csv_file": "110620 NARS26 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS26_20-06-11_fl_WSCT3558.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3558.JPG",
+            "orignal_csv_file": "110620 NARS26 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS26_20-06-11_fl_WSCT3559.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3559.JPG",
+            "orignal_csv_file": "110620 NARS26 Flash on_csv.csv"
+        },
         "GH_OSR_NARS26_20-06-11_fl_WSCT3591.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT3591.JPG",
@@ -1167,6 +1579,16 @@
             "original_filename": "WSCT3783.JPG",
             "orignal_csv_file": "020620 NARS26 Flash off_csv.csv"
         },
+        "GH_OSR_NARS26_20-06-02_WSCT3857.JPG": {
+            "explanation": "Invalid category: brassicogethes aeneus, too few instances (nitidulidae).",
+            "original_filename": "WSCT3857.JPG",
+            "orignal_csv_file": "020620 NARS26 Flash off_csv.csv"
+        },
+        "GH_OSR_NARS26_20-06-02_WSCT3858.JPG": {
+            "explanation": "Invalid category: brassicogethes aeneus, too few instances (nitidulidae).",
+            "original_filename": "WSCT3858.JPG",
+            "orignal_csv_file": "020620 NARS26 Flash off_csv.csv"
+        },
         "GH_OSR_NARS26_20-06-02_WSCT3959.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT3959.JPG",
@@ -1174,6 +1596,31 @@
         }
     },
     "LG-OSR-LF1G": {
+        "LG_OSR_LF1G_20-07-15_fl_WSCT2410.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT2410.JPG",
+            "orignal_csv_file": "150720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-15_fl_WSCT2411.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT2411.JPG",
+            "orignal_csv_file": "150720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-15_fl_WSCT2412.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT2412.JPG",
+            "orignal_csv_file": "150720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-15_fl_WSCT2429.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT2429.JPG",
+            "orignal_csv_file": "150720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-15_fl_WSCT2430.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT2430.JPG",
+            "orignal_csv_file": "150720 LF1G Flash on_csv.csv"
+        },
         "LG_OSR_LF1G_20-07-15_fl_WSCT2534.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT2534.JPG",
@@ -1253,6 +1700,51 @@
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT0106.JPG",
             "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-13_fl_WSCT9619.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9619.JPG",
+            "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-13_fl_WSCT9621.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9621.JPG",
+            "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-13_fl_WSCT9622.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9622.JPG",
+            "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-13_fl_WSCT9808.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9808.JPG",
+            "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-13_fl_WSCT9809.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9809.JPG",
+            "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-13_fl_WSCT9810.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9810.JPG",
+            "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-13_fl_WSCT9811.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9811.JPG",
+            "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-13_fl_WSCT9812.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9812.JPG",
+            "orignal_csv_file": "130720 LF1G Flash on_csv.csv"
+        },
+        "LG_OSR_LF1G_20-07-09_WSCT4653.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4653.JPG",
+            "orignal_csv_file": "090720 LF1G Flash off_csv.csv"
         },
         "LG_OSR_LF1G_20-07-09_fl_WSCT3711.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
@@ -2056,6 +2548,11 @@
             "original_filename": "WSCT5867.JPG",
             "orignal_csv_file": "110620 LF1F Flash on_csv.csv"
         },
+        "GH_OSR_LF1F_20-06-11_fl_WSCT6015.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT6015.JPG",
+            "orignal_csv_file": "110620 LF1F Flash on_csv.csv"
+        },
         "GH_OSR_LF1F_20-06-02_fl_WSCT0130.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT0130.JPG",
@@ -2070,6 +2567,11 @@
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT0182.JPG",
             "orignal_csv_file": "020620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-02_WSCT0559.JPG": {
+            "explanation": "Invalid category: brassicogethes, too few instances (nitidulidae).",
+            "original_filename": "WSCT0559.JPG",
+            "orignal_csv_file": "020620 LF1F Flash off_csv.csv"
         },
         "GH_OSR_LF1F_20-06-01_fl_WSCT8514.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
@@ -2231,6 +2733,66 @@
             "original_filename": "WSCT8545.JPG",
             "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
         },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8600.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT8600.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8803.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8803.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8804.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8804.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8805.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8805.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8806.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8806.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8807.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8807.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8809.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8809.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8810.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8810.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8811.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8811.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8812.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8812.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8813.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8813.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_fl_WSCT8815.JPG": {
+            "explanation": "Invalid category: diptera (larvae), too few instances.",
+            "original_filename": "WSCT8815.JPG",
+            "orignal_csv_file": "010620 LF1F Flash on_csv.csv"
+        },
         "GH_OSR_LF1F_20-06-08_fl_WSCT1440.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT1440.JPG",
@@ -2320,6 +2882,16 @@
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT1759.JPG",
             "orignal_csv_file": "080620 LF1F Flash on_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_WSCT8152.JPG": {
+            "explanation": "Invalid category: brassicogethes aeneus, too few instances (nitidulidae).",
+            "original_filename": "WSCT8152.JPG",
+            "orignal_csv_file": "010620 LF1F Flash off_csv.csv"
+        },
+        "GH_OSR_LF1F_20-06-01_WSCT8925.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT8925.JPG",
+            "orignal_csv_file": "010620 LF1F Flash off_csv.csv"
         }
     },
     "LG-OSR-LF1D": {
@@ -2608,6 +3180,16 @@
             "original_filename": "WSCT4290.JPG",
             "orignal_csv_file": "130720 LF1D Flash on_csv.csv"
         },
+        "LG_OSR_LF1D_20-07-13_fl_WSCT4291.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4291.JPG",
+            "orignal_csv_file": "130720 LF1D Flash on_csv.csv"
+        },
+        "LG_OSR_LF1D_20-07-13_fl_WSCT4293.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4293.JPG",
+            "orignal_csv_file": "130720 LF1D Flash on_csv.csv"
+        },
         "LG_OSR_LF1D_20-07-13_fl_WSCT4294.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT4294.JPG",
@@ -2636,6 +3218,11 @@
         "LG_OSR_LF1D_20-07-13_fl_WSCT4333.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT4333.JPG",
+            "orignal_csv_file": "130720 LF1D Flash on_csv.csv"
+        },
+        "LG_OSR_LF1D_20-07-13_fl_WSCT4334.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4334.JPG",
             "orignal_csv_file": "130720 LF1D Flash on_csv.csv"
         },
         "LG_OSR_LF1D_20-07-13_fl_WSCT4377.JPG": {
@@ -2686,6 +3273,16 @@
         "LG_OSR_LF1D_20-07-13_fl_WSCT4422.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT4422.JPG",
+            "orignal_csv_file": "130720 LF1D Flash on_csv.csv"
+        },
+        "LG_OSR_LF1D_20-07-13_fl_WSCT4434.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4434.JPG",
+            "orignal_csv_file": "130720 LF1D Flash on_csv.csv"
+        },
+        "LG_OSR_LF1D_20-07-13_fl_WSCT4439.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4439.JPG",
             "orignal_csv_file": "130720 LF1D Flash on_csv.csv"
         },
         "LG_OSR_LF1D_20-07-13_fl_WSCT4451.JPG": {
@@ -3293,13 +3890,18 @@
             "original_filename": "WSCT5538.JPG",
             "orignal_csv_file": "140720 LF1D Flash on_csv.csv"
         },
+        "LG_OSR_LF1D_20-07-14_fl_WSCT5629.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5629.JPG",
+            "orignal_csv_file": "140720 LF1D Flash on_csv.csv"
+        },
         "LG_OSR_LF1D_20-07-14_fl_WSCT5630.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
             "original_filename": "WSCT5630.JPG",
             "orignal_csv_file": "140720 LF1D Flash on_csv.csv"
         },
         "LG_OSR_LF1D_20-07-14_fl_WSCT5631.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
             "original_filename": "WSCT5631.JPG",
             "orignal_csv_file": "140720 LF1D Flash on_csv.csv"
         },
@@ -3698,6 +4300,16 @@
             "original_filename": "WSCT5712.JPG",
             "orignal_csv_file": "300620 LF1D Flash on_csv.csv"
         },
+        "LG_OSR_LF1D_20-06-30_fl_WSCT5725.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5725.JPG",
+            "orignal_csv_file": "300620 LF1D Flash on_csv.csv"
+        },
+        "LG_OSR_LF1D_20-06-30_fl_WSCT5726.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5726.JPG",
+            "orignal_csv_file": "300620 LF1D Flash on_csv.csv"
+        },
         "LG_OSR_LF1D_20-06-30_fl_WSCT5742.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
             "original_filename": "WSCT5742.JPG",
@@ -3813,6 +4425,21 @@
             "original_filename": "WSCT7320.JPG",
             "orignal_csv_file": "080720 LF1D Flash on_csv.csv"
         },
+        "LG_OSR_LF1D_20-07-09_WSCT7938.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT7938.JPG",
+            "orignal_csv_file": "090720 LF1D Flash off_csv.csv"
+        },
+        "LG_OSR_LF1D_20-07-09_WSCT7939.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT7939.JPG",
+            "orignal_csv_file": "090720 LF1D Flash off_csv.csv"
+        },
+        "LG_OSR_LF1D_20-07-09_WSCT7940.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT7940.JPG",
+            "orignal_csv_file": "090720 LF1D Flash off_csv.csv"
+        },
         "LG_OSR_LF1D_20-07-09_WSCT8874.JPG": {
             "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
             "original_filename": "WSCT8874.JPG",
@@ -3831,6 +4458,11 @@
         "LG_OSR_LF1D_20-07-09_WSCT8877.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
             "original_filename": "WSCT8877.JPG",
+            "orignal_csv_file": "090720 LF1D Flash off_csv.csv"
+        },
+        "LG_OSR_LF1D_20-07-09_WSCT9223.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9223.JPG",
             "orignal_csv_file": "090720 LF1D Flash off_csv.csv"
         }
     },
@@ -5964,6 +6596,16 @@
             "original_filename": "WSCT1425.JPG",
             "orignal_csv_file": "140720 LF2F Flash on_csv.csv"
         },
+        "LG_OSR_LF2F_20-07-14_fl_WSCT1457.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT1457.JPG",
+            "orignal_csv_file": "140720 LF2F Flash on_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-14_fl_WSCT1458.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT1458.JPG",
+            "orignal_csv_file": "140720 LF2F Flash on_csv.csv"
+        },
         "LG_OSR_LF2F_20-07-14_fl_WSCT1544.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
             "original_filename": "WSCT1544.JPG",
@@ -6032,6 +6674,31 @@
         "LG_OSR_LF2F_20-07-06_WSCT0476.JPG": {
             "explanation": "Invalid category: parasitoid, not distinct clade.",
             "original_filename": "WSCT0476.JPG",
+            "orignal_csv_file": "060720 LF2F Flash off_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-06_WSCT0611.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT0611.JPG",
+            "orignal_csv_file": "060720 LF2F Flash off_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-06_WSCT0612.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT0612.JPG",
+            "orignal_csv_file": "060720 LF2F Flash off_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-06_WSCT0613.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT0613.JPG",
+            "orignal_csv_file": "060720 LF2F Flash off_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-06_WSCT0695.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT0695.JPG",
+            "orignal_csv_file": "060720 LF2F Flash off_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-06_WSCT9544.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT9544.JPG",
             "orignal_csv_file": "060720 LF2F Flash off_csv.csv"
         },
         "LG_OSR_LF2F_20-07-06_WSCT9768.JPG": {
@@ -6218,6 +6885,21 @@
             "explanation": "Invalid category: mollusca, present in target only.",
             "original_filename": "WSCT4551.JPG",
             "orignal_csv_file": "090720 LF2F Flash on_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-09_WSCT3848.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3848.JPG",
+            "orignal_csv_file": "090720 LF2F Flash off_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-09_WSCT3849.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3849.JPG",
+            "orignal_csv_file": "090720 LF2F Flash off_csv.csv"
+        },
+        "LG_OSR_LF2F_20-07-09_WSCT3850.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT3850.JPG",
+            "orignal_csv_file": "090720 LF2F Flash off_csv.csv"
         },
         "LG_OSR_LF2F_20-07-09_WSCT4668.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
@@ -7290,313 +7972,6 @@
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT1348.JPG",
             "orignal_csv_file": "240620 HF2F Flash on_csv.csv"
-        }
-    },
-    "GH-OSR-LF2E": {
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0134.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0134.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0136.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0136.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0313.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT0313.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0314.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT0314.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0315.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT0315.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0316.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT0316.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0363.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0363.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0381.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0381.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0422.JPG": {
-            "explanation": "Invalid category: coleoptera, ambiguous, not so many instances that we lose data.",
-            "original_filename": "WSCT0422.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0423.JPG": {
-            "explanation": "Invalid category: coleoptera, ambiguous, not so many instances that we lose data.",
-            "original_filename": "WSCT0423.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0503.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0503.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0509.JPG": {
-            "explanation": "Invalid category: elateridae, present in target only.",
-            "original_filename": "WSCT0509.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0524.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0524.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0528.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0528.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0537.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0537.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0543.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0543.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0550.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0550.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0552.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0552.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_fl_WSCT0560.JPG": {
-            "explanation": "Invalid category: acari, not distinct clade.",
-            "original_filename": "WSCT0560.JPG",
-            "orignal_csv_file": "030620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_WSCT0651.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0651.JPG",
-            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_WSCT0763.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0763.JPG",
-            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_WSCT0773.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0773.JPG",
-            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_WSCT0774.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0774.JPG",
-            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_WSCT0787.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0787.JPG",
-            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_WSCT0902.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0902.JPG",
-            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_WSCT0913.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0913.JPG",
-            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-03_WSCT0924.JPG": {
-            "explanation": "Incomplete annotation: No insect class in annotation (region_attributes).",
-            "original_filename": "WSCT0924.JPG",
-            "orignal_csv_file": "030620 LF2E Flash off_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7529.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7529.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7530.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7530.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7531.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7531.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7532.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7532.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7533.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7533.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7534.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7534.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7551.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7551.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7552.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7552.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7553.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7553.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7554.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7554.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7556.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7556.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7605.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7605.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7606.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7606.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7607.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7607.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-01_fl_WSCT7608.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7608.JPG",
-            "orignal_csv_file": "010620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7673.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7673.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7725.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7725.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7799.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7799.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7800.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7800.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7801.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7801.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7802.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7802.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7803.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7803.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7804.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7804.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7805.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7805.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7806.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7806.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7837.JPG": {
-            "explanation": "Invalid category: arachnida, ambiguous, not so many instances that we lose data.",
-            "original_filename": "WSCT7837.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7898.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7898.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7899.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7899.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7900.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7900.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7901.JPG": {
-            "explanation": "Invalid category: mollusca, present in target only.",
-            "original_filename": "WSCT7901.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7976.JPG": {
-            "explanation": "Invalid category: arachnida, ambiguous, not so many instances that we lose data.",
-            "original_filename": "WSCT7976.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7977.JPG": {
-            "explanation": "Invalid category: arachnida, ambiguous, not so many instances that we lose data.",
-            "original_filename": "WSCT7977.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT7989.JPG": {
-            "explanation": "Invalid category: unknown, present in target only.",
-            "original_filename": "WSCT7989.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
-        },
-        "GH_OSR_LF2E_20-06-11_fl_WSCT8096.JPG": {
-            "explanation": "Invalid category: arachnida, ambiguous, not so many instances that we lose data.",
-            "original_filename": "WSCT8096.JPG",
-            "orignal_csv_file": "110620 LF2E Flash on_csv.csv"
         }
     },
     "WW-OSR-LF1D": {
@@ -10279,6 +10654,16 @@
             "original_filename": "WSCT9858.JPG",
             "orignal_csv_file": "150620 LF1G Flash on_csv.csv"
         },
+        "WW_OSR_LF1G_20-06-23_fl_WSCT0907.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT0907.JPG",
+            "orignal_csv_file": "230620 LF1G Flash on_csv.csv"
+        },
+        "WW_OSR_LF1G_20-06-23_fl_WSCT0908.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT0908.JPG",
+            "orignal_csv_file": "230620 LF1G Flash on_csv.csv"
+        },
         "WW_OSR_LF1G_20-06-23_fl_WSCT0944.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
             "original_filename": "WSCT0944.JPG",
@@ -11031,6 +11416,16 @@
             "original_filename": "WSCT6102.JPG",
             "orignal_csv_file": "110620 NARS30 Flash on_csv.csv"
         },
+        "GH_OSR_NARS30_20-06-11_fl_WSCT6120.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT6120.JPG",
+            "orignal_csv_file": "110620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-11_fl_WSCT6121.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT6121.JPG",
+            "orignal_csv_file": "110620 NARS30 Flash on_csv.csv"
+        },
         "GH_OSR_NARS30_20-06-01_fl_WSCT5338.JPG": {
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT5338.JPG",
@@ -11070,9 +11465,99 @@
             "explanation": "Invalid category: unknown, present in target only.",
             "original_filename": "WSCT5456.JPG",
             "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5750.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5750.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5751.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5751.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5754.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5754.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5755.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5755.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5756.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5756.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5757.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5757.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5758.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5758.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5759.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5759.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5760.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5760.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5761.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5761.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5762.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5762.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5763.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5763.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5764.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5764.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5765.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5765.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5766.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5766.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5767.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5767.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
+        },
+        "GH_OSR_NARS30_20-06-01_fl_WSCT5768.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5768.JPG",
+            "orignal_csv_file": "010620 NARS30 Flash on_csv.csv"
         }
     },
     "GH-OSR-HF2G": {
+        "GH_OSR_HF2G_20-06-02_WSCT6566.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT6566.JPG",
+            "orignal_csv_file": "020620 HF2G Flash off_csv.csv"
+        },
         "GH_OSR_HF2G_20-06-11_fl_WSCT8858.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
             "original_filename": "WSCT8858.JPG",
@@ -11628,6 +12113,36 @@
             "original_filename": "WSCT4809.JPG",
             "orignal_csv_file": "010620 HF2G Flash on_csv.csv"
         },
+        "GH_OSR_HF2G_20-06-02_fl_WSCT5986.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5986.JPG",
+            "orignal_csv_file": "020620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-02_fl_WSCT5987.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5987.JPG",
+            "orignal_csv_file": "020620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-02_fl_WSCT5989.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT5989.JPG",
+            "orignal_csv_file": "020620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-02_fl_WSCT6214.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT6214.JPG",
+            "orignal_csv_file": "020620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-02_fl_WSCT6215.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT6215.JPG",
+            "orignal_csv_file": "020620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-02_fl_WSCT6216.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT6216.JPG",
+            "orignal_csv_file": "020620 HF2G Flash on_csv.csv"
+        },
         "GH_OSR_HF2G_20-06-08_fl_WSCT4540.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
             "original_filename": "WSCT4540.JPG",
@@ -11806,6 +12321,51 @@
         "GH_OSR_HF2G_20-06-08_fl_WSCT4713.JPG": {
             "explanation": "Invalid category: mollusca, present in target only.",
             "original_filename": "WSCT4713.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4746.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4746.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4747.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4747.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4748.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4748.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4749.JPG": {
+            "explanation": "Invalid category: psylliodes chrysocephalus, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4749.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4797.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4797.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4798.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4798.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4799.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4799.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4800.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4800.JPG",
+            "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
+        },
+        "GH_OSR_HF2G_20-06-08_fl_WSCT4801.JPG": {
+            "explanation": "Invalid category: phyllotreta, too few instances (chrysomelidae).",
+            "original_filename": "WSCT4801.JPG",
             "orignal_csv_file": "080620 HF2G Flash on_csv.csv"
         },
         "GH_OSR_HF2G_20-06-08_fl_WSCT4816.JPG": {
