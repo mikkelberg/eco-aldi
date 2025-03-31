@@ -72,7 +72,7 @@ def clean_categories(cats):
 def create_coco_categories_from_set(cats:set):
     """Create category dictionary with unique, sorted category names"""
     return [
-        {"id": idx + 1, "name": cat}
+        {"id": idx, "name": cat}
         for idx, cat in enumerate(sorted(cats))  # Sorted to ensure consistency
     ]
 

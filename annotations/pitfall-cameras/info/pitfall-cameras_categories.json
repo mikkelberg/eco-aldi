@@ -6,47 +6,47 @@
     },
     "cleaned_categories": [
         {
-            "id": 1,
+            "id": 0,
             "name": "araneae"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "cantharidae"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "carabidae"
         },
         {
-            "id": 4,
+            "id": 3,
             "name": "coccinellidae"
         },
         {
-            "id": 5,
+            "id": 4,
             "name": "coleoptera (larvae)"
         },
         {
-            "id": 6,
+            "id": 5,
             "name": "dermaptera"
         },
         {
-            "id": 7,
+            "id": 6,
             "name": "diptera-hymenoptera"
         },
         {
-            "id": 8,
+            "id": 7,
             "name": "isopoda"
         },
         {
-            "id": 9,
+            "id": 8,
             "name": "myriapoda"
         },
         {
-            "id": 10,
+            "id": 9,
             "name": "opiliones"
         },
         {
-            "id": 11,
+            "id": 10,
             "name": "staphylinidae"
         }
     ],
