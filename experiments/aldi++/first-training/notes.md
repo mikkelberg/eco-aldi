@@ -35,6 +35,23 @@ Single GPU (freja, the most powerful one): `export CUDA_VISIBLE_DEVICES=0`
 (in nvidia-smi, it says this one is GPU 2, but apparently it's actually 0 (so this command is not necessary, but I'm keeping it for clarity))
 
 
+
+Adjustments:
+Crashed with `FloatingPointError: Predicted boxes or scores contain Inf/NaN. Training has diverged.`.
+Perhaps the early predictions are just garbage and cause exploding/vanishing gradients because they're just so off. There is already a high threshold on the teacher (0.8), which could help this otherwise. So we increased the warmup period (1000 iterations for now) (where the losses are not used):
+```
+SOLVER:
+    WARMUP_ITERS: 1000 
+```
+And enabled gradient clipping, which helps with exploding/vanishing gradiets https://neptune.ai/blog/understanding-gradient-clipping-and-how-it-can-fix-exploding-gradients-problem
+```
+SOLVER:
+  CLIP_GRADIENTS:
+    ENABLED: true
+```
+
+
+
 neg ratio 40
 70 / 15 / 15 split
 categories (11):
