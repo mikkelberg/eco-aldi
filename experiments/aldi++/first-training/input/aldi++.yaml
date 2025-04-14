@@ -1,6 +1,6 @@
 _BASE_: "burnin/concon_RCNN-FPN_source-only.yaml"
 MODEL:
-  WEIGHTS: "burnin/controlled-conditions_val_model_best.pth"
+  WEIGHTS: "input/burnin/controlled-conditions_val_model_best.pth"
 EMA:
   ENABLED: True
 DATASETS:
@@ -30,4 +30,4 @@ SOLVER:
   STEPS: (14999,)
   MAX_ITER: 15000
   BACKWARD_AT_END: False
-OUTPUT_DIR: "output/cfc/cfc_aldi_best/"
+OUTPUT_DIR: "output/"

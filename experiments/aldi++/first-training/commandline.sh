@@ -5,7 +5,7 @@
 ln -sfT /mnt/data0/martez/ datasets
 
 # Run experiment
-export CUDA_VISIBLE_DEVICES=2 # run on the new freja GPU
+export CUDA_VISIBLE_DEVICES=0 # run on the new freja GPU
 python ../../../aldi/tools/train_net.py --config input/aldi++.yaml #--num-gpus 1
 # python ../../../aldi/tools/train_net.py --config input/concon_RCNN-FPN_source-only.yaml --resume
 
