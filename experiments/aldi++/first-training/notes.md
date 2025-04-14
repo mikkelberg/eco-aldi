@@ -1,3 +1,5 @@
+Burnin:
+- source-only (train+val on source data)
 Training:
 - target (unlabeled)
 - source (labeled)
