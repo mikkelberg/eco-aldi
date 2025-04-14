@@ -1,3 +1,12 @@
+Training:
+- target (unlabeled)
+- source (labeled)
+Validation:
+- target + source
+
+Single GPU (freja, the most powerful one)
+
+
 neg ratio 40
 70 / 15 / 15 split
 categories (11):
