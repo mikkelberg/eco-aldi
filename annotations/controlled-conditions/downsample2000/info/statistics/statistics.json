@@ -1,0 +1,70 @@
+{
+    "overall": {
+        "total images": 21825,
+        "total annotations": 15374,
+        "no of categories": 11,
+        "positive samples": 13095,
+        "negative samples": 8730,
+        "class distribution (annotations)": {
+            "araneae": 2585,
+            "cantharidae": 1186,
+            "carabidae": 2558,
+            "coccinellidae": 76,
+            "dermaptera": 9,
+            "diptera-hymenoptera": 401,
+            "isopoda": 2062,
+            "myriapoda": 813,
+            "opiliones": 1000,
+            "staphylinidae": 2236,
+            "coleoptera (larvae)": 2448
+        },
+        "class distribution (images)": {
+            "araneae": 2000,
+            "cantharidae": 1105,
+            "carabidae": 2000,
+            "coccinellidae": 75,
+            "dermaptera": 9,
+            "diptera-hymenoptera": 372,
+            "isopoda": 2000,
+            "myriapoda": 810,
+            "opiliones": 986,
+            "staphylinidae": 2000,
+            "coleoptera (larvae)": 1738
+        }
+    },
+    "per file": {
+        "controlled-conditions_train-downsample2000": {
+            "total images": 21825,
+            "total annotations": 15374,
+            "no of categories": 11,
+            "positive samples": 13095,
+            "negative samples": 8730,
+            "class distribution (annotations)": {
+                "araneae": 2585,
+                "cantharidae": 1186,
+                "carabidae": 2558,
+                "coccinellidae": 76,
+                "coleoptera (larvae)": 2448,
+                "dermaptera": 9,
+                "diptera-hymenoptera": 401,
+                "isopoda": 2062,
+                "myriapoda": 813,
+                "opiliones": 1000,
+                "staphylinidae": 2236
+            },
+            "class distribution (images)": {
+                "araneae": 2000,
+                "cantharidae": 1105,
+                "carabidae": 2000,
+                "coccinellidae": 75,
+                "coleoptera (larvae)": 1738,
+                "dermaptera": 9,
+                "diptera-hymenoptera": 372,
+                "isopoda": 2000,
+                "myriapoda": 810,
+                "opiliones": 986,
+                "staphylinidae": 2000
+            }
+        }
+    }
+}

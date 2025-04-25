@@ -5,6 +5,8 @@ register_coco_instances("controlled-conditions_train",   {},         "datasets/c
 register_coco_instances("controlled-conditions_val",   {},         "datasets/controlled-conditions/dataset/annotations/controlled-conditions_val.json",                    "datasets/controlled-conditions/dataset/images/")
 register_coco_instances("controlled-conditions_test",   {},         "datasets/controlled-conditions/dataset/annotations/controlled-conditions_test.json",                    "datasets/controlled-conditions/dataset/images/")
 
+register_coco_instances("controlled-conditions_train-downsample2000",   {},         "datasets/controlled-conditions/dataset/annotations/controlled-conditions_train-downsample2000.json",                    "datasets/controlled-conditions/dataset/images/")
+
 # Pitfall-cameras
 register_coco_instances("pitfall-cameras_train",   {},         "datasets/pitfall-cameras/annotations/pitfall-cameras_train.json",                    "datasets/pitfall-cameras/images/")
 register_coco_instances("pitfall-cameras_val",   {},         "datasets/pitfall-cameras/annotations/pitfall-cameras_val.json",                    "datasets/pitfall-cameras/images/")

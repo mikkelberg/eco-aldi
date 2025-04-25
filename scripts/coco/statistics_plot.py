@@ -29,7 +29,7 @@ def plot_category_prevalence_per_file(statistics_dict, output_path):
     # Prepare for class distributions (collect all classes across datasets)
     class_names = set()
     for stats in statistics_dict.values():
-        class_names.update(stats["class distribution"].keys())
+        class_names.update(stats["class distribution (images)"].keys())
     class_names = sorted(list(class_names))  # Sort for consistent ordering
     
     # Create a figure with a subplot for each class
@@ -41,7 +41,7 @@ def plot_category_prevalence_per_file(statistics_dict, output_path):
 
     for idx, class_name in enumerate(class_names):
         # Collect the class counts for each dataset
-        class_counts = [stats["class distribution"].get(class_name, 0) for stats in statistics_dict.values()]
+        class_counts = [stats["class distribution (images)"].get(class_name, 0) for stats in statistics_dict.values()]
         datasets, class_counts = sort_by_value(keys=datasets_unsorted, vals=class_counts)
         # Plot the bar chart for this class
         axs[idx].bar(datasets, class_counts, color='skyblue')
@@ -136,7 +136,7 @@ def plot_and_save_class_distribution(class_distribution, filename):
 
 def plot_and_save_class_distribution_per_file(statistics_dict, filename_prefix):
     for subset in statistics_dict.keys():
-        plot_and_save_class_distribution(statistics_dict[subset]["class distribution"], filename=filename_prefix+subset+".png")
+        plot_and_save_class_distribution(statistics_dict[subset]["class distribution (images)"], filename=filename_prefix+subset+".png")
 
 
 def main():
@@ -153,7 +153,7 @@ def main():
         stats = json.load(f)
     
     # Plot!
-    plot_and_save_class_distribution(class_distribution=stats["overall"]["class distribution"], filename=dest_dir+"class_distribution.png")
+    plot_and_save_class_distribution(class_distribution=stats["overall"]["class distribution (images)"], filename=dest_dir+"class_distribution.png")
     plot_and_save_class_distribution_per_file(statistics_dict=stats["per file"], filename_prefix=dest_dir+"class_distribution")
     plot_negative_sample_percentages(statistics_dict=stats["per file"], output_path=dest_dir+"neg_sample_percentage.png")
     #plot_category_prevalence_per_file(stats["per file"])
