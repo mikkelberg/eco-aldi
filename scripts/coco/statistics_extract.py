@@ -14,10 +14,12 @@ def update_global_stats(global_stats, stats_to_add):
     global_stats["total annotations"] += stats_to_add["total annotations"]
     global_stats["positive samples"] +=  stats_to_add["positive samples"]
     global_stats["negative samples"] += stats_to_add["negative samples"]
-    for cls, count in stats_to_add.get("class distribution", {}).items():
-        if cls in global_stats["class distribution"]: global_stats["class distribution"][cls] += count
-        else: global_stats["class distribution"][cls] = count
-   
+    class_distribs = ["class distribution (annotations)", "class distribution (images)"]
+    for distrib in class_distribs:
+        for clss, count in stats_to_add.get(distrib, {}).items():
+            if clss in global_stats[distrib]: global_stats[distrib][clss] += count
+            else: global_stats[distrib][clss] = count
+    
 def get_coco_statistics(coco):
     """
     Extracts statistics from a COCO JSON dataset.
@@ -30,17 +32,22 @@ def get_coco_statistics(coco):
     category_count = len(coco["categories"])
     category_to_occurrence = Counter() # occurrences of each category, Counter({id: count, id: count, id: count, ...})
     image_to_ann_count = Counter()  # image id -> annotation count
+    category_to_image_occurrence = {cat["id"]: [] for cat in coco["categories"]}
 
     for ann in coco["annotations"]:
         image_to_ann_count[ann["image_id"]] += 1
         category_to_occurrence[ann["category_id"]] += 1
-        
+        category_to_image_occurrence[ann["category_id"]].append(ann["image_id"])
+    
+      
     positive_samples = sum(1 for count in image_to_ann_count.values() if count > 0)
     negative_samples = image_count - positive_samples
 
     category_id_to_name = {cat["id"]: cat["name"] for cat in coco["categories"]} # category id -> category name
     class_distribution_unsorted = {category_id_to_name[cid]: count for cid, count in category_to_occurrence.items()}
     class_distribution = dict(sorted(class_distribution_unsorted.items()))
+    class_distribution_no_of_images_unsorted = {category_id_to_name[cid]: len(set(ids)) for cid, ids in category_to_image_occurrence.items()}
+    class_distribution_no_of_images = dict(sorted(class_distribution_no_of_images_unsorted.items()))  
 
     return {
         "total images": image_count,
@@ -48,7 +55,8 @@ def get_coco_statistics(coco):
         "no of categories": category_count,
         "positive samples": positive_samples,
         "negative samples": negative_samples,
-        "class distribution": class_distribution
+        "class distribution (annotations)": class_distribution,
+        "class distribution (images)": class_distribution_no_of_images
     }
 
 def collect_statistics_from_directory(json_dir):
@@ -76,7 +84,8 @@ def collect_statistics_from_directory(json_dir):
                 "no of categories": len(coco_data["categories"]),
                 "positive samples": 0,
                 "negative samples": 0,
-                "class distribution": {cat["name"]: 0 for cat in coco_data["categories"]}
+                "class distribution (annotations)": {cat["name"]: 0 for cat in coco_data["categories"]},
+                "class distribution (images)": {cat["name"]: 0 for cat in coco_data["categories"]}
             }
         update_global_stats(global_stats=global_stats, stats_to_add=this_files_stats)
         #if bool(global_stats): 
