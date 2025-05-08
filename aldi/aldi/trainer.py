@@ -193,10 +193,6 @@ class ALDITrainer(DefaultTrainer):
                     for test_set in self.cfg.DATASETS.TEST:
                          ret.insert(-1, BestCheckpointer(self.cfg.TEST.EVAL_PERIOD, self.checkpointer,
                                                     f"{test_set}/bbox/AP50", "max", file_prefix=f"{test_set}_model_best"))
-          
-          # ---- CUSTOM ----
-          ret.insert(-1, GradientNormLogger())  # Insert before the last hook (usually EvalHook)
-          # ----------------
           return ret
      
      @classmethod
@@ -248,24 +244,4 @@ class ALDITrainer(DefaultTrainer):
           super(ALDITrainer, self).before_step()
           if self.cfg.EMA.ENABLED:
                self.ema.update_weights(self._trainer.model, self.iter)
-
-
-
-# CUSTOM
-from detectron2.engine.hooks import HookBase
-import torch
-
-class GradientNormLogger(HookBase):
-    def after_backward(self):
-        total_norm = 0.0
-        parameters = [p for p in self.trainer.model.parameters() if p.grad is not None and p.requires_grad]
-        norm_type = 2.0  # Euclidean norm
-
-        for p in parameters:
-            param_norm = p.grad.data.norm(norm_type)
-            total_norm += param_norm.item() ** norm_type
-
-        total_norm = total_norm ** (1. / norm_type)
-
-        # Log to storage (gets saved to metrics.json and shown in stdout)
-        self.trainer.storage.put_scalar("grad_norm", total_norm)
+               
