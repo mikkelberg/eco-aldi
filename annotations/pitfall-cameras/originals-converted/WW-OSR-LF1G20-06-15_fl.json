@@ -1422,18 +1422,6 @@
             "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9577.JPG"
         },
         {
-            "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9578.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9578.JPG"
-        },
-        {
-            "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9579.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9579.JPG"
-        },
-        {
             "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9580.JPG",
             "height": 2210,
             "width": 4224,
@@ -1474,12 +1462,6 @@
             "height": 2210,
             "width": 4224,
             "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9586.JPG"
-        },
-        {
-            "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9587.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9587.JPG"
         },
         {
             "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9588.JPG",
@@ -2526,12 +2508,6 @@
             "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9761.JPG"
         },
         {
-            "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9762.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9762.JPG"
-        },
-        {
             "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9763.JPG",
             "height": 2210,
             "width": 4224,
@@ -2554,12 +2530,6 @@
             "height": 2210,
             "width": 4224,
             "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9766.JPG"
-        },
-        {
-            "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9767.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9767.JPG"
         },
         {
             "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9768.JPG",
@@ -3102,12 +3072,6 @@
             "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9857.JPG"
         },
         {
-            "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9858.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "WW-OSR-LF1G/WW_OSR_LF1G_20-06-15_fl_WSCT9858.JPG"
-        },
-        {
             "id": "WW_OSR_LF1G_20-06-15_fl_WSCT9859.JPG",
             "height": 2210,
             "width": 4224,
@@ -3140,9 +3104,9 @@
     ],
     "annotations": [
         {
-            "id": 5496,
+            "id": 5441,
             "image_id": "WW_OSR_LF1G_20-06-15_fl_WSCT9441.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 22801,
             "bbox": [
@@ -3154,9 +3118,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5497,
+            "id": 5442,
             "image_id": "WW_OSR_LF1G_20-06-15_fl_WSCT9464.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 70225,
             "bbox": [
@@ -3168,9 +3132,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5498,
+            "id": 5443,
             "image_id": "WW_OSR_LF1G_20-06-15_fl_WSCT9484.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 11881,
             "bbox": [
@@ -3182,9 +3146,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5499,
+            "id": 5444,
             "image_id": "WW_OSR_LF1G_20-06-15_fl_WSCT9492.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 59536,
             "bbox": [
@@ -3196,9 +3160,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5500,
+            "id": 5445,
             "image_id": "WW_OSR_LF1G_20-06-15_fl_WSCT9572.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 5476,
             "bbox": [
@@ -3212,60 +3176,48 @@
     ],
     "categories": [
         {
-            "id": 1,
+            "id": 0,
             "name": "araneae"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "cantharidae"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "carabidae"
         },
         {
-            "id": 4,
-            "name": "chrysomelidae"
-        },
-        {
-            "id": 5,
+            "id": 3,
             "name": "coccinellidae"
         },
         {
-            "id": 6,
+            "id": 4,
             "name": "dermaptera"
         },
         {
-            "id": 7,
+            "id": 5,
             "name": "diptera-hymenoptera"
         },
         {
-            "id": 8,
+            "id": 6,
             "name": "isopoda"
         },
         {
-            "id": 9,
+            "id": 7,
             "name": "myriapoda"
         },
         {
-            "id": 10,
-            "name": "nitidulidae"
-        },
-        {
-            "id": 11,
+            "id": 8,
             "name": "opiliones"
         },
         {
-            "id": 12,
+            "id": 9,
             "name": "staphylinidae"
         },
         {
-            "id": 13,
+            "id": 10,
             "name": "coleoptera (larvae)"
-        },
-        {
-            "id": 14,
-            "name": "diptera (larvae)"
         }
     ]
 }

@@ -2,63 +2,51 @@
     "info": {
         "description": "The cleaned categories are matched between the source and target dataset (respectively controlled-conditions and pitfall-cameras), and the original_categories are all of the unique classifications from this dataset before any grouping for redundancies and other cleaning.",
         "number_of_original_categories": 49,
-        "number_of_official_categories": 14
+        "number_of_official_categories": 11
     },
     "cleaned_categories": [
         {
-            "id": 1,
+            "id": 0,
             "name": "araneae"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "cantharidae"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "carabidae"
         },
         {
-            "id": 4,
-            "name": "chrysomelidae"
-        },
-        {
-            "id": 5,
+            "id": 3,
             "name": "coccinellidae"
         },
         {
-            "id": 6,
+            "id": 4,
             "name": "coleoptera (larvae)"
         },
         {
-            "id": 7,
+            "id": 5,
             "name": "dermaptera"
         },
         {
-            "id": 8,
-            "name": "diptera (larvae)"
-        },
-        {
-            "id": 9,
+            "id": 6,
             "name": "diptera-hymenoptera"
         },
         {
-            "id": 10,
+            "id": 7,
             "name": "isopoda"
         },
         {
-            "id": 11,
+            "id": 8,
             "name": "myriapoda"
         },
         {
-            "id": 12,
-            "name": "nitidulidae"
-        },
-        {
-            "id": 13,
+            "id": 9,
             "name": "opiliones"
         },
         {
-            "id": 14,
+            "id": 10,
             "name": "staphylinidae"
         }
     ],

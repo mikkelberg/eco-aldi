@@ -1,7 +1,7 @@
 {
     "categories": {
         "araneae": {
-            "id": 1,
+            "id": 0,
             "contains": [
                 "araneae", "drassyllus pusillus", "gnaphosidae", "lepthyphantes", "linyphiidae", "lycosidae", 
                 "megalepthyphantes", "micaria pulicaria", "neottiura bimaculata", "pardosa", "trochosa", 
@@ -9,11 +9,11 @@
             ]
         },
         "cantharidae": {
-            "id": 2, 
+            "id": 1, 
             "contains": ["cantharis flavilabris", "cantharis rustica", "cantharis rufa", "cantharis lateralis"]
         },
         "carabidae": { 
-            "id": 3,
+            "id": 2,
             "contains":  [  
                             "carabidae", "acupalpus meridianus", "agonum muelleri", "amara", "amara aenea", 
                             "amara convexior", "amara ovata", "amara nitida", "amara similata", "anchomenus dorsalis", 
@@ -24,43 +24,35 @@
                             "pterostichus madidus", "pterostichus niger", "pterostichus nigrita", "pterostichus strenuus", "stomis punicatus", "trechus quadristriatus"
                         ]
         },
-        "chrysomelidae": {
-            "id": 4,
-            "contains": ["psylliodes chrysocephalus", "phyllotreta"]
-        },
         "coccinellidae": { 
-            "id": 5,
+            "id": 3,
             "contains":  ["coccinella","coccinella septempunctata", "coccinellidae", "psylliodes chrysocephala"]
         },
         "dermaptera": {
-            "id": 6,
+            "id": 4,
             "contains": ["dermaptera", "forficula auricularia"]
         },
         "diptera-hymenoptera": { 
-            "id": 7,
+            "id": 5,
             "contains":  [
                 "diptera", "bibionidae", "syrphidae", "tipulidae",
                 "braconidae", "chalcididae", "diapriidae", "formicidae", "lasius", "myrmica"
             ]
         },
         "isopoda": {
-            "id": 8,
+            "id": 6,
             "contains": ["armadillidium","isopoda", "philoscia muscorum"]
         },
         "myriapoda": {
-            "id": 9,
+            "id": 7,
             "contains": ["cylindroiulus", "larnycetes emarginatus", "myriapoda", "polydesmus"]
         },
-        "nitidulidae": {
-            "id": 10,
-            "contains": ["brassicogethes", "brassicogethes aeneus"]
-        },
         "opiliones": {
-            "id": 11, 
+            "id": 8, 
             "contains":  ["opiliones", "phalangiidae"]
         },
         "staphylinidae": { 
-            "id": 12,
+            "id": 9,
             "contains": [
                 "achenium depressum", "aleochara", "aleocharinae", "anotylus", "philonthus cognatus", 
                 "ischnosoma", "ocypus olens", "philonthus laminatus", "tachinus", "tachyporus hypnorum",
@@ -68,12 +60,8 @@
             ]
         },
         "coleoptera (larvae)": { 
-            "id": 13,
+            "id": 10,
             "contains":  ["staphylinidae (larvae)", "carabidae (larvae)", "coccinella (larvae)", "loricera pilicornis (larvae)"]
-        },
-        "diptera (larvae)": { 
-            "id": 14,
-            "contains":  ["diptera (larvae)"]
         }
     },
     "remove": {
@@ -83,6 +71,13 @@
         "elateridae": "present in target only",
         "unknown": "present in target only",
         "chrysoperla carnea": "present in source only",
+        "chrysomelidae": "too few instances",
+        "psylliodes chrysocephalus": "too few instances (chrysomelidae)", 
+        "phyllotreta": "too few instances (chrysomelidae)",
+        "diptera (larvae)": "too few instances",
+        "nitidulidae": "too few instances",
+        "brassicogethes": "too few instances (nitidulidae)", 
+        "brassicogethes aeneus": "too few instances (nitidulidae)", 
         "acari": "not distinct clade",
         "arachnida": "ambiguous, not so many instances that we lose data",
         "coleoptera": "ambiguous, not so many instances that we lose data",

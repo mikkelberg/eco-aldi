@@ -3272,9 +3272,9 @@
     ],
     "annotations": [
         {
-            "id": 5438,
+            "id": 5383,
             "image_id": "LG_OSR_LF1D_20-06-29_fl_WSCT3955.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 14161,
             "bbox": [
@@ -3286,9 +3286,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5439,
+            "id": 5384,
             "image_id": "LG_OSR_LF1D_20-06-29_fl_WSCT4158.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 49284,
             "bbox": [
@@ -3300,9 +3300,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5440,
+            "id": 5385,
             "image_id": "LG_OSR_LF1D_20-06-29_fl_WSCT4162.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 15376,
             "bbox": [
@@ -3314,9 +3314,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5441,
+            "id": 5386,
             "image_id": "LG_OSR_LF1D_20-06-29_fl_WSCT4226.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 12996,
             "bbox": [
@@ -3328,9 +3328,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5442,
+            "id": 5387,
             "image_id": "LG_OSR_LF1D_20-06-29_fl_WSCT4284.JPG",
-            "category_id": 6,
+            "category_id": 4,
             "segmentation": [],
             "area": 75625,
             "bbox": [
@@ -3342,9 +3342,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5443,
+            "id": 5388,
             "image_id": "LG_OSR_LF1D_20-06-29_fl_WSCT4287.JPG",
-            "category_id": 6,
+            "category_id": 4,
             "segmentation": [],
             "area": 137641,
             "bbox": [
@@ -3358,60 +3358,48 @@
     ],
     "categories": [
         {
-            "id": 1,
+            "id": 0,
             "name": "araneae"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "cantharidae"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "carabidae"
         },
         {
-            "id": 4,
-            "name": "chrysomelidae"
-        },
-        {
-            "id": 5,
+            "id": 3,
             "name": "coccinellidae"
         },
         {
-            "id": 6,
+            "id": 4,
             "name": "dermaptera"
         },
         {
-            "id": 7,
+            "id": 5,
             "name": "diptera-hymenoptera"
         },
         {
-            "id": 8,
+            "id": 6,
             "name": "isopoda"
         },
         {
-            "id": 9,
+            "id": 7,
             "name": "myriapoda"
         },
         {
-            "id": 10,
-            "name": "nitidulidae"
-        },
-        {
-            "id": 11,
+            "id": 8,
             "name": "opiliones"
         },
         {
-            "id": 12,
+            "id": 9,
             "name": "staphylinidae"
         },
         {
-            "id": 13,
+            "id": 10,
             "name": "coleoptera (larvae)"
-        },
-        {
-            "id": 14,
-            "name": "diptera (larvae)"
         }
     ]
 }

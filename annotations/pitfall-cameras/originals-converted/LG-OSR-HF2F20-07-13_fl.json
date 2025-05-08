@@ -462,12 +462,6 @@
             "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3779.JPG"
         },
         {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3780.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3780.JPG"
-        },
-        {
             "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3781.JPG",
             "height": 2210,
             "width": 4224,
@@ -538,48 +532,6 @@
             "height": 2210,
             "width": 4224,
             "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3792.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3793.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3793.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3794.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3794.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3795.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3795.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3796.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3796.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3797.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3797.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3798.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3798.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3799.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT3799.JPG"
         },
         {
             "id": "LG_OSR_HF2F_20-07-13_fl_WSCT3800.JPG",
@@ -2142,12 +2094,6 @@
             "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT4059.JPG"
         },
         {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT4060.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT4060.JPG"
-        },
-        {
             "id": "LG_OSR_HF2F_20-07-13_fl_WSCT4061.JPG",
             "height": 2210,
             "width": 4224,
@@ -2344,18 +2290,6 @@
             "height": 2210,
             "width": 4224,
             "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT4093.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT4094.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT4094.JPG"
-        },
-        {
-            "id": "LG_OSR_HF2F_20-07-13_fl_WSCT4095.JPG",
-            "height": 2210,
-            "width": 4224,
-            "file_name": "LG-OSR-HF2F/LG_OSR_HF2F_20-07-13_fl_WSCT4095.JPG"
         },
         {
             "id": "LG_OSR_HF2F_20-07-13_fl_WSCT4096.JPG",
@@ -3566,9 +3500,9 @@
     ],
     "annotations": [
         {
-            "id": 5724,
+            "id": 5669,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3711.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 2809,
             "bbox": [
@@ -3580,9 +3514,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5725,
+            "id": 5670,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3712.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 7225,
             "bbox": [
@@ -3594,9 +3528,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5726,
+            "id": 5671,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3713.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 9025,
             "bbox": [
@@ -3608,9 +3542,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5727,
+            "id": 5672,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3747.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 12321,
             "bbox": [
@@ -3622,9 +3556,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5728,
+            "id": 5673,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3774.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 4356,
             "bbox": [
@@ -3636,9 +3570,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5729,
+            "id": 5674,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3775.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 3721,
             "bbox": [
@@ -3650,9 +3584,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5730,
+            "id": 5675,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3776.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 3364,
             "bbox": [
@@ -3664,9 +3598,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5731,
+            "id": 5676,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3777.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 3364,
             "bbox": [
@@ -3678,9 +3612,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5732,
+            "id": 5677,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3778.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 5929,
             "bbox": [
@@ -3692,9 +3626,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5733,
+            "id": 5678,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3779.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 5476,
             "bbox": [
@@ -3706,23 +3640,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5734,
-            "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3780.JPG",
-            "category_id": 7,
-            "segmentation": [],
-            "area": 8649,
-            "bbox": [
-                2148,
-                1803,
-                64,
-                93
-            ],
-            "iscrowd": 0
-        },
-        {
-            "id": 5735,
+            "id": 5680,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3781.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 12321,
             "bbox": [
@@ -3734,9 +3654,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5736,
+            "id": 5681,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3782.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 3136,
             "bbox": [
@@ -3748,9 +3668,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5737,
+            "id": 5682,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3783.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 4096,
             "bbox": [
@@ -3762,9 +3682,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5738,
+            "id": 5683,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3784.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 3364,
             "bbox": [
@@ -3776,37 +3696,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5739,
-            "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3794.JPG",
-            "category_id": 3,
-            "segmentation": [],
-            "area": 35344,
-            "bbox": [
-                914,
-                832,
-                180,
-                188
-            ],
-            "iscrowd": 0
-        },
-        {
-            "id": 5740,
-            "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3797.JPG",
-            "category_id": 3,
-            "segmentation": [],
-            "area": 30625,
-            "bbox": [
-                453,
-                5,
-                127,
-                175
-            ],
-            "iscrowd": 0
-        },
-        {
-            "id": 5741,
+            "id": 5686,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3808.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 56644,
             "bbox": [
@@ -3818,9 +3710,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5742,
+            "id": 5687,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3853.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 9604,
             "bbox": [
@@ -3832,9 +3724,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5743,
+            "id": 5688,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3878.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 78961,
             "bbox": [
@@ -3846,9 +3738,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5744,
+            "id": 5689,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3881.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 34225,
             "bbox": [
@@ -3860,9 +3752,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5745,
+            "id": 5690,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3904.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 15376,
             "bbox": [
@@ -3874,9 +3766,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5746,
+            "id": 5691,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3904.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 34225,
             "bbox": [
@@ -3888,9 +3780,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5747,
+            "id": 5692,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3904.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 67600,
             "bbox": [
@@ -3902,9 +3794,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5748,
+            "id": 5693,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3908.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 32400,
             "bbox": [
@@ -3916,9 +3808,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5749,
+            "id": 5694,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3925.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 24336,
             "bbox": [
@@ -3930,9 +3822,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5750,
+            "id": 5695,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3978.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 4096,
             "bbox": [
@@ -3944,9 +3836,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5751,
+            "id": 5696,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3979.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 5476,
             "bbox": [
@@ -3958,9 +3850,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5752,
+            "id": 5697,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3989.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 3136,
             "bbox": [
@@ -3972,9 +3864,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5753,
+            "id": 5698,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3990.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 2809,
             "bbox": [
@@ -3986,9 +3878,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5754,
+            "id": 5699,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3991.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 8100,
             "bbox": [
@@ -4000,9 +3892,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5755,
+            "id": 5700,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3992.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 2500,
             "bbox": [
@@ -4014,9 +3906,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5756,
+            "id": 5701,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT3993.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 8649,
             "bbox": [
@@ -4028,9 +3920,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5757,
+            "id": 5702,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4030.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 14161,
             "bbox": [
@@ -4042,9 +3934,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5758,
+            "id": 5703,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4040.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 21316,
             "bbox": [
@@ -4056,9 +3948,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5759,
+            "id": 5704,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4052.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 5476,
             "bbox": [
@@ -4070,9 +3962,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5760,
+            "id": 5705,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4065.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 2500,
             "bbox": [
@@ -4084,9 +3976,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5761,
+            "id": 5706,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4110.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 13689,
             "bbox": [
@@ -4098,9 +3990,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5762,
+            "id": 5707,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4114.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 841,
             "bbox": [
@@ -4112,9 +4004,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5763,
+            "id": 5708,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4115.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 4096,
             "bbox": [
@@ -4126,9 +4018,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5764,
+            "id": 5709,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4116.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 4761,
             "bbox": [
@@ -4140,9 +4032,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5765,
+            "id": 5710,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4129.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 12321,
             "bbox": [
@@ -4154,9 +4046,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5766,
+            "id": 5711,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4129.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 30625,
             "bbox": [
@@ -4168,9 +4060,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5767,
+            "id": 5712,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4157.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 3136,
             "bbox": [
@@ -4182,9 +4074,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5768,
+            "id": 5713,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4165.JPG",
-            "category_id": 12,
+            "category_id": 9,
             "segmentation": [],
             "area": 4761,
             "bbox": [
@@ -4196,9 +4088,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5769,
+            "id": 5714,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4182.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 2500,
             "bbox": [
@@ -4210,9 +4102,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5770,
+            "id": 5715,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4184.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 5184,
             "bbox": [
@@ -4224,9 +4116,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5771,
+            "id": 5716,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4185.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 26896,
             "bbox": [
@@ -4238,9 +4130,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5772,
+            "id": 5717,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4185.JPG",
-            "category_id": 1,
+            "category_id": 0,
             "segmentation": [],
             "area": 7225,
             "bbox": [
@@ -4252,9 +4144,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5773,
+            "id": 5718,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4186.JPG",
-            "category_id": 9,
+            "category_id": 7,
             "segmentation": [],
             "area": 26244,
             "bbox": [
@@ -4266,9 +4158,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5774,
+            "id": 5719,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4194.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 9604,
             "bbox": [
@@ -4280,9 +4172,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5775,
+            "id": 5720,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4195.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 5476,
             "bbox": [
@@ -4294,9 +4186,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5776,
+            "id": 5721,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4198.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 4096,
             "bbox": [
@@ -4308,9 +4200,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5777,
+            "id": 5722,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4201.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 6241,
             "bbox": [
@@ -4322,9 +4214,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5778,
+            "id": 5723,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4236.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 19044,
             "bbox": [
@@ -4336,9 +4228,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5779,
+            "id": 5724,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4237.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 11881,
             "bbox": [
@@ -4350,9 +4242,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5780,
+            "id": 5725,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4238.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 6241,
             "bbox": [
@@ -4364,9 +4256,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5781,
+            "id": 5726,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4239.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 17424,
             "bbox": [
@@ -4378,9 +4270,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5782,
+            "id": 5727,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4240.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 14161,
             "bbox": [
@@ -4392,9 +4284,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5783,
+            "id": 5728,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4241.JPG",
-            "category_id": 7,
+            "category_id": 5,
             "segmentation": [],
             "area": 23716,
             "bbox": [
@@ -4406,9 +4298,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5784,
+            "id": 5729,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4243.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 4356,
             "bbox": [
@@ -4420,9 +4312,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5785,
+            "id": 5730,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4244.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 3364,
             "bbox": [
@@ -4434,9 +4326,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5786,
+            "id": 5731,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4245.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 8649,
             "bbox": [
@@ -4448,9 +4340,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5787,
+            "id": 5732,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4287.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 5184,
             "bbox": [
@@ -4462,9 +4354,9 @@
             "iscrowd": 0
         },
         {
-            "id": 5788,
+            "id": 5733,
             "image_id": "LG_OSR_HF2F_20-07-13_fl_WSCT4291.JPG",
-            "category_id": 3,
+            "category_id": 2,
             "segmentation": [],
             "area": 7569,
             "bbox": [
@@ -4478,60 +4370,48 @@
     ],
     "categories": [
         {
-            "id": 1,
+            "id": 0,
             "name": "araneae"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "cantharidae"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "carabidae"
         },
         {
-            "id": 4,
-            "name": "chrysomelidae"
-        },
-        {
-            "id": 5,
+            "id": 3,
             "name": "coccinellidae"
         },
         {
-            "id": 6,
+            "id": 4,
             "name": "dermaptera"
         },
         {
-            "id": 7,
+            "id": 5,
             "name": "diptera-hymenoptera"
         },
         {
-            "id": 8,
+            "id": 6,
             "name": "isopoda"
         },
         {
-            "id": 9,
+            "id": 7,
             "name": "myriapoda"
         },
         {
-            "id": 10,
-            "name": "nitidulidae"
-        },
-        {
-            "id": 11,
+            "id": 8,
             "name": "opiliones"
         },
         {
-            "id": 12,
+            "id": 9,
             "name": "staphylinidae"
         },
         {
-            "id": 13,
+            "id": 10,
             "name": "coleoptera (larvae)"
-        },
-        {
-            "id": 14,
-            "name": "diptera (larvae)"
         }
     ]
 }

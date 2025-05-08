@@ -52,6 +52,9 @@ def load_image_to_bbox_and_cat_pairs_from_annotations(coco_json: dict):
     return image_to_bbox_and_cat_pairs
 
 
+def image_id_to_filename(coco_images):
+    return {img["id"]: img["file_name"] for img in coco_images}
+
 def category_id_to_name(coco_categories):
     return {cat["id"]: cat["name"] for cat in coco_categories}
 
