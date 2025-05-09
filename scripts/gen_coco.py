@@ -129,7 +129,7 @@ def pitfall_cameras_coco(src_dir, dest_dir, categories, images_dir):
         cleaned_annotations = cc.filter_annotations_out(all_annotations=annotations, image_ids_to_filter=images_to_clean_out)
 
         coco = gen_coco(info, cleaned_images, cleaned_annotations, categories)
-        save_json_to_file(json_obj=coco, path=dest_dir+img_folder_name+date+flash+".json")
+        save_json_to_file(json_obj=coco, path=dest_dir+img_folder_name+"_"+date+flash+".json")
         # Print progress every 5 files
         if index % 5 == 0 or index == total_files:
             print(f"Processed {index} out of {total_files} files")

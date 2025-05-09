@@ -83,8 +83,8 @@ def merge_by_location(src_dir="data-annotations/pitfall-cameras/originals-conver
         location_to_file_list[loc] = []
     for f in files:
         # if file pertains to this location, add its path to the respective list
-        file_prefix = "_".join(f.split("_")[0:3])
-        if file_prefix not in location_to_file_list.keys(): raise ValueError(f"Location does not exist for file, {f}")
+        file_prefix = "_".join(f.split("_")[0].split("-"))
+        if file_prefix not in location_to_file_list.keys(): raise ValueError("Location does not exist for file, " + file_prefix)
         location_to_file_list[file_prefix].append(os.path.join(src_dir, f))
         
     for loc in pc.LOCATIONS:
@@ -93,6 +93,22 @@ def merge_by_location(src_dir="data-annotations/pitfall-cameras/originals-conver
         save_merged_annotations(merged=merged, destination_path=dest_dir+loc+".json")
         print(f"Finished merging for location, {loc}.")
 
+def merge_by_field(src_dir="data-annotations/pitfall-cameras/originals-converted/", dest_dir= "data-annotations/pitfall-cameras/merged-by-field/"):
+    # Create lists of paths to all files to merge for each field
+    files = [f for f in os.listdir(src_dir) if os.path.isfile(os.path.join(src_dir, f)) and f.endswith(".json")]
+    field_to_file_list = {}
+    for f in files:
+        file_prefix = "_".join(f.split("_")[0].split("-")[0:2])
+        if file_prefix not in field_to_file_list.keys():
+            field_to_file_list[file_prefix] = [os.path.join(src_dir, f)]
+        else:
+            field_to_file_list[file_prefix].append(os.path.join(src_dir, f))
+
+    for field in field_to_file_list.keys():
+        print(f"Merging for field, {field}...")
+        merged = merge_coco_json(field_to_file_list[field])
+        save_merged_annotations(merged=merged, destination_path=dest_dir+field+".json")
+        print(f"Finished merging for field, {field}.")
 
 def merge_all_in_dir(src_dir, dest_path):
     files_to_merge = [os.path.join(src_dir, f) for f in os.listdir(src_dir) if os.path.isfile(os.path.join(src_dir, f)) and f.endswith(".json")]
@@ -105,6 +121,7 @@ def main():
     parser = argparse.ArgumentParser(description="Merge the json files for COCO-datasets in a directory.")
     parser.add_argument("dataset_name", help="Name of the overall dataset.")
     parser.add_argument('-loc', action='store_true', help="Add flag if you wish to merge by location.")
+    parser.add_argument('-field', action='store_true', help="Add flag if you wish to merge by field.")
     
     # Parse the arguments
     args = parser.parse_args()
@@ -113,6 +130,9 @@ def main():
     if args.loc: 
         dest_dir = "annotations/" + args.dataset_name + "/merged-by-location/"
         merge_by_location(src_dir=src_dir, dest_dir=dest_dir)
+    elif args.field: 
+        dest_dir = "annotations/" + args.dataset_name + "/merged-by-field/"
+        merge_by_field(src_dir=src_dir, dest_dir=dest_dir)
     else: 
         dest_path = "annotations/" + args.dataset_name + "/" + args.dataset_name + "_all.json"
         merge_all_in_dir(src_dir=src_dir, dest_path=dest_path)
