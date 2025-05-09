@@ -1,0 +1,156 @@
+{
+    "overall": {
+        "total images": 12276,
+        "total annotations": 8067,
+        "no of categories": 11,
+        "positive samples": 7366,
+        "negative samples": 4910,
+        "class distribution (annotations)": {
+            "araneae": 551,
+            "cantharidae": 3,
+            "carabidae": 2615,
+            "coccinellidae": 51,
+            "dermaptera": 46,
+            "diptera-hymenoptera": 3256,
+            "isopoda": 62,
+            "myriapoda": 327,
+            "opiliones": 48,
+            "staphylinidae": 962,
+            "coleoptera (larvae)": 146
+        },
+        "class distribution (images)": {
+            "araneae": 527,
+            "cantharidae": 3,
+            "carabidae": 2439,
+            "coccinellidae": 51,
+            "dermaptera": 46,
+            "diptera-hymenoptera": 3025,
+            "isopoda": 61,
+            "myriapoda": 315,
+            "opiliones": 47,
+            "staphylinidae": 938,
+            "coleoptera (larvae)": 142
+        }
+    },
+    "per file": {
+        "WW_OSR": {
+            "total images": 2470,
+            "total annotations": 1652,
+            "no of categories": 11,
+            "positive samples": 1482,
+            "negative samples": 988,
+            "class distribution (annotations)": {
+                "araneae": 358,
+                "carabidae": 323,
+                "coccinellidae": 49,
+                "diptera-hymenoptera": 779,
+                "isopoda": 23,
+                "myriapoda": 8,
+                "opiliones": 46,
+                "staphylinidae": 66
+            },
+            "class distribution (images)": {
+                "araneae": 334,
+                "cantharidae": 0,
+                "carabidae": 315,
+                "coccinellidae": 49,
+                "coleoptera (larvae)": 0,
+                "dermaptera": 0,
+                "diptera-hymenoptera": 710,
+                "isopoda": 23,
+                "myriapoda": 8,
+                "opiliones": 45,
+                "staphylinidae": 65
+            }
+        },
+        "GH_OSR": {
+            "total images": 3203,
+            "total annotations": 2049,
+            "no of categories": 11,
+            "positive samples": 1922,
+            "negative samples": 1281,
+            "class distribution (annotations)": {
+                "araneae": 64,
+                "cantharidae": 3,
+                "carabidae": 447,
+                "coleoptera (larvae)": 143,
+                "diptera-hymenoptera": 821,
+                "isopoda": 14,
+                "myriapoda": 165,
+                "opiliones": 1,
+                "staphylinidae": 391
+            },
+            "class distribution (images)": {
+                "araneae": 64,
+                "cantharidae": 3,
+                "carabidae": 433,
+                "coccinellidae": 0,
+                "coleoptera (larvae)": 139,
+                "dermaptera": 0,
+                "diptera-hymenoptera": 793,
+                "isopoda": 13,
+                "myriapoda": 156,
+                "opiliones": 1,
+                "staphylinidae": 380
+            }
+        },
+        "LG_WWH": {
+            "total images": 310,
+            "total annotations": 202,
+            "no of categories": 11,
+            "positive samples": 186,
+            "negative samples": 124,
+            "class distribution (annotations)": {
+                "araneae": 1,
+                "diptera-hymenoptera": 191,
+                "isopoda": 1,
+                "myriapoda": 9
+            },
+            "class distribution (images)": {
+                "araneae": 1,
+                "cantharidae": 0,
+                "carabidae": 0,
+                "coccinellidae": 0,
+                "coleoptera (larvae)": 0,
+                "dermaptera": 0,
+                "diptera-hymenoptera": 175,
+                "isopoda": 1,
+                "myriapoda": 9,
+                "opiliones": 0,
+                "staphylinidae": 0
+            }
+        },
+        "LG_OSR": {
+            "total images": 6293,
+            "total annotations": 4164,
+            "no of categories": 11,
+            "positive samples": 3776,
+            "negative samples": 2517,
+            "class distribution (annotations)": {
+                "araneae": 128,
+                "carabidae": 1845,
+                "coccinellidae": 2,
+                "coleoptera (larvae)": 3,
+                "dermaptera": 46,
+                "diptera-hymenoptera": 1465,
+                "isopoda": 24,
+                "myriapoda": 145,
+                "opiliones": 1,
+                "staphylinidae": 505
+            },
+            "class distribution (images)": {
+                "araneae": 128,
+                "cantharidae": 0,
+                "carabidae": 1691,
+                "coccinellidae": 2,
+                "coleoptera (larvae)": 3,
+                "dermaptera": 46,
+                "diptera-hymenoptera": 1347,
+                "isopoda": 24,
+                "myriapoda": 142,
+                "opiliones": 1,
+                "staphylinidae": 493
+            }
+        }
+    }
+}
