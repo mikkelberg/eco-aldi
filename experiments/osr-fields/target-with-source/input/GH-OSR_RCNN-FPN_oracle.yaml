@@ -1,0 +1,15 @@
+_BASE_: "backbone/Base-RCNN-FPN.yaml"
+MODEL:
+  ROI_HEADS:
+    NUM_CLASSES: 6
+DATASETS:
+  TRAIN: ("LG_OSR_train", "GH_OSR_train",)
+  TEST: ("LG_OSR_val","GH_OSR_val",)
+  BATCH_CONTENTS: ("labeled_strong", )
+EMA:
+  ENABLED: True
+SOLVER:
+  STEPS: (11999,)
+  MAX_ITER: 10000
+  CHECKPOINT_PERIOD: 3000
+OUTPUT_DIR: "output"
