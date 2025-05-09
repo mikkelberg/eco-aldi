@@ -4,4 +4,5 @@
 ln -sfT /mnt/data0/martez/ datasets
 
 # Run experiment
-python ../../../aldi/tools/train_net.py --config input/LG_RCNN-FPN_source-only.yaml
+export CUDA_VISIBLE_DEVICES=0
+python ../../../aldi/tools/train_net.py --config input/LG-OSR_RCNN-FPN_source-only.yaml
