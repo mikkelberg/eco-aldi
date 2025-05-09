@@ -146,8 +146,8 @@ def main():
     
     # Parse the arguments
     args = parser.parse_args()
-    stats_path = "annotations/"+args.dataset_name+"/info/statistics/statistics.json"
-    dest_dir = "annotations/"+args.dataset_name+"/info/statistics/"
+    stats_path = "annotations/"+args.dataset_name+"/info/statistics.json"
+    dest_dir = "annotations/"+args.dataset_name+"/info/"
     # Open stats...
     with open(stats_path, 'r') as f:
         stats = json.load(f)

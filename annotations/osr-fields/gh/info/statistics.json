@@ -1,0 +1,96 @@
+{
+    "overall": {
+        "total images": 3060,
+        "total annotations": 1893,
+        "no of categories": 6,
+        "positive samples": 1779,
+        "negative samples": 1281,
+        "class distribution (annotations)": {
+            "araneae": 64,
+            "carabidae": 447,
+            "diptera-hymenoptera": 812,
+            "isopoda": 14,
+            "myriapoda": 165,
+            "staphylinidae": 391
+        },
+        "class distribution (images)": {
+            "araneae": 64,
+            "carabidae": 433,
+            "diptera-hymenoptera": 784,
+            "isopoda": 13,
+            "myriapoda": 156,
+            "staphylinidae": 380
+        }
+    },
+    "per file": {
+        "GH_OSR_test": {
+            "total images": 460,
+            "total annotations": 276,
+            "no of categories": 6,
+            "positive samples": 267,
+            "negative samples": 193,
+            "class distribution (annotations)": {
+                "araneae": 10,
+                "carabidae": 65,
+                "diptera-hymenoptera": 120,
+                "isopoda": 2,
+                "myriapoda": 24,
+                "staphylinidae": 55
+            },
+            "class distribution (images)": {
+                "araneae": 10,
+                "carabidae": 65,
+                "diptera-hymenoptera": 118,
+                "isopoda": 2,
+                "myriapoda": 23,
+                "staphylinidae": 55
+            }
+        },
+        "GH_OSR_val": {
+            "total images": 459,
+            "total annotations": 281,
+            "no of categories": 6,
+            "positive samples": 267,
+            "negative samples": 192,
+            "class distribution (annotations)": {
+                "araneae": 9,
+                "carabidae": 67,
+                "diptera-hymenoptera": 122,
+                "isopoda": 2,
+                "myriapoda": 23,
+                "staphylinidae": 58
+            },
+            "class distribution (images)": {
+                "araneae": 9,
+                "carabidae": 66,
+                "diptera-hymenoptera": 117,
+                "isopoda": 2,
+                "myriapoda": 22,
+                "staphylinidae": 56
+            }
+        },
+        "GH_OSR_train": {
+            "total images": 2141,
+            "total annotations": 1336,
+            "no of categories": 6,
+            "positive samples": 1245,
+            "negative samples": 896,
+            "class distribution (annotations)": {
+                "araneae": 45,
+                "carabidae": 315,
+                "diptera-hymenoptera": 570,
+                "isopoda": 10,
+                "myriapoda": 118,
+                "staphylinidae": 278
+            },
+            "class distribution (images)": {
+                "araneae": 45,
+                "carabidae": 302,
+                "diptera-hymenoptera": 549,
+                "isopoda": 9,
+                "myriapoda": 111,
+                "staphylinidae": 269
+            }
+        }
+    }
+}

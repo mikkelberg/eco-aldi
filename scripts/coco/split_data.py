@@ -83,13 +83,14 @@ def split_data(coco):
     val_pos_image_ids = val_norm + val_rare
     test_pos_image_ids = test_norm + test_rare
 
+    
     ##### Split the negative data samples ensuring the same positive-negative sample ratio
     print("Splitting negative data samples...")
     num_train_neg = int(len(train_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
     num_neg_in_val_and_test = (len(negative_sample_ids) - num_train_neg)/2
     if num_neg_in_val_and_test % 2 == 0:
-        num_val_neg = num_neg_in_val_and_test #int(len(val_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
-        num_test_neg = num_neg_in_val_and_test #int(len(test_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
+        num_val_neg = int(num_neg_in_val_and_test) #int(len(val_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
+        num_test_neg = int(num_neg_in_val_and_test) #int(len(test_pos_image_ids) * (len(negative_sample_ids) / len(positive_sample_ids)))
     else:
         num_val_neg = int(num_neg_in_val_and_test)
         num_test_neg = int(num_neg_in_val_and_test) + 1 
@@ -99,6 +100,7 @@ def split_data(coco):
     test_neg_image_ids = list(set(negative_sample_ids) - set(train_neg_image_ids) - set(val_neg_image_ids))[:num_test_neg]
 
     print("Concatenating positive and negative samples and saving to files...")
+    
     ##### Concatenate negative and positive samples
     train_ids = train_pos_image_ids + train_neg_image_ids
     val_ids = val_pos_image_ids + val_neg_image_ids
