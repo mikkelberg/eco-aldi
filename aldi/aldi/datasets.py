@@ -12,6 +12,16 @@ register_coco_instances("pitfall-cameras_train",   {},         "datasets/pitfall
 register_coco_instances("pitfall-cameras_val",   {},         "datasets/pitfall-cameras/annotations/pitfall-cameras_val.json",                    "datasets/pitfall-cameras/images/")
 register_coco_instances("pitfall-cameras_test",   {},         "datasets/pitfall-cameras/annotations/pitfall-cameras_test.json",                    "datasets/pitfall-cameras/images/")
 
+# LG-OSR-fields
+register_coco_instances("LG_OSR_train",   {},         "datasets/pitfall-cameras/annotations/lg-osr/LG_OSR_train.json",                    "datasets/pitfall-cameras/images/")
+register_coco_instances("LG_OSR_val",   {},         "datasets/pitfall-cameras/annotations/lg-osr/LG_OSR_val.json",                    "datasets/pitfall-cameras/images/")
+register_coco_instances("LG_OSR_test",   {},         "datasets/pitfall-cameras/annotations/lg-osr/LG_OSR_test.json",                    "datasets/pitfall-cameras/images/")
+
+# GH-OSR-fields
+register_coco_instances("GH_OSR_train",   {},         "datasets/pitfall-cameras/annotations/gh-osr/GH_OSR_train.json",                    "datasets/pitfall-cameras/images/")
+register_coco_instances("GH_OSR_val",   {},         "datasets/pitfall-cameras/annotations/gh-osr/GH_OSR_val.json",                    "datasets/pitfall-cameras/images/")
+register_coco_instances("GH_OSR_test",   {},         "datasets/pitfall-cameras/annotations/gh-osr/GH_OSR_test.json",                    "datasets/pitfall-cameras/images/")
+
 # Cityscapes 
 register_coco_instances("cityscapes_train", {},         "datasets/cityscapes/annotations/cityscapes_train_instances.json",                  "datasets/cityscapes/leftImg8bit/train/")
 register_coco_instances("cityscapes_val",   {},         "datasets/cityscapes/annotations/cityscapes_val_instances.json",                    "datasets/cityscapes/leftImg8bit/val/")
